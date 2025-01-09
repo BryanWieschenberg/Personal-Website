@@ -20,21 +20,29 @@ const Background: React.FC = () => {
     const radii: number[] = [];
     const speeds: number[] = [];
     const sizes: number[] = [];
-    const count = 300;
+    const count = 500;
 
     for (let i = 0; i < count; i++) {
       const angle = Math.random() * Math.PI * 2;
       const radius = 30 + Math.random() * 500;
       angles.push(angle);
       radii.push(radius);
-      speeds.push(0.00005 + Math.random() * 0.001);
+      speeds.push(
+        Math.random() < 0.95 // 95% chance for small values
+          ? 0.00005 + Math.random() * 0.000375
+          : 0.0001 + Math.random() * 0.001
+        );
       positions.push(Math.cos(angle) * radius, Math.sin(angle) * radius, 0);
 
       // Generate a random brighter blue
-      const c = new THREE.Color(`hsl(210, 80%, ${30 + Math.random() * 40}%)`);
+      const c = new THREE.Color(`hsl(210, 80%, ${5 + Math.random() * 60}%)`);
       colors.push(c.r, c.g, c.b);
 
-      sizes.push(0.001 + Math.random() * 5);
+      sizes.push(
+        Math.random() < 0.99 // 95% chance for small values
+          ? 0.0001 + Math.random() * 5 // Normal range
+          : 0.0005 + Math.random() * 15 // Rare larger values
+      );
     }
 
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(positions), 3));
@@ -106,7 +114,7 @@ const Background: React.FC = () => {
         height: '100%',
         pointerEvents: 'none',
         zIndex: -1,
-        background: 'linear-gradient(to bottom, #070c16, #000000)'
+        background: 'linear-gradient(to bottom, #09142a, #03060d 40%, #000000 100%)'
       }}
     />
   );

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   content: [
     './index.html',
     './src/**/*.{js,jsx,ts,tsx}',
@@ -6,14 +6,18 @@ export default {
   theme: {
     extend: {
       animation: {
-        moveDots: 'moveDots .5s linear infinite',
+        popIn: 'popIn 0.3s ease-out',
+        fadeInLeft: 'fadeInLeft 0.5s ease-out'
       },
       keyframes: {
-        moveDots: {
-          '0%': { transform: 'translate(0, 0)' },
-          '50%': { transform: 'translate(10px, -10px)' },
-          '100%': { transform: 'translate(0, 0)' },
+        popIn: {
+          '0%': { transform: 'scale(0.1)', opacity: 0 },
+          '100%': { transform: 'scale(1)', opacity: 1 },
         },
+        fadeInLeft: {
+          '0%': { transform: 'translateX(-100px)', opacity: 0 },
+          '100%': { transform: 'translateX(0)', opacity: 1 },
+        }
       },
     },
   },
