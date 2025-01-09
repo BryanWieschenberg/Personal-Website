@@ -6,7 +6,6 @@ const Background: React.FC = () => {
 
   useEffect(() => {
     if (!mountRef.current) return;
-
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
     camera.position.z = 500;
@@ -29,21 +28,44 @@ const Background: React.FC = () => {
       angles.push(angle);
       radii.push(radius);
       speeds.push(0.00005 + Math.random() * 0.001);
-      const x = Math.cos(angle) * radius, y = Math.sin(angle) * radius;
-      positions.push(x, y, 0);
+      positions.push(Math.cos(angle) * radius, Math.sin(angle) * radius, 0);
 
-      const c = new THREE.Color(`hsl(210, 50%, ${0.01 + Math.random() * 20}%)`);
+      // Generate a random brighter blue
+      const c = new THREE.Color(`hsl(210, 80%, ${30 + Math.random() * 40}%)`);
       colors.push(c.r, c.g, c.b);
 
-      sizes.push(Math.random() * 2 + 3);
+      sizes.push(0.001 + Math.random() * 5);
     }
 
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(positions), 3));
     geometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors), 3));
     geometry.setAttribute('size', new THREE.Float32BufferAttribute(new Float32Array(sizes), 1));
 
-    const pointsMaterial = new THREE.PointsMaterial({ size: 4, vertexColors: true });
-    const points = new THREE.Points(geometry, pointsMaterial);
+    const material = new THREE.ShaderMaterial({
+      vertexColors: true,
+      transparent: true,
+      vertexShader: `
+        attribute float size;
+        varying vec3 vColor;
+        void main() {
+          vColor = color;
+          vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+          gl_PointSize = size * (300.0 / -mvPosition.z);
+          gl_Position = projectionMatrix * mvPosition;
+        }
+      `,
+      // Discard corners to make circular points
+      fragmentShader: `
+        varying vec3 vColor;
+        void main() {
+          vec2 uv = gl_PointCoord - 0.5;
+          if (length(uv) > 0.5) discard;
+          gl_FragColor = vec4(vColor, 1.0);
+        }
+      `
+    });
+
+    const points = new THREE.Points(geometry, material);
     scene.add(points);
 
     const animate = () => {
