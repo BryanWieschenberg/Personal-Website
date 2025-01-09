@@ -1,17 +1,18 @@
 export default {
   content: [
-    './index.html',                // Root index.html for Vite
-    './src/**/*.{js,jsx,ts,tsx}',  // All JavaScript/TypeScript files in src
+    './index.html',
+    './src/**/*.{js,jsx,ts,tsx}',
   ],
   theme: {
     extend: {
       animation: {
-        moveDots: 'moveDots 5s linear infinite',
+        moveDots: 'moveDots .5s linear infinite',
       },
       keyframes: {
         moveDots: {
-          '0%': { backgroundPosition: '0% 0%' },
-          '100%': { backgroundPosition: '100% 100%' },
+          '0%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(10px, -10px)' },
+          '100%': { transform: 'translate(0, 0)' },
         },
       },
     },

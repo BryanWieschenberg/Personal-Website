@@ -1,96 +1,90 @@
-// src/components/Background.tsx
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
+import * as THREE from 'three';
 
 const Background: React.FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current!;
-    if (!canvas) return;
+    if (!mountRef.current) return;
 
-    const ctx = canvas.getContext("2d")!;
-    if (!ctx) return;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 2000);
+    camera.position.z = 500;
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    mountRef.current.appendChild(renderer.domElement);
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const geometry = new THREE.BufferGeometry();
+    const positions: number[] = [];
+    const colors: number[] = [];
+    const angles: number[] = [];
+    const radii: number[] = [];
+    const speeds: number[] = [];
+    const sizes: number[] = [];
+    const count = 300;
 
-    const particlesArray: {
-      angle: number;
-      radius: number;
-      speed: number;
-      size: number;
-      x: number;
-      y: number;
-    }[] = [];
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const radius = 30 + Math.random() * 500;
+      angles.push(angle);
+      radii.push(radius);
+      speeds.push(0.00005 + Math.random() * 0.001);
+      const x = Math.cos(angle) * radius, y = Math.sin(angle) * radius;
+      positions.push(x, y, 0);
 
-    const centerX = canvas.width / 2;
-    const centerY = canvas.height / 2;
+      const c = new THREE.Color(`hsl(210, 50%, ${0.01 + Math.random() * 20}%)`);
+      colors.push(c.r, c.g, c.b);
 
-    // Create particles in a circular spiral formation
-    function createParticles() {
-      const numParticles = 200; // Adjust the number of particles here
-      for (let i = 0; i < numParticles; i++) {
-        const angle = (i / numParticles) * Math.PI * 2; // Spread particles evenly around the circle
-        const radius = i * 0.5; // Particles will spread outward like a spiral
-        particlesArray.push({
-          angle, // Initial angle
-          radius, // Initial radius from the center
-          speed: 0.02 + Math.random() * 0.02, // Speed of rotation
-          size: Math.random() * 3 + 1, // Particle size
-          x: centerX + Math.cos(angle) * radius,
-          y: centerY + Math.sin(angle) * radius,
-        });
+      sizes.push(Math.random() * 2 + 3);
+    }
+
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(new Float32Array(positions), 3));
+    geometry.setAttribute('color', new THREE.Float32BufferAttribute(new Float32Array(colors), 3));
+    geometry.setAttribute('size', new THREE.Float32BufferAttribute(new Float32Array(sizes), 1));
+
+    const pointsMaterial = new THREE.PointsMaterial({ size: 4, vertexColors: true });
+    const points = new THREE.Points(geometry, pointsMaterial);
+    scene.add(points);
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      const pos = geometry.attributes.position as THREE.BufferAttribute;
+      for (let i = 0; i < count; i++) {
+        angles[i] += speeds[i];
+        const x = Math.cos(angles[i]) * radii[i];
+        const y = Math.sin(angles[i]) * radii[i];
+        pos.setXYZ(i, x, y, 0);
       }
-    }
-
-    createParticles();
-
-    // Animate the particles in a spiral motion
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particlesArray.forEach((particle) => {
-        // Update the particle's angle to rotate it
-        particle.angle += particle.speed;
-        particle.radius += 0.1; // Increase radius to make it spiral outward
-
-        // Calculate new x and y positions based on updated angle and radius
-        particle.x = centerX + Math.cos(particle.angle) * particle.radius;
-        particle.y = centerY + Math.sin(particle.angle) * particle.radius;
-
-        // Draw the particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, 0.8)`; // White particles with slight opacity
-        ctx.fill();
-      });
-
-      // Loop the animation
-      requestAnimationFrame(animateParticles);
-    }
-
-    animateParticles();
-
-    // Handle resizing of the canvas
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      pos.needsUpdate = true;
+      renderer.render(scene, camera);
     };
-    window.addEventListener("resize", handleResize);
+    animate();
 
-    return () => window.removeEventListener("resize", handleResize);
+    const onResize = () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+      mountRef.current?.removeChild(renderer.domElement);
+    };
   }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
+    <div
+      ref={mountRef}
       style={{
-        position: "fixed",
+        position: 'fixed',
         top: 0,
         left: 0,
-        width: "100vw",
-        height: "100vh",
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
         zIndex: -1,
+        background: 'linear-gradient(to bottom, #070c16, #000000)'
       }}
     />
   );

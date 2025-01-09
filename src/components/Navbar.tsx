@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Header: React.FC = () => (
+const Navbar: React.FC = () => (
   <header className="bg-gray-800 text-white shadow-lg py-4">
     <div className="container mx-auto flex justify-between items-center px-4">
       <h1 className="text-3xl font-bold">Bryan Wieschenberg</h1>
@@ -17,4 +17,4 @@ const Header: React.FC = () => (
   </header>
 );
 
-export default Header;
+export default Navbar;

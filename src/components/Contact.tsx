@@ -1,18 +1,49 @@
-import React from 'react';
+// ContactForm.tsx (React Frontend)
+import React, { useState } from 'react';
 
-const Contact: React.FC = () => (
-  <section id="contact" className="py-10 bg-white">
-    <div className="container mx-auto text-center">
-      <h2 className="text-4xl font-bold mb-6">Contact Me</h2>
-      <p className="text-gray-700 text-lg">Feel free to reach out for collaboration or questions!</p>
-      <p className="text-gray-700 mt-4">
-        <strong>Email:</strong> <a href="mailto:bryan.wieschenberg@gmail.com" className="text-blue-500">bryan.wieschenberg@gmail.com</a>
-      </p>
-      <p className="text-gray-700">
-        <strong>Phone:</strong> <a href="tel:+19732160825" className="text-blue-500">(973) 216-0825</a>
-      </p>
-    </div>
-  </section>
-);
+const Contact = () => {
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      });
+      if (response.ok) {
+        alert('Message sent!');
+        setEmail('');
+        setMessage('');
+      } else {
+        alert('Error sending message.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error sending message.');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <input
+        type="email"
+        placeholder="Your Email"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
+        required
+      />
+      <textarea
+        placeholder="Your Message"
+        value={message}
+        onChange={e => setMessage(e.target.value)}
+        required
+      />
+      <button type="submit">Send</button>
+    </form>
+  );
+};
 
 export default Contact;
