@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+    scroll-behavior: smooth;
+}
+
+.slogan {
+    @apply text-5xl font-bold mb-6 container mx-auto text-center text-white leading-[.9] drop-shadow-[0_0px_10px_rgba(0,0,139,.8)];
+}
+
+.text-shadow {
+    text-shadow: 6px 6px 0px rgba(0, 0, 139, 1);
+}
+  
