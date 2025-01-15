@@ -20,11 +20,11 @@ const Home: React.FC = () => {
   return (
     <>
       <div className="snap-container h-screen snap-y snap-mandatory overflow-y-auto">
-        <div className={`mt-28`}></div>
+        <div className={`mt-16`}></div>
 
         <div className={`flex items-center justify-center slogan`}>
           {/* Left Section */}
-          <div className="flex-shrink-0 pl-80 flex items-center -mt-8">
+          <div className="flex-shrink-0 pl-80 flex items-center mt-12">
             <img src="./assets/images/centerArrow.png" className="custom-image animate-fadeInLeftDelay2" style={{ width: '150px', height: '150px' }} />
           </div>
 
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
               Innovative Software.
             </h2>
             <h2 ref={ref} className={`slogan ${visible ? 'animate-fadeInRightDelay' : 'opacity-0'}`}>
-              Impactful Results
+              Impactful Results.
             </h2>
             <h2 ref={ref} className={`slogan ${visible ? 'animate-fadeInUpDelay2' : 'opacity-0'}`}>
               Limitless Success.
@@ -42,45 +42,54 @@ const Home: React.FC = () => {
           </div>
 
           {/* Right Section */}
-          <div className="flex-shrink-0 pr-80 flex items-center -mt-8">
+          <div className="flex-shrink-0 pr-80 flex items-center mt-12">
             <img src="./assets/images/centerArrow.png" className="custom-image animate-fadeInRightDelay2 transform -scale-x-100" style={{ width: '150px', height: '150px' }} />
           </div>
         </div>
 
-        <div className="flex items-center justify-center text-white">
-          <div className="flex flex-col md:flex-row items-center container lg:px-20">
-            {/* Left Section */}
-            <div className="text-center md:text-left md:w-1/2">
-              <h1 className="text-8xl md:text-8xl font-bold leading-tight mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)]">
-                Hi, I’m <span className="bg-gradient-to-r from-[#3c86ff] to-[#69f1ff] bg-clip-text text-transparent">Bryan</span>.
-              </h1>
-              <p className="mt-4 text-lg md:text-xl">
-                I am a <span className="font-semibold">Junior Computer Science Major</span><br></br>
-                attending <span className="font-semibold"> The College of New Jersey</span><br></br>
-                as an aspiring <span className="font-semibold"> Software Engineer</span>.
-              </p>
-              <div className="mt-6 flex justify-center md:justify-start space-x-4">
-                <a href="#about" className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
-                  Learn More
-                </a>
-                <a href="#contact" className="px-6 py-3 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white">
-                  Contact Me
-                </a>
-              </div>
-            </div>
-            
-            {/* Right Section */}
-            <div className="mt-8 md:mt-0 flex items-center justify-center">
-              <div className="relative w-48 h-48 md:w-64 md:h-64">
-                <img
-                  src="./assets/images/photo.png"
-                  alt="Bryan"
-                  className="rounded-full border-4 border-blue-400 object-cover shadow-lg"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+<div className="flex items-center justify-center text-white mt-12 w-full animate-fadeInDelay">
+  <div className="flex flex-col md:flex-row items-center justify-center container mx-auto px-4 lg:px-20 max-w-7xl md:pr-32">
+    {/* Left Section */}
+    <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start">
+      <h1 className="text-8xl md:text-8xl font-bold leading-tight mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center md:text-left">
+        Hi, I'm <span className="relative inline-block">
+          <span className="relative bg-gradient-to-r from-[#3c86ff] to-[#69f1ff] bg-clip-text text-transparent">
+            Bryan
+          </span>
+        </span>.
+      </h1>
+      <br />
+      <img 
+        src="./assets/images/arrow.png" 
+        className="custom-image" 
+        style={{ width: '500px', height: '20px' }} 
+      />
+      <p className="mt-4 text-lg md:text-3xl">
+        I am a <span className="font-semibold text-[#b8e4ff]">Junior Computer Science Major</span><br />
+        attending <span className="font-semibold text-[#b8e4ff]"> The College of New Jersey</span><br />
+        as an aspiring <span className="font-semibold text-[#b8e4ff]"> Software Engineer</span>.
+      </p>
+      <div className="mt-6 flex justify-center md:justify-start space-x-4">
+        <a href="#about" className="px-9 py-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+          Learn More
+        </a>
+        <a href="#contact" className="px-9 py-4 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white">
+          Contact Me
+        </a>
+      </div>
+    </div>
+    
+    {/* Right Section */}
+    <div className="flex items-center justify-center md:pl-32">
+        <img
+          src="./assets/images/photo.png"
+          alt="Bryan"
+          className="rounded-full border-4 border-blue-400 w-full h-full object-cover"
+          style={{ width: '320px', height: '320px', objectFit: 'cover' }}  
+        />
+      </div>
+  </div>
+</div>
       </div>
     </>
   );

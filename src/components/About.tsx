@@ -19,10 +19,9 @@ const About: React.FC = () => {
 
   return (
     <>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
-      <p>a</p>
+      <img src="./assets/images/arrowBig.png" className="custom-image mx-auto" style={{ width: '1600px', height: '20px' }} />
+      <div className={`mt-32`}></div>
+
       <h2
         ref={ref}
         className={`text-4xl font-bold mb-6 container mx-auto text-center text-white transition-opacity duration-500 ${
