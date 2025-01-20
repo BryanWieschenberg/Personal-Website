@@ -6,7 +6,7 @@ const Navbar: React.FC = () => (
   <header className="fixed top-0 left-0 w-full text-white shadow-lg py-4 z-50" style={{ background: 'linear-gradient(to bottom, #4b576a, #0e1528)' }}>
     <div className="container mx-auto flex justify-between items-center px-4">
       <div className="flex items-center space-x-2">
-        <a href="/">
+        <a href="#home">
           <img
             src="./assets/images/favicon.ico"
             alt="Logo"
@@ -17,7 +17,7 @@ const Navbar: React.FC = () => (
       <nav>
         <ul className="flex space-x-8 text-lg text-blue-300">
           <li>
-            <a href="/" className="hover:text-blue-400">
+            <a href="#home" className="hover:text-blue-400">
               Home
             </a>
           </li>

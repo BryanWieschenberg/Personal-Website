@@ -5,8 +5,15 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        varela: ['Varela Round', 'sans-serif'],
+      },
+      backgroundImage: {
+        '345gradient': 'linear-gradient(345deg, #24bdd4, #c4f9ff)',
+      },
       animation: {
         popIn: 'popIn 0.3s ease-out',
+        fadeIn: 'fadeIn 0.5s ease-out',
         fadeInLeft: 'fadeInLeft 0.5s ease-out',
         fadeInRightDelay: 'fadeInRightDelay 1.5s ease-out',
         fadeInUpDelay2: 'fadeInUpDelay2 2.5s ease-out',
@@ -18,6 +25,10 @@ module.exports = {
         popIn: {
           '0%': { transform: 'scale(0.1)', opacity: 0 },
           '100%': { transform: 'scale(1)', opacity: 1 },
+        },
+        fadeIn: {
+          '0%': { transform: 'translateY(100px)', opacity: 0 },
+          '100%': { transform: 'translateY(0px)', opacity: 1 },
         },
         fadeInLeft: {
           '0%': { transform: 'translateX(-100px)', opacity: 0 },

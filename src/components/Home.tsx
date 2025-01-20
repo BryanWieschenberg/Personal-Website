@@ -25,7 +25,7 @@ const Home: React.FC = () => {
         <div className={`flex items-center justify-center slogan`}>
           {/* Left Section */}
           <div className="flex-shrink-0 pl-80 flex items-center mt-12">
-            <img src="./assets/images/centerArrow.png" className="custom-image animate-fadeInLeftDelay2" style={{ width: '150px', height: '150px' }} />
+            <img src="./assets/images/centerArrow.png" className={`custom-image ${visible ? 'animate-fadeInLeftDelay2' : 'opacity-0'}`} style={{ width: '150px', height: '150px' }} />
           </div>
 
           {/* Middle Section */}
@@ -43,11 +43,11 @@ const Home: React.FC = () => {
 
           {/* Right Section */}
           <div className="flex-shrink-0 pr-80 flex items-center mt-12">
-            <img src="./assets/images/centerArrow.png" className="custom-image animate-fadeInRightDelay2 transform -scale-x-100" style={{ width: '150px', height: '150px' }} />
+            <img src="./assets/images/centerArrow.png" className={`custom-image transform -scale-x-100 ${visible ? 'animate-fadeInRightDelay2' : 'opacity-0'}`} style={{ width: '150px', height: '150px' }} />
           </div>
         </div>
 
-<div className="flex items-center justify-center text-white mt-12 w-full animate-fadeInDelay">
+<div className={`flex items-center justify-center text-white mt-12 w-full ${visible ? 'animate-fadeInDelay' : 'opacity-0'}`}>
   <div className="flex flex-col md:flex-row items-center justify-center container mx-auto px-4 lg:px-20 max-w-7xl md:pr-32">
     {/* Left Section */}
     <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start">
@@ -70,10 +70,10 @@ const Home: React.FC = () => {
         as an aspiring <span className="font-semibold text-[#b8e4ff]"> Software Engineer</span>.
       </p>
       <div className="mt-6 flex justify-center md:justify-start space-x-4">
-        <a href="#about" className="px-9 py-4 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600">
+        <a href="#about" className="px-5 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 md:text-xl">
           Learn More
         </a>
-        <a href="#contact" className="px-9 py-4 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white">
+        <a href="#contact" className="px-5 py-3 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white md:text-xl">
           Contact Me
         </a>
       </div>
