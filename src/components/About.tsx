@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { skills, Skill } from '../constants'; // Import the skills array
 
 const About: React.FC = () => {
   const ref = useRef<HTMLHeadingElement>(null);
@@ -26,14 +27,16 @@ const About: React.FC = () => {
           About Me
       </h1>
 
-
-      <h3>
-        <a href="./assets/attachments/Resume - Bryan Wieschenberg.pdf" target="_blank" rel="noopener noreferrer">
-          View PDF
-        </a>
-      </h3>
-
-    </>
+<div className="container mx-auto px-16 mt-16">
+  <div className="flex flex-wrap justify-center gap-3"> {/* Use flexbox and justify-center */}
+    {skills.map((skill: Skill, index: number) => (
+      <div key={index} className="flex items-center p-3 bg-[#182a51] rounded-2xl shadow-lg w-64">
+        <div className="text-blue-400 flex-shrink-0 mr-2">{skill.icon}</div> {/* Icon aligned to the left */}
+        <span className="text-sm text-white font-semibold">{skill.text}</span> {/* Text next to the icon */}
+      </div>
+    ))}
+  </div>
+</div>    </>
   );
 };
 
