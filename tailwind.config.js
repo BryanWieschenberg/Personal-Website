@@ -13,7 +13,7 @@ module.exports = {
       },
       animation: {
         popIn: 'popIn 0.3s ease-out',
-        fadeIn: 'fadeIn 0.5s ease-out',
+        fadeIn: 'fadeIn 0.5s ease-out both',
         fadeInLeft: 'fadeInLeft 0.5s ease-out',
         fadeInRightDelay: 'fadeInRightDelay 1.5s ease-out',
         fadeInUpDelay2: 'fadeInUpDelay2 2.5s ease-out',
