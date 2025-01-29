@@ -1,8 +1,8 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { classes, Class } from '../constants';
+import { useRef, useEffect, useState } from 'react';
+import { classes } from '../constants';
 import { motion } from "framer-motion";
 
-const Education: React.FC = () => {
+const Test = () => {
   const ref = useRef<HTMLHeadingElement>(null);
   const [visible, setVisible] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -12,9 +12,15 @@ const Education: React.FC = () => {
       if (entry.isIntersecting) {
         setTimeout(() => setVisible(true), 200);
       }
-    });
+    { /*},
+    {
+      root: null, // Uses the viewport as the root
+      rootMargin: "-20% 0px -20% 0px", // Makes the trigger range smaller
+      threshold: 0.6, // At least 60% of the element must be visible */}
+    }
+  );
 
-    if (ref.current) observer.observe(ref.current);
+  if (ref.current) observer.observe(ref.current);
     return () => {
       if (ref.current) observer.unobserve(ref.current);
     };
@@ -37,29 +43,31 @@ const Education: React.FC = () => {
 
       <h1
         ref={ref}
-        className={`text-8xl md:text-8xl font-bold mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent ${
-          visible ? 'animate-fadeIn' : 'opacity-0'
-        }`}
+        className="text-8xl md:text-8xl font-bold mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0px)" : "translateY(100px)",
+          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
+        }}
       >
         Education
       </h1>
 
       <div className="container mx-auto px-16 mt-16">
         <div className="flex flex-wrap justify-center gap-4">
-          {classes.map((classItem: Class, index: number) => (
-            <div key={index} className="flex flex-col w-64">
-              {/* Item */}
+          {classes.map((classItem, index) => (
+            <div key={classItem.id} className="flex flex-col w-64">
+              {/* Motion Card */}
               <motion.div
+                className="flex items-center p-2 bg-[#182a51] rounded-2xl shadow-lg cursor-pointer"
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }}
+                transition={{ delay: index * 0.05, duration: 0.5 }}
                 whileHover={{ scale: 1.1 }}
-                className={`flex items-center p-2 bg-[#182a51] rounded-2xl shadow-lg cursor-pointer transition-opacity duration-200 ${
-                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-                }`}
-                style={{
-                  transitionDelay: visible ? `${index * 50}ms` : '0ms',
-                  transitionProperty: 'transform, opacity',
-                  transitionDuration: visible ? '0ms' : '0ms',
-                }}
                 onClick={() => handleClick(index)}
+                style={{
+                  pointerEvents: visible ? "auto" : "none",
+                }}
               >
                 <div className={`${classItem.color} flex-shrink-0`}>{classItem.icon}</div>
                 <div className="ml-2">
@@ -70,14 +78,19 @@ const Education: React.FC = () => {
                 </div>
               </motion.div>
 
-              {/* Underbox */}
-              <div
-                className={`transition-all duration-300 ease-in-out overflow-hidden bg-[#1d3557] rounded-2xl shadow-lg text-white w-64 ${
-                  selectedIndex === index ? 'max-h-40 opacity-100 py-3' : 'max-h-0 opacity-0 py-0'
-                }`}
+              {/* Dropdown Content */}
+              <motion.div
+                className="overflow-hidden bg-[#333e54] rounded-2xl shadow-lg text-white w-64 mt-1"
+                initial={{ maxHeight: 0, opacity: 0 }}
+                animate={
+                  selectedIndex === index
+                    ? { maxHeight: "160px", opacity: 1, padding: "12px" }
+                    : { maxHeight: 0, opacity: 0, padding: 0 }
+                }
+                transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <p className="px-3">{classItem.click}</p>
-              </div>
+              </motion.div>
             </div>
           ))}
         </div>
@@ -86,4 +99,4 @@ const Education: React.FC = () => {
   );
 };
 
-export default Education;
+export default Test;

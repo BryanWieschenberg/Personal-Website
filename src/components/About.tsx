@@ -56,6 +56,15 @@ const About: React.FC = () => {
           ))}
         </div>
       </div>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </>
   );
 };
