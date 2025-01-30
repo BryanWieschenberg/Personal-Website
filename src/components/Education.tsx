@@ -78,9 +78,10 @@ const AnimatedList = () => {
     {/* Expanding Section */}
     <div
       className={`transition-all duration-500 ease-in-out overflow-hidden bg-[#333e54] rounded-2xl shadow-lg text-white w-64 mt-2 ${
-        selectedIndex === index ? 'max-h-40 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
+        selectedIndex === index ? 'max-h-64 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
       }`}
     >
+      <p className="px-3 text-md font-semibold text-blue-100">➤ {item.taken}</p>
       <p className="px-3 text-sm text-[#cdd5e5]">{item.click}</p>
     </div>
   </div>
