@@ -10,7 +10,7 @@ const Navbar: React.FC = () => (
       <div className="flex items-center space-x-2 flex-1">
         <a href="#home" className="flex items-center space-x-2">
           <img
-            src="./src/assets/images/favicon.ico"
+            src="/assets/images/favicon.ico"
             alt="Logo"
             className="w-10 h-10"
           />
