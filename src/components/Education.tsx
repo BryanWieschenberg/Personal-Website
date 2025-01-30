@@ -61,7 +61,7 @@ const AnimatedList = () => {
   <div key={item.id} className="flex flex-col w-64">
     <div
       className={`flex flex-row items-center p-1 bg-[#182a51] rounded-2xl shadow-lg transition-transform duration-200 hover:scale-110 cursor-pointer 
-      ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-250 ease-in-out' : 'opacity-0 translate-y-10'}
+      ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-250 ease-out' : 'opacity-0 translate-y-5'}
       ${selectedIndex === index ? 'bg-[#294b95]' : 'bg-[#182a51]'}`}
       onClick={() => handleClick(index)}
     >
