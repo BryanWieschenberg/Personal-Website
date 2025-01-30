@@ -54,7 +54,7 @@ const Home: React.FC = () => {
       <h1 className="text-8xl md:text-8xl font-bold leading-tight mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center md:text-left">
         Hi, I'm <span className="relative inline-block">
           <span className="relative bg-gradient-to-r from-[#3c86ff] to-[#69f1ff] bg-clip-text text-transparent">
-            Bryans
+            Bryan
           </span>
         </span>.
       </h1>
