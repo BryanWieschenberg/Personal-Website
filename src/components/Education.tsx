@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState } from 'react';
-import { classes } from '../constants';
-import { motion } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { classes } from "../constants";
 
-const Test = () => {
-  const ref = useRef<HTMLHeadingElement>(null);
+const AnimatedList = () => {
+  const [items, setItems] = useState(classes.map(item => ({ ...item, visible: false })));
+  const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
@@ -12,19 +12,25 @@ const Test = () => {
       if (entry.isIntersecting) {
         setTimeout(() => setVisible(true), 200);
       }
-    { /*},
-    {
-      root: null, // Uses the viewport as the root
-      rootMargin: "-20% 0px -20% 0px", // Makes the trigger range smaller
-      threshold: 0.6, // At least 60% of the element must be visible */}
-    }
-  );
+    });
 
-  if (ref.current) observer.observe(ref.current);
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    if (visible) {
+      items.forEach((_, index) => {
+        setTimeout(() => {
+          setItems(prev =>
+            prev.map((item, i) =>
+              i === index ? { ...item, visible: true } : item
+            )
+          );
+        }, index * 30);
+      });
+    }
+  }, [visible]);
 
   const handleClick = (index: number) => {
     setSelectedIndex((prevIndex) => (prevIndex === index ? null : index));
@@ -43,60 +49,46 @@ const Test = () => {
 
       <h1
         ref={ref}
-        className="text-8xl md:text-8xl font-bold mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent"
-        style={{
-          opacity: visible ? 1 : 0,
-          transform: visible ? "translateY(0px)" : "translateY(100px)",
-          transition: "opacity 0.5s ease-out, transform 0.5s ease-out",
-        }}
+        className={`text-8xl md:text-8xl font-bold mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent ${
+          visible ? 'animate-fadeIn' : 'opacity-0'
+        }`}
       >
         Education
       </h1>
-
       <div className="container mx-auto px-16 mt-16">
-        <div className="flex flex-wrap justify-center gap-4">
-          {classes.map((classItem, index) => (
-            <div key={classItem.id} className="flex flex-col w-64">
-              {/* Motion Card */}
-              <motion.div
-                className="flex items-center p-2 bg-[#182a51] rounded-2xl shadow-lg cursor-pointer"
-                initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : 50 }}
-                transition={{ delay: index * 0.05, duration: 0.5 }}
-                whileHover={{ scale: 1.1 }}
-                onClick={() => handleClick(index)}
-                style={{
-                  pointerEvents: visible ? "auto" : "none",
-                }}
-              >
-                <div className={`${classItem.color} flex-shrink-0`}>{classItem.icon}</div>
-                <div className="ml-2">
-                  <div className="flex items-center space-x-2">
-                    <span className={`${classItem.color} font-bold text-xl`}>{classItem.id}</span>
-                  </div>
-                  <span className="text-white text-sm block leading-tight">{classItem.name}</span>
-                </div>
-              </motion.div>
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+        {items.map((item, index) => (
+  <div key={item.id} className="flex flex-col w-64">
+    <div
+      className={`flex flex-row items-center p-1 bg-[#182a51] rounded-2xl shadow-lg transition-transform duration-200 hover:scale-110 cursor-pointer 
+      ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-250 ease-in-out' : 'opacity-0 translate-y-10'}
+      ${selectedIndex === index ? 'bg-[#294b95]' : 'bg-[#182a51]'}`}
+      onClick={() => handleClick(index)}
+    >
+      {/* Left-aligned Icon */}
+      <div className={`${item.color} flex-shrink-0 pl-2 text-4xl`}>{item.icon}</div>
 
-              {/* Dropdown Content */}
-              <motion.div
-                className="overflow-hidden bg-[#333e54] rounded-2xl shadow-lg text-white w-64 mt-1"
-                initial={{ maxHeight: 0, opacity: 0 }}
-                animate={
-                  selectedIndex === index
-                    ? { maxHeight: "160px", opacity: 1, padding: "12px" }
-                    : { maxHeight: 0, opacity: 0, padding: 0 }
-                }
-                transition={{ duration: 0.3, ease: "easeInOut" }}
-              >
-                <p className="px-3">{classItem.click}</p>
-              </motion.div>
-            </div>
-          ))}
+      {/* Right-aligned Text */}
+      <div className="ml-3 flex flex-col">
+        <span className={`${item.color} font-bold text-xl`}>{item.id}</span>
+        <span className="text-white text-sm mb-1">{item.name}</span>
+      </div>
+    </div>
+
+    {/* Expanding Section */}
+    <div
+      className={`transition-all duration-500 ease-in-out overflow-hidden bg-[#333e54] rounded-2xl shadow-lg text-white w-64 mt-2 ${
+        selectedIndex === index ? 'max-h-40 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
+      }`}
+    >
+      <p className="px-3 text-sm text-[#cdd5e5]">{item.click}</p>
+    </div>
+  </div>
+))}
         </div>
       </div>
     </>
   );
 };
 
-export default Test;
+export default AnimatedList;
