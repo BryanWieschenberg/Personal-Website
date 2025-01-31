@@ -24,3 +24,18 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
+
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background: #0a0a0a; /* Dark background */
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background: #555; /* Dark grey thumb */
+    border-radius: 5px;
+  }
+  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background: #777; /* Slightly lighter on hover */
+  }
+  

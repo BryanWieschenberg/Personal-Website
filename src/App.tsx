@@ -10,6 +10,30 @@ import Contact from './components/Contact';
 
 const App: React.FC = () => (
   <>
+      <style>
+      {`
+        /* Custom Dark Scrollbar */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+          background: #0a0a0a; /* Dark background */
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #444; /* Darker thumb */
+          border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #777; /* Lighter on hover */
+        }
+
+        /* Firefox Scrollbar */
+        * {
+          scrollbar-color: #555 #0a0a0a;
+        }
+      `}
+    </style>
+
       <Background />
       <Navbar />
       <section id="home"><Home /></section>
@@ -18,50 +42,7 @@ const App: React.FC = () => (
       <section id="experience"><Experience /></section>
       <section id="projects"><Projects /></section>
       <section id="contact"><Contact /></section>
-
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-      <p>\n</p>
-
+      <div className="pb-64"></div>
   </>
 );
 
