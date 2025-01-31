@@ -5,13 +5,12 @@ const Experience: React.FC = () => {
   const ref = useRef<HTMLHeadingElement>(null);
   const [visible, setVisible] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const [animationTriggered, setAnimationTriggered] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); // Track hovered box
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setTimeout(() => setVisible(true), 200);
-        setAnimationTriggered(true); // Ensures animation runs only once
       }
     });
 
@@ -36,40 +35,52 @@ const Experience: React.FC = () => {
       />
       <div className="mt-20"></div>
 
-      <h1
-        ref={ref}
-        className={`text-8xl md:text-8xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent ${
-          visible ? 'animate-fadeIn' : 'opacity-0'
-        }`}
-      >
-        Experience
-      </h1>
+      <div className={'text-center mt-4 pb-12'}>
+        <h1 ref={ref} className={`text-8xl md:text-8xl font-bold drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap overflow-visible justify-center inline relative bg-gradient-to-r from-[#768bff] to-[#00e7ff] bg-clip-text text-transparent ${visible ? 'animate-fadeIn' : 'opacity-0'}`}>
+          Experience
+        </h1>
+      </div>
 
       {/* Timeline Container */}
       <div className="container mx-auto px-8 mt-16 flex justify-center">
-        <div className="relative border-l-4 border-blue-500">
+        <div className="relative">
           {work.map((exp, index) => (
             <div
               key={index}
-              className={`mb-10 flex items-start transition-all duration-300 ease-out ${
+              className={`mb-6 flex items-start transition-all duration-300 ease-out ${
                 selectedIndex === index ? "scale-105" : "scale-100"
               }`}
               style={{
-                animation: animationTriggered
+                animation: visible
                   ? `fadeInUp 0.5s ease-out ${index * 0.15}s forwards`
                   : "none",
                 opacity: 0, // Ensure it starts hidden
               }}
             >
-              {/* Timeline Dot */}
-              <div className="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full"></div>
+              {/* Timeline Circle and Line */}
+              <div className="absolute left-0 h-full flex flex-col items-center">
+                {/* Circle - Scales when the box is hovered */}
+                <div
+                  className={`w-4 h-4 bg-blue-500 rounded-full transition-all duration-500 ease-in-out ${
+                    hoveredIndex === index ? "bg-[#00e7ff] scale-150" : "bg-blue-500 scale-100"
+                  }`}
+                ></div>
+                {/* Line */}
+                {index !== work.length && (
+                  <div className="w-1 h-[5.5rem] bg-blue-500 mt-2"></div>
+                )}
+              </div>
 
               {/* Clickable Content Box */}
               <div
-                className={`bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-full md:w-3/4 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-110`}
+                className={`bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-full md:w-2/5 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 ml-12`}
                 onClick={() => handleClick(index)}
+                onMouseEnter={() => setHoveredIndex(index)} // Set hovered index
+                onMouseLeave={() => setHoveredIndex(null)} // Reset hovered index
               >
-                <h3 className="text-xl font-bold text-[#c4f9ff]">{exp.role}</h3>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-[#a9c7ff] to-[#00e7ff] text-transparent bg-clip-text inline-block">
+                  {exp.role}
+                </h3>
                 <h4 className="text-lg font-semibold text-blue-300">{exp.company}</h4>
                 <p className="text-sm text-gray-300">{exp.date}</p>
 
