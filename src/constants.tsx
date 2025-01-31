@@ -27,18 +27,24 @@ export interface Class {
 }
 
 export const skills: Skill[] = [
+  { text: "Software Development", icon: <FaCode size={40} /> },
   { text: "Full Stack Development", icon: <FaCode size={40} /> },
+  { text: "Mobile App Development", icon: <FaCode size={40} /> },
   { text: "Agile Methodologies", icon: <FaProjectDiagram size={40} /> },
+  { text: "Information Technology Systems", icon: <TbBinaryTreeFilled size={40} /> },
   { text: "Data Structures & Algorithms", icon: <TbBinaryTreeFilled size={40} /> },
+  { text: "Game Development", icon: <FaCode size={40} /> },
   { text: "Version Control", icon: <FaGitAlt size={40} /> },
   { text: "Operating Systems", icon: <GrSystem size={40} /> },
   { text: "Networking Protocols", icon: <FaNetworkWired size={40} /> },
   { text: "Cybersecurity", icon: <FaShieldAlt size={40} /> },
   { text: "Database Management Systems (DBMS)", icon: <FaDatabase size={40} /> },
   { text: "Unified Modeling Language (UML)", icon: <SiUml size={40} /> },
-  { text: "Cloud Computing", icon: <FaCloud size={40} /> },
+  { text: "Cloud Engineering", icon: <FaCloud size={40} /> },
   { text: "Quantum Computing", icon: <FaAtom size={40} /> },
   { text: "Data Analytics", icon: <FaChartLine size={40} /> },
+  { text: "UI/UX Developer", icon: <FaChartLine size={40} /> },
+  { text: "Quality Assurance Engineer", icon: <FaBrain size={40} /> },
   { text: "Artificial Intelligence (AI)", icon: <FaBrain size={40} /> },
   { text: "Machine Learning (ML)", icon: <FaRobot size={40} /> },
 ];

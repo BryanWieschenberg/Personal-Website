@@ -24,7 +24,7 @@ const Home: React.FC = () => {
 
         <div className={`flex items-center justify-center slogan`}>
           {/* Left Section */}
-          <div className="flex-shrink-0 pl-80 flex items-center mt-12">
+          <div className="flex-shrink-0 pl-[224px] flex items-center mt-12">
             <img src="./assets/images/centerArrow.png" className={`custom-image ${visible ? 'animate-fadeInLeftDelay2' : 'opacity-0'}`} style={{ width: '150px', height: '150px' }} />
           </div>
 
@@ -42,7 +42,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Right Section */}
-          <div className="flex-shrink-0 pr-80 flex items-center mt-12">
+          <div className="flex-shrink-0 pr-[224px] flex items-center mt-12">
             <img src="./assets/images/centerArrow.png" className={`custom-image transform -scale-x-100 ${visible ? 'animate-fadeInRightDelay2' : 'opacity-0'}`} style={{ width: '150px', height: '150px' }} />
           </div>
         </div>

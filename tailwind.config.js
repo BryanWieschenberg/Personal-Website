@@ -12,6 +12,7 @@ export default {
         '345gradient': 'linear-gradient(345deg, #24bdd4, #c4f9ff)',
       },
       animation: {
+        pulsate: 'pulsate 2s ease-in-out infinite',
         popIn: 'popIn 0.3s ease-out',
         fadeIn: 'fadeIn 0.5s ease-out both',
         fadeInLeft: 'fadeInLeft 0.5s ease-out',
@@ -22,6 +23,11 @@ export default {
         fadeInDelay: 'fadeInDelay 4s ease-out',
       },
       keyframes: {
+        pulsate: {
+          '0%': { transform: 'scale(0.8)', filter: 'brightness(1)' },
+          '50%': { transform: 'scale(1)', filter: 'brightness(1.5)' },
+          '100%': { transform: 'scale(0.8)', filter: 'brightness(1)' },
+        },
         popIn: {
           '0%': { transform: 'scale(0.1)', opacity: 0 },
           '100%': { transform: 'scale(1)', opacity: 1 },
