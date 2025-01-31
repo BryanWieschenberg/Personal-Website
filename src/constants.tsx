@@ -26,6 +26,13 @@ export interface Class {
   icon: React.ReactElement;
 }
 
+export interface Work {
+  role: string;
+  company: string;
+  date: string;
+  description: string;
+}
+
 export const skills: Skill[] = [
   { text: "Software Development", icon: <FaCode size={40} /> },
   { text: "Full Stack Development", icon: <FaCode size={40} /> },
@@ -68,4 +75,12 @@ export const classes: Class[] = [
   { id: "CHE 201", name: "Chemistry", taken: "Spring 2025", click: "Explores the laws and theories of matter, covering atomic and molecular structure, quantum mechanics, kinetics, equilibrium, and periodic properties.", color: "text-purple-400", icon: <SlChemistry size={40} /> },
   { id: "SPA 102", name: "Spanish II", taken: "Spring 2024", click: "Builds on SPA 101 to allow for smooth engagement with native speakers through structured speaking, writing, and listening exercises while deepening cultural understanding.", color: "text-orange-400", icon: <IoChatbubbleEllipses size={40} /> },
   { id: "SPA 101", name: "Spanish I", taken: "Fall 2023", click: "Introductory Spanish course that emphasizes written and oral communication, critical analysis, linguistic interpretation, and intercultural competence while fostering a cultural diversity appreciation.", color: "text-orange-400", icon: <IoChatbubbleEllipsesOutline size={40} /> },
+];
+
+export const work: Work[] = [
+  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", description: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
+  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", description: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success." },
+  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", description: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
+  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", description: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
+  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", description: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments." }
 ];
