@@ -1,4 +1,4 @@
-import { FaCode, FaDatabase, FaProjectDiagram, FaGitAlt, FaNetworkWired, FaShieldAlt, FaCloud, FaChartLine, FaBrain, FaRobot, FaAtom, FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
+/*import { FaCode, FaDatabase, FaProjectDiagram, FaGitAlt, FaNetworkWired, FaShieldAlt, FaCloud, FaChartLine, FaBrain, FaRobot, FaAtom, FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
 import { SiUml } from 'react-icons/si';
 import { TbBinaryTreeFilled, TbMatrix, TbAtom2Filled } from "react-icons/tb";
 import { GrSystem, GrCloudlinux } from "react-icons/gr";
@@ -53,7 +53,7 @@ export const roles: Role[] = [
   { text: "Data Analyst", icon: <BsClipboardDataFill size={40} /> },
   { text: "UI/UX Developer", icon: <IoPersonCircle size={40} /> },
   { text: "Quality Assurance Engineer", icon: <GrCloudlinux size={40} /> },
-/*  { text: "Software Development", icon: <FaCode size={40} /> },
+  { text: "Software Development", icon: <FaCode size={40} /> },
   { text: "Full Stack Development", icon: <FaCode size={40} /> },
   { text: "Mobile App Development", icon: <FaCode size={40} /> },
   { text: "Agile Methodologies", icon: <FaProjectDiagram size={40} /> },
@@ -72,7 +72,7 @@ export const roles: Role[] = [
   { text: "UI/UX Developer", icon: <FaChartLine size={40} /> },
   { text: "Quality Assurance Engineer", icon: <FaBrain size={40} /> },
   { text: "Artificial Intelligence (AI)", icon: <FaBrain size={40} /> },
-  { text: "Machine Learning (ML)", icon: <FaRobot size={40} /> }, */
+  { text: "Machine Learning (ML)", icon: <FaRobot size={40} /> },
 ];
 
 export const skills: Skill[] = [
@@ -131,4 +131,4 @@ export const work: Work[] = [
   { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", description: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
   { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", description: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
   { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", description: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments." }
-];
+];*/
