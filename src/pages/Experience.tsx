@@ -42,38 +42,34 @@ const Experience: React.FC = () => {
       </div>
 
       {/* Timeline Container */}
-      <div className="container mx-auto px-8 mt-16 flex justify-center">
+      <div className="container mx-auto px-8 mt-16 flex justify-center items-center">
         <div className="relative">
           {work.map((exp, index) => (
             <div
               key={index}
-              className={`mb-6 flex items-start transition-all duration-300 ease-out ${
-                selectedIndex === index ? "scale-105" : "scale-100"
-              }`}
+              className="mb-4"
               style={{
-                animation: visible
-                  ? `fadeInUp 0.5s ease-out ${index * 0.15}s forwards`
-                  : "none",
-                opacity: 0, // Ensure it starts hidden
+                animation: visible ? `fadeInUp 0.4s ease-in-out ${index * 0.1}s forwards` : 'none',
+                opacity: 0,
               }}
             >
               {/* Timeline Circle and Line */}
               <div className="absolute left-0 h-full flex flex-col items-center">
                 {/* Circle - Scales when the box is hovered */}
                 <div
-                  className={`w-4 h-4 bg-blue-500 rounded-full transition-all duration-500 ease-in-out ${
+                  className={`w-4 h-4 ml-[18rem] bg-blue-500 rounded-full transition-all duration-500 ease-in-out ${
                     hoveredIndex === index ? "bg-[#00e7ff] scale-150" : "bg-blue-500 scale-100"
                   }`}
                 ></div>
                 {/* Line */}
                 {index !== work.length && (
-                  <div className="w-1 h-[5.5rem] bg-blue-500 mt-2"></div>
+                  <div className="w-1 h-[5.5rem] bg-blue-500 mt-2 ml-[18rem]"></div>
                 )}
               </div>
 
               {/* Clickable Content Box */}
               <div
-                className={`bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-full md:w-2/5 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 ml-12`}
+                className={`bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-full md:w-2/5 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 mx-auto`}
                 onClick={() => handleClick(index)}
                 onMouseEnter={() => setHoveredIndex(index)} // Set hovered index
                 onMouseLeave={() => setHoveredIndex(null)} // Reset hovered index
@@ -83,14 +79,14 @@ const Experience: React.FC = () => {
                 </h3>
                 <h4 className="text-lg font-semibold text-blue-300">{exp.company}</h4>
                 <p className="text-sm text-gray-300">{exp.date}</p>
+              </div>
 
-                {/* Description - Appears when clicked */}
-                <div
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    selectedIndex === index ? "max-h-96 opacity-100 mt-2" : "max-h-0 opacity-0"
-                  }`}
-                >
-                  <p className="text-md text-gray-200">
+              {/* Description Box - Appears below the clicked box */}
+              <div
+className={`mt-4 w-1/3 transition-all duration-500 ease-in-out overflow-hidden ${selectedIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} mx-auto`}
+>
+                <div className="bg-[#182a51] text-white p-5 rounded-xl shadow-lg">
+                  <p className="text-sm text-gray-200">
                     {exp.description.split("•").map((text, index) => (
                       <React.Fragment key={index}>
                         {index > 0 && <br />}
@@ -112,11 +108,11 @@ const Experience: React.FC = () => {
           @keyframes fadeInUp {
             from {
               opacity: 0;
-              transform: translateY(20px);
+              transform: translateX(150px);
             }
             to {
               opacity: 1;
-              transform: translateY(0);
+              transform: translateX(0);
             }
           }
         `}

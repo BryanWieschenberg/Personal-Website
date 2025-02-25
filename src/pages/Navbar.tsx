@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiFileText } from "react-icons/fi";
 import { MdSchool } from 'react-icons/md';
@@ -8,7 +9,7 @@ const Navbar: React.FC = () => (
     <div className="container mx-auto flex justify-between items-center px-4">
       {/* Left Section */}
       <div className="flex items-center space-x-2 flex-1">
-        <a href="#home" className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2">
           <img
             src="./assets/images/favicon.ico"
             alt="Logo"
@@ -17,21 +18,21 @@ const Navbar: React.FC = () => (
           <span className="text-xl font-semibold text-blue-200">
             Bryan Wieschenberg
           </span>
-        </a>
+        </Link>
       </div>
 
       {/* Center Section */}
       <nav className="flex-1 flex justify-center">
         <ul className="flex space-x-9 text-lg text-blue-300">
           <li>
-            <a href="#home" className="hover:text-blue-400">
+            <Link to="/" className="hover:text-blue-400">
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" className="hover:text-blue-400">
+            <Link to="/about" className="hover:text-blue-400">
               About
-            </a>
+            </Link>
           </li>
           <li>
             <a href="#education" className="hover:text-blue-400">

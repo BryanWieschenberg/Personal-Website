@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { skills, Skill } from '../constants';
+import { roles, Role } from '../constants';
 
 const About: React.FC = () => {
   const ref = useRef<HTMLHeadingElement>(null);
@@ -38,7 +38,7 @@ const About: React.FC = () => {
 
       <div className="container mx-auto px-16 mt-16">
         <div className="flex flex-wrap justify-center gap-5">
-          {skills.map((skill: Skill, index: number) => (
+          {roles.map((role: Role, index: number) => (
             <div
               key={index}
               className={`flex items-center p-3 bg-[#182a51] rounded-2xl shadow-lg w-56 transition-transform duration-200 ${
@@ -50,8 +50,8 @@ const About: React.FC = () => {
                 transitionDuration: visible ? '300ms' : '200ms',
               }}
             >
-              <div className="text-blue-400 flex-shrink-0 mr-2">{skill.icon}</div>
-              <span className="text-sm text-white font-semibold">{skill.text}</span>
+              <div className="text-blue-400 flex-shrink-0 mr-2">{role.icon}</div>
+              <span className="text-md text-white font-semibold">{role.text}</span>
             </div>
           ))}
         </div>

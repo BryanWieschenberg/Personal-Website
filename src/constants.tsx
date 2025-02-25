@@ -1,7 +1,7 @@
-import { FaCode, FaDatabase, FaProjectDiagram, FaGitAlt, FaNetworkWired, FaShieldAlt, FaCloud, FaChartLine, FaBrain, FaRobot, FaAtom, FaLaptopCode, FaFileCode } from 'react-icons/fa';
+import { FaCode, FaDatabase, FaProjectDiagram, FaGitAlt, FaNetworkWired, FaShieldAlt, FaCloud, FaChartLine, FaBrain, FaRobot, FaAtom, FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
 import { SiUml } from 'react-icons/si';
 import { TbBinaryTreeFilled, TbMatrix, TbAtom2Filled } from "react-icons/tb";
-import { GrSystem } from "react-icons/gr";
+import { GrSystem, GrCloudlinux } from "react-icons/gr";
 import { IoHardwareChip, IoChatbubbleEllipses, IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { TbLogicAnd, TbStack2Filled } from "react-icons/tb";
 import { HiDatabase, HiOutlineArrowsExpand } from "react-icons/hi";
@@ -9,12 +9,22 @@ import { PiGraphBold } from "react-icons/pi";
 import { SlGraph, SlChemistry } from "react-icons/sl";
 import { RiFunctionFill } from "react-icons/ri";
 import { LuAtom } from "react-icons/lu";
-import { MdNetworkWifi } from "react-icons/md";
-import { IoStatsChartSharp } from "react-icons/io5";
+import { MdNetworkWifi, MdOutlineSmartphone } from "react-icons/md";
+import { IoStatsChartSharp, IoPersonCircle } from "react-icons/io5";
+import { BiCodeBlock } from "react-icons/bi";
+import { FaStackExchange } from "react-icons/fa6";
+import { IoIosInformationCircle, IoMdCloudDone } from "react-icons/io";
+import { BsClipboardDataFill } from "react-icons/bs";
 
-export interface Skill {
+export interface Role {
   text: string;
   icon: React.ReactElement;
+}
+
+export interface Skill {
+  cat: number; // 0: Programming Languages, 1: Frameworks/Libraries, 2: Tools/Software, 3: Concepts, 4: Languages, 5: Soft Skills
+  name: string;
+  icon: string;
 }
 
 export interface Class {
@@ -33,8 +43,17 @@ export interface Work {
   description: string;
 }
 
-export const skills: Skill[] = [
-  { text: "Software Development", icon: <FaCode size={40} /> },
+export const roles: Role[] = [
+  { text: "Software Engineer", icon: <BiCodeBlock size={40} /> },
+  { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> },
+  { text: "Mobile App Developer", icon: <MdOutlineSmartphone size={40} /> },
+  { text: "IT Systems Analyst", icon: <IoIosInformationCircle size={40} /> },
+  { text: "Game Developer", icon: <FaGamepad size={40} /> },
+  { text: "Cloud Engineer", icon: <IoMdCloudDone size={40} /> },
+  { text: "Data Analyst", icon: <BsClipboardDataFill size={40} /> },
+  { text: "UI/UX Developer", icon: <IoPersonCircle size={40} /> },
+  { text: "Quality Assurance Engineer", icon: <GrCloudlinux size={40} /> },
+/*  { text: "Software Development", icon: <FaCode size={40} /> },
   { text: "Full Stack Development", icon: <FaCode size={40} /> },
   { text: "Mobile App Development", icon: <FaCode size={40} /> },
   { text: "Agile Methodologies", icon: <FaProjectDiagram size={40} /> },
@@ -53,7 +72,36 @@ export const skills: Skill[] = [
   { text: "UI/UX Developer", icon: <FaChartLine size={40} /> },
   { text: "Quality Assurance Engineer", icon: <FaBrain size={40} /> },
   { text: "Artificial Intelligence (AI)", icon: <FaBrain size={40} /> },
-  { text: "Machine Learning (ML)", icon: <FaRobot size={40} /> },
+  { text: "Machine Learning (ML)", icon: <FaRobot size={40} /> }, */
+];
+
+export const skills: Skill[] = [
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C++", icon: "/assets/skills/cpp.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
+  { cat: 0, name: "C", icon: "/assets/skills/c.png" },
 ];
 
 export const classes: Class[] = [
@@ -78,7 +126,7 @@ export const classes: Class[] = [
 ];
 
 export const work: Work[] = [
-  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", description: "all the single ladies all the single ladies all the single ladies all the single ladies• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
+  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", description: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
   { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", description: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success." },
   { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", description: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
   { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", description: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
