@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { roles, Role } from '../constants';
 
 const About: React.FC = () => {
   const ref = useRef<HTMLHeadingElement>(null);
@@ -36,26 +35,6 @@ const About: React.FC = () => {
         About Me
       </h1>
 
-      <div className="container mx-auto px-16 mt-16">
-        <div className="flex flex-wrap justify-center gap-5">
-          {roles.map((role: Role, index: number) => (
-            <div
-              key={index}
-              className={`flex items-center p-3 bg-[#182a51] rounded-2xl shadow-lg w-56 transition-transform duration-200 ${
-                visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
-              }`}
-              style={{
-                transitionDelay: visible ? `${index * 50}ms` : '0ms',
-                transitionProperty: 'transform, opacity',
-                transitionDuration: visible ? '300ms' : '200ms',
-              }}
-            >
-              <div className="text-blue-400 flex-shrink-0 mr-2">{role.icon}</div>
-              <span className="text-md text-white font-semibold">{role.text}</span>
-            </div>
-          ))}
-        </div>
-      </div>
       <br></br>
       <br></br>
       <br></br>

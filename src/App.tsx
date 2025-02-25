@@ -4,10 +4,6 @@ import Navbar from './pages/Navbar';
 import Background from './pages/Background';
 import Home from './pages/Home';
 import About from './pages/About';
-{/*import Education from './pages/Education';
-import Experience from './pages/Experience';
-import Projects from './pages/Projects';
-import Contact from './pages/Contact';*/}
 
 const App: React.FC = () => (
   <Router>
