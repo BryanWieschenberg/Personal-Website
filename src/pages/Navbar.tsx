@@ -1,97 +1,73 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiFileText } from "react-icons/fi";
-import { MdSchool } from 'react-icons/md';
+// import { FaGithub, FaLinkedin } from 'react-icons/fa';
+// import { FiFileText } from "react-icons/fi";
+// import { MdSchool } from 'react-icons/md';
+import { MdHome } from "react-icons/md";
+import { IoPersonSharp } from "react-icons/io5";
+import { FaSuitcase } from "react-icons/fa";
+import { MdEditDocument } from "react-icons/md";
+import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
+import { HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
 
 const Navbar: React.FC = () => (
   <header className="top-0 left-0 w-full text-white shadow-lg py-4 z-50" style={{ background: 'linear-gradient(to bottom, #4b576a, #0e1528)' }}>
     <div className="container mx-auto flex flex-wrap justify-between items-center px-4">
-      {/* Left Section */}
-      <div className="flex items-center space-x-2 flex-1">
-        <Link to="/" className="flex items-center space-x-2">
-          <img
-            src="./assets/images/favicon.ico"
-            alt="Logo"
-            className="w-10 h-10"
-          />
-          <span className="text-xl font-semibold text-blue-200 hidden lg:inline">
-            Bryan Wieschenberg
-          </span>
-        </Link>
-      </div>
-
       {/* Center Section */}
       <nav className="flex-1 flex justify-center">
-        <ul className="flex flex-wrap space-x-4 md:space-x-9 text-lg text-blue-300">
+        <ul className="flex flex-wrap space-x-3 md:space-x-6 text-lg text-blue-300">
           <li>
             <Link to="/" className="hover:text-blue-400">
-              Home
+              <MdHome className="w-8 h-8" />
             </Link>
           </li>
           <li>
-            <Link to="/about" className="hover:text-blue-400">
-              About
+            <Link to="about" className="hover:text-blue-400">
+              <IoPersonSharp className="w-8 h-8" />
             </Link>
           </li>
           <li>
-            <a href="#education" className="hover:text-blue-400">
-              Education
-            </a>
+            <Link to="/" className="hover:text-blue-400">
+              <FaSuitcase className="w-8 h-8" />
+            </Link>
           </li>
           <li>
-            <a href="#experience" className="hover:text-blue-400">
-              Experience
-            </a>
+            <Link to="/" className="hover:text-blue-400">
+              <MdEditDocument className="w-8 h-8" />
+            </Link>
           </li>
           <li>
-            <a href="#projects" className="hover:text-blue-400">
-              Projects
-            </a>
+            <Link to="/" className="hover:text-blue-400">
+              <HiChatBubbleBottomCenterText className="w-8 h-8" />
+            </Link>
           </li>
           <li>
-            <a href="#contact" className="hover:text-blue-400">
-              Contact
-            </a>
+            <Link to="/" className="hover:text-blue-400">
+              <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="hover:text-blue-400">
+              GI
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="hover:text-blue-400">
+              RE
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="hover:text-blue-400">
+              SC
+            </Link>
+          </li>
+          <li>
+            <Link to="/" className="hover:text-blue-400">
+              GI
+            </Link>
           </li>
         </ul>
       </nav>
-
-      {/* Right Section */}
-      <div className="flex flex-wrap space-x-4 flex-1 justify-end">
-        <a
-          href="./assets/attachments/Resume - Bryan Wieschenberg.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400"
-        >
-          <FiFileText className="w-7 h-7" />
-        </a>
-        <a
-          href="https://tcnj.edu"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400"
-        >
-          <MdSchool className="w-7 h-7" />
-        </a>
-        <a
-          href="https://github.com/BryanWieschenberg"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400"
-        >
-          <FaGithub className="w-7 h-7" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/bryanwieschenberg/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400"
-        >
-          <FaLinkedin className="w-7 h-7" />
-        </a>
-      </div>
     </div>
   </header>
 );
