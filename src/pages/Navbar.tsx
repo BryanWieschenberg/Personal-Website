@@ -6,6 +6,8 @@ import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 import { HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { RiSchoolLine, RiSchoolFill } from "react-icons/ri";
+import { FiPlus, FiX } from "react-icons/fi"; // Icons for expand & close
+import NavbarExpand from './NavbarExpand';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
@@ -16,6 +18,7 @@ const Navbar: React.FC = () => {
   const projectsRef = useRef<HTMLAnchorElement>(null);
   const contactRef = useRef<HTMLAnchorElement>(null);
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
+  const [isExpanded, setIsExpanded] = useState(false); // Track expanded navbar state
 
   // Function to update the line position
   const updateLinePosition = () => {
@@ -213,6 +216,15 @@ const Navbar: React.FC = () => {
             {/* Additional links as needed */}
           </ul>
         </nav>
+
+        {/* + Button (Only visible on small screens) */}
+        <button
+          className="md:hidden text-white text-3xl"
+          onClick={() => setIsExpanded(!isExpanded)}
+        >
+          {isExpanded ? <FiX /> : <FiPlus />}
+        </button>
+      
       </div>
       {/* Render the blue line at the bottom of the navbar if on the About page */}
       {(location.pathname === '/' || location.pathname === '/about' || location.pathname === '/education' || location.pathname === '/experience' || location.pathname === '/projects' || location.pathname === '/contact') && (
@@ -226,6 +238,10 @@ const Navbar: React.FC = () => {
           }}
         />
       )}
+
+      {/* Expanded Navbar */}
+      {isExpanded && <NavbarExpand onClose={() => setIsExpanded(false)} />}
+
     </header>
   );
 };
