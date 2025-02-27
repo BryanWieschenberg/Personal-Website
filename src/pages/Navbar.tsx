@@ -1,17 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdHome } from "react-icons/md";
-import { IoPersonSharp } from "react-icons/io5";
-import { FaSuitcase } from "react-icons/fa";
-import { MdEditDocument } from "react-icons/md";
+import { IoDocumentTextOutline, IoDocumentTextSharp, IoPersonCircleOutline, IoPersonCircle } from "react-icons/io5";
+import { MdWork, MdWorkOutline } from "react-icons/md";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 import { HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
 import { GoHome, GoHomeFill } from "react-icons/go";
+import { RiSchoolLine, RiSchoolFill } from "react-icons/ri";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
   const homeRef = useRef<HTMLAnchorElement>(null);
   const aboutRef = useRef<HTMLAnchorElement>(null);
+  const educationRef = useRef<HTMLAnchorElement>(null);
+  const experienceRef = useRef<HTMLAnchorElement>(null);
+  const projectsRef = useRef<HTMLAnchorElement>(null);
+  const contactRef = useRef<HTMLAnchorElement>(null);
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
 
   // Function to update the line position
@@ -35,6 +38,62 @@ const Navbar: React.FC = () => {
       const rect = aboutRef.current.getBoundingClientRect();
       // Get the bounding rectangle of the header (the closest header element).
       const headerRect = aboutRef.current.closest('header')?.getBoundingClientRect();
+      if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
+        const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
+        const width = rect.width + 8;
+        setLineStyle({ left, width });
+      }
+    }
+    else if (location.pathname === '/education' && educationRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = educationRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = educationRef.current.closest('header')?.getBoundingClientRect();
+      if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
+        const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
+        const width = rect.width + 8;
+        setLineStyle({ left, width });
+      }
+    }
+    else if (location.pathname === '/experience' && experienceRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = experienceRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = experienceRef.current.closest('header')?.getBoundingClientRect();
+      if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
+        const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
+        const width = rect.width + 8;
+        setLineStyle({ left, width });
+      }
+    }
+    else if (location.pathname === '/projects' && projectsRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = projectsRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = projectsRef.current.closest('header')?.getBoundingClientRect();
+      if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
+        const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
+        const width = rect.width + 8;
+        setLineStyle({ left, width });
+      }
+    }
+    else if (location.pathname === '/contact' && contactRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = contactRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = contactRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
         // Calculate the left offset relative to the header.
         // Subtracting a few pixels to let the line be a little wider than the icon.
@@ -88,34 +147,66 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/about' ? (
-                  <HiChatBubbleBottomCenterText className="w-8 h-8" />
+                  <IoPersonCircle className="w-8 h-8" />
                 ) : (
-                  <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
+                  <IoPersonCircleOutline className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">About</span>
               </Link>
             </li>
             <li>
-              <Link to="/education" className="hover:text-blue-400 flex flex-col items-center">
-                <MdHome className="w-8 h-8" />
+              <Link
+                to="/education"
+                ref={educationRef}
+                className="hover:text-blue-400 flex flex-col items-center"
+              >
+                {location.pathname === '/education' ? (
+                  <RiSchoolFill className="w-8 h-8" />
+                ) : (
+                  <RiSchoolLine className="w-8 h-8" />
+                )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Education</span>
               </Link>
             </li>
             <li>
-              <Link to="/experience" className="hover:text-blue-400 flex flex-col items-center">
-                <IoPersonSharp className="w-8 h-8" />
+              <Link
+                to="/experience"
+                ref={experienceRef}
+                className="hover:text-blue-400 flex flex-col items-center"
+              >
+                {location.pathname === '/experience' ? (
+                  <MdWork className="w-8 h-8" />
+                ) : (
+                  <MdWorkOutline className="w-8 h-8" />
+                )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Experience</span>
               </Link>
             </li>
             <li>
-              <Link to="/projects" className="hover:text-blue-400 flex flex-col items-center">
-                <FaSuitcase className="w-8 h-8" />
+              <Link
+                to="/projects"
+                ref={projectsRef}
+                className="hover:text-blue-400 flex flex-col items-center"
+              >
+                {location.pathname === '/projects' ? (
+                  <IoDocumentTextSharp className="w-8 h-8" />
+                ) : (
+                  <IoDocumentTextOutline className="w-8 h-8" />
+                )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Projects</span>
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="hover:text-blue-400 flex flex-col items-center">
-                <MdEditDocument className="w-8 h-8" />
+              <Link
+                to="/contact"
+                ref={contactRef}
+                className="hover:text-blue-400 flex flex-col items-center"
+              >
+                {location.pathname === '/contact' ? (
+                  <HiChatBubbleBottomCenterText className="w-8 h-8" />
+                ) : (
+                  <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
+                )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Contact</span>
               </Link>
             </li>
@@ -124,7 +215,7 @@ const Navbar: React.FC = () => {
         </nav>
       </div>
       {/* Render the blue line at the bottom of the navbar if on the About page */}
-      {(location.pathname === '/' || location.pathname === '/about') && (
+      {(location.pathname === '/' || location.pathname === '/about' || location.pathname === '/education' || location.pathname === '/experience' || location.pathname === '/projects' || location.pathname === '/contact') && (
         <div
           className="absolute bg-blue-400"
           style={{
