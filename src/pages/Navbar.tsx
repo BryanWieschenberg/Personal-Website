@@ -12,99 +12,52 @@ const Navbar: React.FC = () => {
   const location = useLocation();
   const homeRef = useRef<HTMLAnchorElement>(null);
   const aboutRef = useRef<HTMLAnchorElement>(null);
-  const educationRef = useRef<HTMLAnchorElement>(null);
-  const experienceRef = useRef<HTMLAnchorElement>(null);
-  const projectsRef = useRef<HTMLAnchorElement>(null);
-  const contactRef = useRef<HTMLAnchorElement>(null);
-  
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
-  const [hasTransition, setHasTransition] = useState(true);
-  const resizeTimerRef = useRef<number | null>(null);
 
-  // Function to update the line position based on current route
-  const updateLinePosition = (shouldAnimate: boolean = true) => {
-    let activeRef: React.RefObject<HTMLAnchorElement> | null = null;
-    
-    // Determine which ref to use based on the current path
-    switch (location.pathname) {
-      case '/':
-        activeRef = homeRef;
-        break;
-      case '/about':
-        activeRef = aboutRef;
-        break;
-      case '/education':
-        activeRef = educationRef;
-        break;
-      case '/experience':
-        activeRef = experienceRef;
-        break;
-      case '/projects':
-        activeRef = projectsRef;
-        break;
-      case '/contact':
-        activeRef = contactRef;
-        break;
-      default:
-        activeRef = null;
-    }
-    
-    // Set transition state based on whether this should animate
-    setHasTransition(shouldAnimate);
-    
-    // If we have an active ref, calculate and set the line style
-    if (activeRef && activeRef.current) {
-      const rect = activeRef.current.getBoundingClientRect();
-      const headerRect = activeRef.current.closest('header')?.getBoundingClientRect();
-      
+  // Function to update the line position
+  const updateLinePosition = () => {
+    if (location.pathname === '/' && homeRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = homeRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = homeRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
         const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
         const width = rect.width + 8;
-        
+        setLineStyle({ left, width });
+      }
+    }
+    else if (location.pathname === '/about' && aboutRef.current) {
+      // Get the bounding rectangle of the About link.
+      const rect = aboutRef.current.getBoundingClientRect();
+      // Get the bounding rectangle of the header (the closest header element).
+      const headerRect = aboutRef.current.closest('header')?.getBoundingClientRect();
+      if (headerRect) {
+        // Calculate the left offset relative to the header.
+        // Subtracting a few pixels to let the line be a little wider than the icon.
+        const left = rect.left - headerRect.left - 4;
+        // The width is the About link's width plus extra pixels (e.g., 8px) for a slight overhang.
+        const width = rect.width + 8;
         setLineStyle({ left, width });
       }
     }
   };
 
-  // Handle resize events without animation
-  const handleResize = () => {
-    // Clear the transition first (no animation)
-    updateLinePosition(false);
-    
-    // Clear any existing timer
-    if (resizeTimerRef.current !== null) {
-      window.clearTimeout(resizeTimerRef.current);
-    }
-  };
-
-  // Update on location change
+  // Update on both location change and resize events
   useEffect(() => {
-    // Small delay to ensure route change is complete
-    const timer = setTimeout(() => {
-      updateLinePosition(true); // Animate on page navigation
-    }, 10);
+    updateLinePosition();
     
+    // Add resize event listener to update line position when window is resized
+    window.addEventListener('resize', updateLinePosition);
+    
+    // Clean up the event listener when component unmounts
     return () => {
-      clearTimeout(timer);
+      window.removeEventListener('resize', updateLinePosition);
     };
   }, [location]);
-
-  // Add resize listener separately
-  useEffect(() => {
-    // Initial position (no animation on first render)
-    updateLinePosition(false);
-    
-    // Add resize event listener
-    window.addEventListener('resize', handleResize);
-    
-    // Clean up
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (resizeTimerRef.current !== null) {
-        window.clearTimeout(resizeTimerRef.current);
-      }
-    };
-  }, []);
 
   return (
     <header
@@ -143,59 +96,45 @@ const Navbar: React.FC = () => {
               </Link>
             </li>
             <li>
-              <Link 
-                to="/education" 
-                ref={educationRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+              <Link to="/education" className="hover:text-blue-400 flex flex-col items-center">
                 <MdHome className="w-8 h-8" />
                 <span className="hidden md:block text-sm leading-tight mb-1">Education</span>
               </Link>
             </li>
             <li>
-              <Link 
-                to="/experience" 
-                ref={experienceRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+              <Link to="/experience" className="hover:text-blue-400 flex flex-col items-center">
                 <IoPersonSharp className="w-8 h-8" />
                 <span className="hidden md:block text-sm leading-tight mb-1">Experience</span>
               </Link>
             </li>
             <li>
-              <Link 
-                to="/projects" 
-                ref={projectsRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+              <Link to="/projects" className="hover:text-blue-400 flex flex-col items-center">
                 <FaSuitcase className="w-8 h-8" />
                 <span className="hidden md:block text-sm leading-tight mb-1">Projects</span>
               </Link>
             </li>
             <li>
-              <Link 
-                to="/contact" 
-                ref={contactRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+              <Link to="/contact" className="hover:text-blue-400 flex flex-col items-center">
                 <MdEditDocument className="w-8 h-8" />
                 <span className="hidden md:block text-sm leading-tight mb-1">Contact</span>
               </Link>
             </li>
+            {/* Additional links as needed */}
           </ul>
         </nav>
       </div>
-      {/* Render the blue line at the bottom of the navbar */}
-      <div
-        className="absolute bg-blue-400"
-        style={{
-          bottom: 0,
-          left: lineStyle.left,
-          width: lineStyle.width,
-          height: '2px',
-          transition: hasTransition ? 'left 0.3s ease, width 0.3s ease' : 'none'
-        }}
-      />
+      {/* Render the blue line at the bottom of the navbar if on the About page */}
+      {(location.pathname === '/' || location.pathname === '/about') && (
+        <div
+          className="absolute bg-blue-400"
+          style={{
+            bottom: 0,
+            left: lineStyle.left,
+            width: lineStyle.width,
+            height: '2px',
+          }}
+        />
+      )}
     </header>
   );
 };
