@@ -3,18 +3,18 @@ import React from 'react';
 const Home: React.FC = () => (
   <>
     {/* Top Slogan Section */}
-    <div className="flex flex-col md:flex-row items-center justify-center slogan">
+    <div className="flex items-center justify-center slogan space-x-2 md:space-x-4">
       {/* Left Section */}
-      <div className="flex-shrink-0 pl-4 md:pl-[224px] flex items-center mt-4 md:mt-12">
+      <div className="flex-shrink-0 pl-4 md:pl-[224px] pt-10 flex items-center">
         <img
           src="./assets/images/centerArrow.png"
-          className="custom-image animate-fadeInLeftDelay2 w-[20px] h-[20px] md:w-[100px] md:h-[100px]"
+          className="custom-image animate-fadeInLeftDelay2 w-[40px] h-[40px] md:w-[130px] md:h-[130px]"
           alt="Left arrow"
         />
       </div>
 
       {/* Middle Section */}
-      <div className="flex flex-col slogan mx-2 md:mx-4 text-center overflow-hidden">
+      <div className="flex flex-col slogan text-center overflow-hidden">
         <h2 className="slogan animate-fadeInLeft text-[1.5rem] md:text-6xl">
           Innovative Software.
         </h2>
@@ -27,10 +27,10 @@ const Home: React.FC = () => (
       </div>
 
       {/* Right Section */}
-      <div className="flex-shrink-0 pr-4 md:pr-[224px] flex items-center mt-4 md:mt-12">
+      <div className="flex-shrink-0 pr-4 md:pr-[224px] pt-10 flex items-center">
         <img
           src="./assets/images/centerArrow.png"
-          className="custom-image transform -scale-x-100 animate-fadeInRightDelay2 w-[20px] h-[20px] md:w-[100px] md:h-[100px]"
+          className="custom-image transform -scale-x-100 animate-fadeInRightDelay2 w-[40px] h-[40px] md:w-[130px] md:h-[130px]"
           alt="Right arrow"
         />
       </div>
