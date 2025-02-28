@@ -15,13 +15,13 @@ const Home: React.FC = () => (
 
       {/* Middle Section */}
       <div className="flex flex-col slogan text-center overflow-hidden">
-        <h2 className="slogan animate-fadeInLeft text-[1.5rem] md:text-6xl">
+        <h2 className="slogan animate-fadeInLeft text-[1.5rem] md:text-5xl">
           Innovative Software.
         </h2>
-        <h2 className="slogan animate-fadeInRightDelay text-[1.5rem] md:text-6xl">
+        <h2 className="slogan animate-fadeInRightDelay text-[1.5rem] md:text-5xl">
           Impactful Results.
         </h2>
-        <h2 className="slogan animate-fadeInUpDelay2 text-[1.5rem] md:text-6xl">
+        <h2 className="slogan animate-fadeInUpDelay2 text-[1.5rem] md:text-5xl">
           Limitless Success.
         </h2>
       </div>
