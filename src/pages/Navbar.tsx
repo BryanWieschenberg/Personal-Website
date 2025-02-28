@@ -158,16 +158,16 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-4 flex justify-between items-center">
           {/* Logo section - always visible, text hidden on small screens */}
           <div className="flex items-center">
-            <img src="./assets/images/favicon.ico" alt="Logo" className="w-6 h-6 md:w-10 md:h-10" />
-            <div className="ml-2 hidden md:block">
+            <img src="./assets/images/favicon.ico" alt="Logo" className="w-6 h-6 lg:w-10 lg:h-10" />
+            <div className="ml-2 hidden lg:block">
               <span className="text-blue-300">Bryan</span>
               <span className="block text-sm text-blue-300">Wieschenberg</span>
             </div>
           </div>
 
           {/* Main navigation - centered */}
-          <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 md:space-x-10 text-lg text-blue-300">
-            <ul className="flex flex-wrap space-x-1.5 md:space-x-8 text-lg text-blue-300">
+          <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 lg:space-x-10 text-lg text-blue-300">
+            <ul className="flex flex-wrap space-x-1.5 lg:space-x-8 text-lg text-blue-300">
               <li>
                 <Link
                   to="/"
@@ -179,7 +179,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <GoHome className="w-8 h-8" />
                   )}
-                  <span className="hidden md:block text-sm leading-tight mb-1">Home</span>
+                  <span className="hidden lg:block text-sm leading-tight mb-1">Home</span>
                 </Link>
               </li>
               <li>
@@ -193,7 +193,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <IoPersonCircleOutline className="w-8 h-8" />
                   )}
-                  <span className="hidden md:block text-sm leading-tight mb-1">About</span>
+                  <span className="hidden lg:block text-sm leading-tight mb-1">About</span>
                 </Link>
               </li>
               <li>
@@ -207,7 +207,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <MdWorkOutline className="w-8 h-8" />
                   )}
-                  <span className="hidden md:block text-sm leading-tight mb-1">Experience</span>
+                  <span className="hidden lg:block text-sm leading-tight mb-1">Experience</span>
                 </Link>
               </li>
               <li>
@@ -221,7 +221,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <IoDocumentTextOutline className="w-8 h-8" />
                   )}
-                  <span className="hidden md:block text-sm leading-tight mb-1">Projects</span>
+                  <span className="hidden lg:block text-sm leading-tight mb-1">Projects</span>
                 </Link>
               </li>
               <li>
@@ -235,7 +235,7 @@ const Navbar: React.FC = () => {
                   ) : (
                     <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
                   )}
-                  <span className="hidden md:block text-sm leading-tight mb-1">Contact</span>
+                  <span className="hidden lg:block text-sm leading-tight mb-1">Contact</span>
                 </Link>
               </li>
             </ul>
@@ -243,7 +243,7 @@ const Navbar: React.FC = () => {
 
           {/* Right section: Social Links on md+ and toggle button on mobile */}
           <div className="flex items-center">
-            <div className="hidden md:flex items-center">
+            <div className="hidden lg:flex items-center">
               <ul className="flex space-x-6 text-lg text-blue-200">
                 <li>
                   <a
@@ -290,7 +290,7 @@ const Navbar: React.FC = () => {
             
             {/* Mobile toggle button */}
             <button
-              className="md:hidden text-blue-300 text-3xl ml-4"
+              className="lg:hidden text-blue-300 text-3xl ml-4"
               onClick={() => setIsExpanded(!isExpanded)}
             >
               {isExpanded ? <FiX /> : <FiPlus />}
