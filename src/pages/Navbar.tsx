@@ -5,7 +5,6 @@ import { MdWork, MdWorkOutline } from "react-icons/md";
 import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
 import { HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
 import { GoHome, GoHomeFill } from "react-icons/go";
-import { RiSchoolLine, RiSchoolFill } from "react-icons/ri";
 import { FiPlus, FiX } from "react-icons/fi";
 import { FaLinkedin, FaGithub, FaFileAlt, FaUniversity } from 'react-icons/fa';
 import NavbarExpand from './NavbarExpand';
@@ -103,7 +102,7 @@ const Navbar: React.FC = () => {
 
         {/* Main navigation - centered */}
         <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 md:space-x-10 text-lg text-blue-300">
-          <ul className="flex flex-wrap space-x-1 md:space-x-10 text-lg text-blue-300">
+          <ul className="flex flex-wrap space-x-1 md:space-x-8 text-lg text-blue-300">
             <li>
               <Link
                 to="/"
