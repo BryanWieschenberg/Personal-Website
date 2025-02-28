@@ -102,13 +102,13 @@ const Navbar: React.FC = () => {
 
         {/* Main navigation - centered */}
         <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 md:space-x-10 text-lg text-blue-300">
-          <ul className="flex flex-wrap space-x-1 md:space-x-8 text-lg text-blue-300">
+          <ul className="flex flex-wrap space-x-1.5 md:space-x-8 text-lg text-blue-300">
             <li>
               <Link
                 to="/"
                 ref={homeRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+                className={`flex flex-col items-center ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                 {location.pathname === '/' ? (
                   <GoHomeFill className="w-8 h-8" />
                 ) : (
@@ -121,8 +121,8 @@ const Navbar: React.FC = () => {
               <Link
                 to="/about"
                 ref={aboutRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+                className={`flex flex-col items-center ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                 {location.pathname === '/about' ? (
                   <IoPersonCircle className="w-8 h-8" />
                 ) : (
@@ -135,8 +135,8 @@ const Navbar: React.FC = () => {
               <Link
                 to="/experience"
                 ref={experienceRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+                className={`flex flex-col items-center ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                 {location.pathname === '/experience' ? (
                   <MdWork className="w-8 h-8" />
                 ) : (
@@ -149,8 +149,8 @@ const Navbar: React.FC = () => {
               <Link
                 to="/projects"
                 ref={projectsRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+                className={`flex flex-col items-center ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                 {location.pathname === '/projects' ? (
                   <IoDocumentTextSharp className="w-8 h-8" />
                 ) : (
@@ -163,8 +163,8 @@ const Navbar: React.FC = () => {
               <Link
                 to="/contact"
                 ref={contactRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
+                className={`flex flex-col items-center ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                 {location.pathname === '/contact' ? (
                   <HiChatBubbleBottomCenterText className="w-8 h-8" />
                 ) : (
@@ -185,7 +185,7 @@ const Navbar: React.FC = () => {
                   href="https://linkedin.com/in/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 flex flex-col items-center"
+                  className="hover:text-blue-300 flex flex-col items-center"
                 >
                   <FaLinkedin className="w-8 h-8" />
                   <span className="text-sm leading-tight">LinkedIn</span>
@@ -196,7 +196,7 @@ const Navbar: React.FC = () => {
                   href="https://github.com/yourusername"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 flex flex-col items-center"
+                  className="hover:text-blue-300 flex flex-col items-center"
                 >
                   <FaGithub className="w-8 h-8" />
                   <span className="text-sm leading-tight">GitHub</span>
@@ -207,7 +207,7 @@ const Navbar: React.FC = () => {
                   href="/assets/resume.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 flex flex-col items-center"
+                  className="hover:text-blue-300 flex flex-col items-center"
                 >
                   <FaFileAlt className="w-8 h-8" />
                   <span className="text-sm leading-tight">Resume</span>
@@ -218,7 +218,7 @@ const Navbar: React.FC = () => {
                   href="https://college.edu"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-blue-400 flex flex-col items-center"
+                  className="hover:text-blue-300 flex flex-col items-center"
                 >
                   <FaUniversity className="w-8 h-8" />
                   <span className="text-sm leading-tight">College</span>
