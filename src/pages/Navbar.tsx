@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
 
         {/* Main navigation - centered */}
         <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 md:space-x-10 text-lg text-blue-300">
-          <ul className="flex flex-wrap space-x-2 md:space-x-10 text-lg text-blue-300">
+          <ul className="flex flex-wrap space-x-1 md:space-x-10 text-lg text-blue-300">
             <li>
               <Link
                 to="/"
@@ -111,9 +111,9 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/' ? (
-                  <GoHomeFill className="w-6 h-6" />
+                  <GoHomeFill className="w-8 h-8" />
                 ) : (
-                  <GoHome className="w-6 h-6" />
+                  <GoHome className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Home</span>
               </Link>
@@ -125,25 +125,11 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/about' ? (
-                  <IoPersonCircle className="w-6 h-6" />
+                  <IoPersonCircle className="w-8 h-8" />
                 ) : (
-                  <IoPersonCircleOutline className="w-6 h-6" />
+                  <IoPersonCircleOutline className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">About</span>
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/education"
-                ref={educationRef}
-                className="hover:text-blue-400 flex flex-col items-center"
-              >
-                {location.pathname === '/education' ? (
-                  <RiSchoolFill className="w-6 h-6" />
-                ) : (
-                  <RiSchoolLine className="w-6 h-6" />
-                )}
-                <span className="hidden md:block text-sm leading-tight mb-1">Education</span>
               </Link>
             </li>
             <li>
@@ -153,9 +139,9 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/experience' ? (
-                  <MdWork className="w-6 h-6" />
+                  <MdWork className="w-8 h-8" />
                 ) : (
-                  <MdWorkOutline className="w-6 h-6" />
+                  <MdWorkOutline className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Experience</span>
               </Link>
@@ -167,9 +153,9 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/projects' ? (
-                  <IoDocumentTextSharp className="w-6 h-6" />
+                  <IoDocumentTextSharp className="w-8 h-8" />
                 ) : (
-                  <IoDocumentTextOutline className="w-6 h-6" />
+                  <IoDocumentTextOutline className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Projects</span>
               </Link>
@@ -181,9 +167,9 @@ const Navbar: React.FC = () => {
                 className="hover:text-blue-400 flex flex-col items-center"
               >
                 {location.pathname === '/contact' ? (
-                  <HiChatBubbleBottomCenterText className="w-6 h-6" />
+                  <HiChatBubbleBottomCenterText className="w-8 h-8" />
                 ) : (
-                  <HiOutlineChatBubbleBottomCenterText className="w-6 h-6" />
+                  <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
                 )}
                 <span className="hidden md:block text-sm leading-tight mb-1">Contact</span>
               </Link>
@@ -244,7 +230,7 @@ const Navbar: React.FC = () => {
           
           {/* Mobile toggle button */}
           <button
-            className="md:hidden text-white text-3xl ml-4"
+            className="md:hidden text-blue-300 text-3xl ml-4"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             {isExpanded ? <FiX /> : <FiPlus />}
