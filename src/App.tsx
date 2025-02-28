@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ToTop from "./pages/ToTop";
 import Navbar from './pages/Navbar';
 import Background from './pages/Background';
 import Home from './pages/Home';
@@ -34,6 +35,7 @@ const App: React.FC = () => (
       `}
     </style>
 
+    <ToTop />
     <Background />
     <Navbar />
 
