@@ -108,27 +108,7 @@ const Navbar: React.FC = () => {
           <ul className="flex space-x-1.5 text-lg text-blue-200">
             <li>
               <a
-                href="https://linkedin.com/in/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-300 flex items-center"
-              >
-                <FaLinkedin className="w-7 h-7" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-blue-300 flex items-center"
-              >
-                <FaGithub className="w-7 h-7" />
-              </a>
-            </li>
-            <li>
-              <a
-                href="/assets/resume.pdf"
+                href="/assets/attachments/Resume%20-%20Bryan%20Wieschenberg.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-300 flex items-center"
@@ -138,12 +118,32 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <a
-                href="https://college.edu"
+                href="https://tcnj.edu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-300 flex items-center"
               >
                 <FaUniversity className="w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://github.com/BryanWieschenberg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-300 flex items-center"
+              >
+                <FaGithub className="w-7 h-7" />
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://linkedin.com/in/BryanWieschenberg/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-300 flex items-center"
+              >
+                <FaLinkedin className="w-7 h-7" />
               </a>
             </li>
           </ul>
