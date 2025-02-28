@@ -18,7 +18,6 @@ const Navbar: React.FC = () => {
   const contactRef = useRef<HTMLAnchorElement>(null);
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
   const [isExpanded, setIsExpanded] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const updateLinePosition = () => {
     if (location.pathname === '/' && homeRef.current) {
@@ -80,7 +79,6 @@ const Navbar: React.FC = () => {
   // Track window resize
   const handleResize = () => {
     const newWidth = window.innerWidth;
-    setWindowWidth(newWidth);
     
     // Close the expanded menu when screen size reaches md breakpoint (768px in Tailwind by default)
     if (newWidth >= 768 && isExpanded) {
