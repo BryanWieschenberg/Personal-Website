@@ -41,8 +41,9 @@ const Home: React.FC = () => (
       <div className="flex flex-col md:flex-row items-center justify-center container mx-auto px-4 lg:px-20 max-w-7xl md:pr-32">
         {/* Left Content */}
         <div className="text-center md:text-left md:w-1/2 flex flex-col items-center md:items-start">
-          <h1 className="text-4xl md:text-8xl font-bold leading-tight mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center md:text-left">
-            Hi, I'm <span className="relative inline-block">
+          <h1 className="text-5xl md:text-8xl font-bold leading-tight mt-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center md:text-left">
+            Hi, I'm{' '}
+            <span className="relative inline-block">
               <span className="relative bg-gradient-to-r from-[#3c86ff] to-[#69f1ff] bg-clip-text text-transparent">
                 Bryan
               </span>
@@ -61,11 +62,12 @@ const Home: React.FC = () => (
             <br />
             as an aspiring <span className="font-semibold text-[#b8e4ff]">Software Engineer</span>.
           </p>
-          <div className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start space-y-2 sm:space-y-0 sm:space-x-4">
-            <a href="#about" className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm md:text-xl">
+          {/* Original Buttons (visible on md+) */}
+          <div className="mt-6 hidden md:flex flex-row justify-start space-x-4">
+            <a href="#about" className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-xl">
               Learn More
             </a>
-            <a href="#contact" className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm md:text-xl">
+            <a href="#contact" className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-xl">
               Contact Me
             </a>
           </div>
@@ -82,6 +84,24 @@ const Home: React.FC = () => (
         </div>
       </div>
     </div>
+
+    {/* Duplicate Buttons for Mobile (visible only on mobile) */}
+    <div className="block md:hidden mt-6">
+  <div className="flex flex-row justify-center space-x-4">
+    <a
+      href="#about"
+      className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm"
+    >
+      Learn More
+    </a>
+    <a
+      href="#contact"
+      className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm"
+    >
+      Contact Me
+    </a>
+  </div>
+</div>
   </>
 );
 
