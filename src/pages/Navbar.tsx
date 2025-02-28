@@ -160,8 +160,8 @@ const Navbar: React.FC = () => {
           <div className="flex items-center">
             <img src="./assets/images/favicon.ico" alt="Logo" className="w-6 h-6 md:w-10 md:h-10" />
             <div className="ml-2 hidden md:block">
-              <span className="text-white">Bryan</span>
-              <span className="block text-sm text-white">Wieschenberg</span>
+              <span className="text-blue-300">Bryan</span>
+              <span className="block text-sm text-blue-300">Wieschenberg</span>
             </div>
           </div>
 
@@ -247,46 +247,42 @@ const Navbar: React.FC = () => {
               <ul className="flex space-x-6 text-lg text-blue-200">
                 <li>
                   <a
-                    href="https://linkedin.com/in/yourusername"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-blue-300 flex flex-col items-center"
-                  >
-                    <FaLinkedin className="w-8 h-8" />
-                    <span className="text-sm leading-tight">LinkedIn</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://github.com/yourusername"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-blue-300 flex flex-col items-center"
-                  >
-                    <FaGithub className="w-8 h-8" />
-                    <span className="text-sm leading-tight">GitHub</span>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/assets/resume.pdf"
+                    href="./assets/attachments/Resume%20-%20Bryan%20Wieschenberg.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-blue-300 flex flex-col items-center"
                   >
                     <FaFileAlt className="w-8 h-8" />
-                    <span className="text-sm leading-tight">Resume</span>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://college.edu"
+                    href="https://tcnj.edu"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-blue-300 flex flex-col items-center"
                   >
                     <FaUniversity className="w-8 h-8" />
-                    <span className="text-sm leading-tight">College</span>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://github.com/BryanWieschenberg/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-300 flex flex-col items-center"
+                  >
+                    <FaGithub className="w-8 h-8" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://linkedin.com/in/BryanWieschenberg/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-blue-300 flex flex-col items-center"
+                  >
+                    <FaLinkedin className="w-8 h-8" />
                   </a>
                 </li>
               </ul>
