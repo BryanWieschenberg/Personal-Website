@@ -21,7 +21,7 @@ const AvailabilityTimeline: React.FC = () => {
       name: "Spring Academic Semester",
       start: { month: 1, period: "late" }, // Late January
       end: { month: 5, period: "late" },    // Mid May
-      type: "Remote or local",
+      type: "Remote",
       color: "#10b981" // Green color for Spring
     },
     {
@@ -35,7 +35,7 @@ const AvailabilityTimeline: React.FC = () => {
       name: "Fall Academic Semester",
       start: { month: 8, period: "mid" },  // Mid August
       end: { month: 12, period: "late" },   // Mid December
-      type: "Remote or local",
+      type: "Remote",
       color: "#ef4444" // Red color for Fall
     },
     {

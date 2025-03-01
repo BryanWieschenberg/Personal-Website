@@ -5,8 +5,10 @@ const ToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0 });
+    });
+    }, [pathname]);
 
   return null;
 };
