@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from 'react'; 
 import { animateHeader, animateAbout } from "../animations"; // Import animation function 
 import AvailabilityTimeline from "./AvailabilityTimeline"; // Import our new component
- 
+import OpenTo from "./OpenTo";
+
 const About: React.FC = () => { 
   const headingRef = useRef<HTMLHeadingElement | null>(null); 
    
@@ -47,6 +48,7 @@ const About: React.FC = () => {
         I am authorized to work in the U.S. without sponsorship. 
       </p>
 
+      <OpenTo />
       <AvailabilityTimeline />
       
       <br/><br/><br/><br/><br/><br/> 
