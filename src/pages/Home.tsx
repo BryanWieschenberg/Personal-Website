@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { animateSlogan } from '../animations'; // Make sure path is correct
+import { animateHome } from '../animations'; // Make sure path is correct
 
 const Home: React.FC = () => {
   // Set up refs and animation on component mount
   useEffect(() => {
     // Start animations when component mounts
-    animateSlogan();
+    animateHome();
   }, []);
 
   return (

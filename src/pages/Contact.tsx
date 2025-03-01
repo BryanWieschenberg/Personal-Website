@@ -84,8 +84,8 @@ const Contact: React.FC = () => {
         </button>
         
         {status === 'success' || status === 'error' && (
-          <p className="mt-4 text-green-400 text-center">
-            Thank you! Your message has been sent.
+          <p className="text-lg mt-4 text-green-400 text-center">
+            Your message was sent successfully! I look forward to connecting.
           </p>
         )}
       </form>

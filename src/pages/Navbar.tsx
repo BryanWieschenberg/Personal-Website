@@ -80,8 +80,8 @@ const Navbar: React.FC = () => {
   const handleResize = () => {
     const newWidth = window.innerWidth;
     
-    // Close the expanded menu when screen size reaches md breakpoint (768px in Tailwind by default)
-    if (newWidth >= 768 && isExpanded) {
+    // Close the expanded menu when screen size reaches lg breakpoint (1024px in Tailwind)
+    if (newWidth >= 1024 && isExpanded) {
       setIsExpanded(false);
     }
     
