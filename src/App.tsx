@@ -10,7 +10,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 
 const App: React.FC = () => (
-  <Router>
+  <Router basename="/">
       <style>
       {`
         /* Custom Dark Scrollbar */
