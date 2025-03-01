@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react'; 
 import { animateHeader, animateAbout } from "../animations"; // Import animation function 
 import AvailabilityTimeline from "./AvailabilityTimeline"; // Import our new component
-import OpenTo from "./OpenTo";
 
 const About: React.FC = () => { 
   const headingRef = useRef<HTMLHeadingElement | null>(null); 
@@ -39,21 +38,11 @@ const About: React.FC = () => {
         </div> 
       </div> 
  
-      <h1 className="roles-text pt-4 lg:pt-20 text-2xl lg:text-6xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#25b0e7] bg-clip-text"> 
-        What Roles Am I Looking For? 
-      </h1> 
-      <p className="lg:pt-8 text-xs text-center lg:text-xl text-white"> 
-        I'm based in New Jersey, but am open to relocating nationwide without financial assistance for the right opportunity. 
-        <br/> 
-        I am authorized to work in the U.S. without sponsorship. 
+      <p className="lg:pt-8 text-center text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
+        I'm actively involved in many clubs and organizations!
       </p>
 
-      <OpenTo />
-      <h1 className="roles-text lg:mb-2 pt-4 lg:pt-10 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text"> 
-        Availability Timeline:
-      </h1>
       <AvailabilityTimeline />
-      
       <br/><br/><br/><br/><br/><br/> 
     </> 
   ); 
