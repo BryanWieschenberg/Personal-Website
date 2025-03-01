@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react'; 
-import { animateHeader, animateAbout } from "../animations"; // Import animation function 
-import AvailabilityTimeline from "./AvailabilityTimeline"; // Import our new component
+import { animateHeader, animateAbout } from "../animations"; 
+import AvailabilityTimeline from "./AvailabilityTimeline";
+import Orgs from "./Orgs";
 
 const About: React.FC = () => { 
   const headingRef = useRef<HTMLHeadingElement | null>(null); 
@@ -38,11 +39,11 @@ const About: React.FC = () => {
         </div> 
       </div> 
  
-      <p className="lg:pt-8 text-center text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
-        I'm actively involved in many clubs and organizations!
-      </p>
+
+      <Orgs />
 
       <AvailabilityTimeline />
+
       <br/><br/><br/><br/><br/><br/> 
     </> 
   ); 

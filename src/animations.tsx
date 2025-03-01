@@ -48,4 +48,8 @@ export const animateAbout = () => {
     { opacity: 0, x: -150 },
     { opacity: 1, x: 0, duration: 1, ease: "power4.out" }
   );
+  gsap.fromTo(".big-arrow",
+    { opacity: 0, y: 60 },
+    { opacity: 1, y: 0, duration: 1, ease: "power4.out" }
+  );
 }
