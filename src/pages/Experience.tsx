@@ -1,17 +1,39 @@
-import React, { useRef, useEffect } from 'react';
-import { animateHeader } from "../animations"; // Import animation function
+import React from 'react';
 
 const Experience: React.FC = () => {
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
-
-  useEffect(() => {
-    animateHeader(headingRef.current);
-  }, []);
-
   return (
-    <h1 ref={headingRef} className={`text-6xl md:text-8xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
-        Experience
-    </h1>
+    <div>
+      {/* Fixed Navbar */}
+      <nav className="fixed top-0 left-0 right-0 bg-white shadow-md p-4 z-50 flex justify-center space-x-6">
+        <a href="#section1" className="text-blue-500 hover:underline">
+          Go to Section 1
+        </a>
+        <a href="#section2" className="text-blue-500 hover:underline">
+          Go to Section 2
+        </a>
+      </nav>
+
+      {/* Add top padding to account for fixed navbar */}
+      <div className="pt-20">
+        {/* Section 1 */}
+        <section id="section1" className="min-h-screen bg-gray-100 p-8">
+          <h1 className="text-3xl font-bold mb-4">Section 1</h1>
+          <p>
+            This is Section 1. Click the link in the navbar to jump to Section 2.
+          </p>
+        </section>
+        {/* Section 2 (Placeholder Experience Content) */}
+        <section id="section2" className="min-h-screen bg-gray-200 p-8">
+          <h1 className="text-3xl font-bold mb-4">Section 2 (Experience)</h1>
+          <div className="p-4 bg-blue-200 rounded-lg">
+            <h2 className="text-2xl font-bold">Experience Section</h2>
+            <p>
+              This is placeholder content for the Experience section. Scroll behavior on mobile can be tested here.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
   );
 };
 
