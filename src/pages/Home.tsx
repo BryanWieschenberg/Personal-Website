@@ -1,16 +1,33 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { animateHome } from '../animations'; // Make sure path is correct
+import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const topRef = useRef<HTMLParagraphElement | null>(null);
-    
+    const navigate = useNavigate();
+
     // Set up refs and animation on component mount
     useEffect(() => {
       // Start animations when component mounts
       animateHome();
     }, []);
 
+    const LearnMore = (e: React.MouseEvent) => {
+      e.preventDefault();
+      topRef.current?.scrollIntoView();
+      setTimeout(() => {
+        navigate('/about');
+      }, 0);
+    };
+  
+    const ContactMe = (e: React.MouseEvent) => {
+      e.preventDefault();
+      topRef.current?.scrollIntoView();
+      setTimeout(() => {
+        navigate('/contact');
+      }, 0);
+    };
+  
   return (
     <>
       <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
@@ -62,12 +79,8 @@ const Home: React.FC = () => {
             </p>
             {/* Original Buttons (visible on md+) */}
             <div className="mt-6 hidden lg:flex flex-row justify-start space-x-4">
-              <Link to="/about" className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-xl">
-                Learn More
-              </Link>
-              <Link to="/contact" className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-xl">
-                Contact Me
-              </Link>
+              <a href="top" onClick={LearnMore} className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-xl">Learn More</a>
+              <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-xl">Learn More</a>
             </div>
           </div>
           
@@ -85,18 +98,8 @@ const Home: React.FC = () => {
       {/* Duplicate Buttons for Mobile (visible only on mobile) */}
       <div className="main-content block lg:hidden mt-6 opacity-0">
         <div className="flex flex-row justify-center space-x-4">
-          <Link
-            to="/about"
-            className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm"
-          >
-            Learn More
-          </Link>
-          <Link
-            to="/contact"
-            className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm"
-          >
-            Contact Me
-          </Link>
+          <a href="top" onClick={LearnMore} className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm">Learn More</a>
+          <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm">Learn More</a>
         </div>
       </div>
       <br/><br/>
