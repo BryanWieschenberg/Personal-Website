@@ -1,6 +1,5 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import ToTop from "./pages/ToTop";
 import Navbar from './pages/Navbar';
 import Background from './pages/Background';
 import Home from './pages/Home';
@@ -68,6 +67,7 @@ const App: React.FC = () => (
       `}
     </style>
 
+<<<<<<< HEAD
     <div className="app-container">
       <ToTop />
       <Background />
@@ -86,6 +86,18 @@ const App: React.FC = () => (
         </Routes>
       </div>
     </div>
+=======
+    <Background />
+    <Navbar />
+
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/experience" element={<Experience />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+>>>>>>> 2845f7b545290c9b1dc2437dd671052931f095c3
   </Router>
 );
 
