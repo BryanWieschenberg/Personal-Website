@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IoDocumentTextOutline, IoDocumentTextSharp, IoPersonCircleOutline, IoPersonCircle } from "react-icons/io5";
 import { MdWork, MdWorkOutline } from "react-icons/md";
-import { HiChatBubbleBottomCenterText } from "react-icons/hi2";
-import { HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
+import { HiChatBubbleBottomCenterText, HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
 import { GoHome, GoHomeFill } from "react-icons/go";
 import { FiPlus, FiX } from "react-icons/fi";
 import { FaLinkedin, FaGithub, FaFileAlt, FaUniversity } from 'react-icons/fa';
-import ToTop from "./ToTop";
 
 const Navbar: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const homeRef = useRef<HTMLAnchorElement>(null);
   const aboutRef = useRef<HTMLAnchorElement>(null);
   const educationRef = useRef<HTMLAnchorElement>(null);
@@ -29,8 +28,7 @@ const Navbar: React.FC = () => {
         const width = rect.width + 8;
         setLineStyle({ left, width });
       }
-    }
-    else if (location.pathname === '/about' && aboutRef.current) {
+    } else if (location.pathname === '/about' && aboutRef.current) {
       const rect = aboutRef.current.getBoundingClientRect();
       const headerRect = aboutRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
@@ -38,8 +36,7 @@ const Navbar: React.FC = () => {
         const width = rect.width + 8;
         setLineStyle({ left, width });
       }
-    }
-    else if (location.pathname === '/education' && educationRef.current) {
+    } else if (location.pathname === '/education' && educationRef.current) {
       const rect = educationRef.current.getBoundingClientRect();
       const headerRect = educationRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
@@ -47,8 +44,7 @@ const Navbar: React.FC = () => {
         const width = rect.width + 8;
         setLineStyle({ left, width });
       }
-    }
-    else if (location.pathname === '/experience' && experienceRef.current) {
+    } else if (location.pathname === '/experience' && experienceRef.current) {
       const rect = experienceRef.current.getBoundingClientRect();
       const headerRect = experienceRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
@@ -56,8 +52,7 @@ const Navbar: React.FC = () => {
         const width = rect.width + 8;
         setLineStyle({ left, width });
       }
-    }
-    else if (location.pathname === '/projects' && projectsRef.current) {
+    } else if (location.pathname === '/projects' && projectsRef.current) {
       const rect = projectsRef.current.getBoundingClientRect();
       const headerRect = projectsRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
@@ -65,8 +60,7 @@ const Navbar: React.FC = () => {
         const width = rect.width + 8;
         setLineStyle({ left, width });
       }
-    }
-    else if (location.pathname === '/contact' && contactRef.current) {
+    } else if (location.pathname === '/contact' && contactRef.current) {
       const rect = contactRef.current.getBoundingClientRect();
       const headerRect = contactRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
@@ -80,12 +74,9 @@ const Navbar: React.FC = () => {
   // Track window resize
   const handleResize = () => {
     const newWidth = window.innerWidth;
-    
-    // Close the expanded menu when screen size reaches lg breakpoint (1024px in Tailwind)
     if (newWidth >= 1024 && isExpanded) {
       setIsExpanded(false);
     }
-    
     updateLinePosition();
   };
 
@@ -97,9 +88,20 @@ const Navbar: React.FC = () => {
     };
   }, [location, isExpanded]);
 
+  // Custom click handler: Scrolls to top, then navigates after a delay.
+  const handleNavClick = (path: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Scroll the window to top (0) immediately or smoothly.
+    window.scrollTo({ top: 0 });
+    // Delay navigation to allow the scroll to complete.
+    setTimeout(() => {
+      navigate(path);
+    }, 300); // Adjust delay if necessary.
+  };
+
   return (
     <div className={`sticky top-0 z-50 transition-all duration-300 ease-in-out ${isExpanded ? 'pt-10' : ''}`}>
-      {/* Expandable top section - more compact now */}
+      {/* Expandable top section */}
       <div 
         className={`absolute top-0 left-0 w-full overflow-hidden transition-all duration-300 ease-in-out z-40
                     ${isExpanded ? 'h-10 opacity-100' : 'h-0 opacity-0'}`}
@@ -107,6 +109,7 @@ const Navbar: React.FC = () => {
       >
         <div className="container mx-auto px-2 h-full flex items-center justify-center">
           <ul className="flex space-x-1.5 text-lg text-blue-200">
+            {/* Social Links */}
             <li>
               <a
                 href="/assets/attachments/Resume%20-%20Bryan%20Wieschenberg.pdf"
@@ -157,7 +160,7 @@ const Navbar: React.FC = () => {
         style={{ background: 'linear-gradient(to bottom, #4b576a, #0e1528)' }}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          {/* Logo section - always visible, text hidden on small screens */}
+          {/* Logo Section */}
           <div className="flex items-center">
             <img src="./assets/images/favicon.ico" alt="Logo" className="w-6 h-6 lg:w-10 lg:h-10" />
             <div className="ml-2 hidden lg:block">
@@ -166,89 +169,94 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Main navigation - centered */}
+          {/* Main Navigation - centered */}
           <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 lg:space-x-10 text-lg text-blue-300">
             <ul className="flex flex-wrap space-x-1.5 lg:space-x-8 text-lg text-blue-300">
               <li>
-                <ToTop
-                  to="/"
+                <a
+                  href="/"
+                  onClick={handleNavClick('/')}
                   ref={homeRef}
                   className={`flex flex-col items-center ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                >
                   {location.pathname === '/' ? (
                     <GoHomeFill className="w-8 h-8" />
                   ) : (
                     <GoHome className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Home</span>
-                </ToTop>
+                </a>
               </li>
               <li>
-                <ToTop
-                  to="/about"
+                <a
+                  href="/about"
+                  onClick={handleNavClick('/about')}
                   ref={aboutRef}
                   className={`flex flex-col items-center ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                >
                   {location.pathname === '/about' ? (
                     <IoPersonCircle className="w-8 h-8" />
                   ) : (
                     <IoPersonCircleOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">About</span>
-                </ToTop>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/experience"
+                <a
+                  href="/experience"
+                  onClick={handleNavClick('/experience')}
                   ref={experienceRef}
                   className={`flex flex-col items-center ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                >
                   {location.pathname === '/experience' ? (
                     <MdWork className="w-8 h-8" />
                   ) : (
                     <MdWorkOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Experience</span>
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/projects"
+                <a
+                  href="/projects"
+                  onClick={handleNavClick('/projects')}
                   ref={projectsRef}
                   className={`flex flex-col items-center ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                >
                   {location.pathname === '/projects' ? (
                     <IoDocumentTextSharp className="w-8 h-8" />
                   ) : (
                     <IoDocumentTextOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Projects</span>
-                </Link>
+                </a>
               </li>
               <li>
-                <Link
-                  to="/contact"
+                <a
+                  href="/contact"
+                  onClick={handleNavClick('/contact')}
                   ref={contactRef}
                   className={`flex flex-col items-center ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                >
                   {location.pathname === '/contact' ? (
                     <HiChatBubbleBottomCenterText className="w-8 h-8" />
                   ) : (
                     <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Contact</span>
-                </Link>
+                </a>
               </li>
             </ul>
           </nav>
 
-          {/* Right section: Social Links on md+ and toggle button on mobile */}
+          {/* Right Section: Social Links and Mobile Toggle */}
           <div className="flex items-center">
             <div className="hidden lg:flex items-center">
               <ul className="flex space-x-6 text-lg text-blue-200">
                 <li>
                   <a
-                    href="./assets/attachments/Resume%20-%20Bryan%20Wieschenberg.pdf"
+                    href="/assets/attachments/Resume%20-%20Bryan%20Wieschenberg.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-blue-300 flex flex-col items-center"
@@ -288,8 +296,6 @@ const Navbar: React.FC = () => {
                 </li>
               </ul>
             </div>
-            
-            {/* Mobile toggle button */}
             <button
               className="lg:hidden text-blue-300 text-3xl ml-4"
               onClick={() => setIsExpanded(!isExpanded)}
@@ -298,8 +304,12 @@ const Navbar: React.FC = () => {
             </button>
           </div>
         </div>
-
-        {(location.pathname === '/' || location.pathname === '/about' || location.pathname === '/education' || location.pathname === '/experience' || location.pathname === '/projects' || location.pathname === '/contact') && (
+        {(location.pathname === '/' ||
+          location.pathname === '/about' ||
+          location.pathname === '/education' ||
+          location.pathname === '/experience' ||
+          location.pathname === '/projects' ||
+          location.pathname === '/contact') && (
           <div
             className="absolute bg-blue-400"
             style={{
