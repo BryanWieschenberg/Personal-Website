@@ -1,16 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { animateHome } from '../animations'; // Make sure path is correct
 
 const Home: React.FC = () => {
-  // Set up refs and animation on component mount
-  useEffect(() => {
-    // Start animations when component mounts
-    animateHome();
-  }, []);
+    const topRef = useRef<HTMLParagraphElement | null>(null);
+    
+    // Set up refs and animation on component mount
+    useEffect(() => {
+      // Start animations when component mounts
+      animateHome();
+    }, []);
 
   return (
     <>
+      <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
       {/* Top Slogan Section */}
       <div className="flex items-center justify-center slogan">
         {/* Middle Section */}

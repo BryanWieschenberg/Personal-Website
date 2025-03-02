@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import {Link} from "react-router-dom";
-import { useLocation } from 'react-router-dom'; // useNavigate?
+import { useLocation, useNavigate } from 'react-router-dom';
 import { IoDocumentTextOutline, IoDocumentTextSharp, IoPersonCircleOutline, IoPersonCircle } from "react-icons/io5";
 import { MdWork, MdWorkOutline } from "react-icons/md";
 import { HiChatBubbleBottomCenterText, HiOutlineChatBubbleBottomCenterText } from "react-icons/hi2";
@@ -10,12 +9,13 @@ import { FaLinkedin, FaGithub, FaFileAlt, FaUniversity } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const location = useLocation();
-  const homeRef = useRef<HTMLAnchorElement>(null);
-  const aboutRef = useRef<HTMLAnchorElement>(null);
-  const educationRef = useRef<HTMLAnchorElement>(null);
-  const experienceRef = useRef<HTMLAnchorElement>(null);
-  const projectsRef = useRef<HTMLAnchorElement>(null);
-  const contactRef = useRef<HTMLAnchorElement>(null);
+  const navigate = useNavigate();
+  const homeRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const educationRef = useRef<HTMLDivElement>(null);
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -87,6 +87,27 @@ const Navbar: React.FC = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, [location, isExpanded]);
+
+  // Custom navigation handler that scrolls to ToTop before navigating
+  const handleNavigation = (e: React.MouseEvent, path: string) => {
+    e.preventDefault();
+    
+    // Find the ToTop element on the current page
+    const toTopElement = document.getElementById('ToTop');
+    
+    if (toTopElement && location.pathname !== path) {
+      // Scroll to the ToTop element
+      toTopElement.scrollIntoView();
+      
+      // Wait a moment for the scroll to complete before navigating
+      setTimeout(() => {
+        navigate(path);
+      }, 0);
+    } else {
+      // If no ToTop element or already on the target page, navigate directly
+      navigate(path);
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
@@ -162,74 +183,74 @@ const Navbar: React.FC = () => {
           <nav className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 flex space-x-3 lg:space-x-10 text-lg text-blue-300">
             <ul className="flex flex-wrap space-x-1.5 lg:space-x-8 text-lg text-blue-300">
               <li>
-                <Link
-                  to="/"
+                <div
                   ref={homeRef}
-                  className={`flex flex-col items-center ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                  onClick={(e) => handleNavigation(e, '/')}
+                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                   {location.pathname === '/' ? (
                     <GoHomeFill className="w-8 h-8" />
                   ) : (
                     <GoHome className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Home</span>
-                </Link>
+                </div>
               </li>
               <li>
-                <Link
-                  to="/about"
+                <div
                   ref={aboutRef}
-                  className={`flex flex-col items-center ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                  onClick={(e) => handleNavigation(e, '/about')}
+                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                   {location.pathname === '/about' ? (
                     <IoPersonCircle className="w-8 h-8" />
                   ) : (
                     <IoPersonCircleOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">About</span>
-                </Link>
+                </div>
               </li>
               <li>
-                <Link
-                  to="/experience"
+                <div
                   ref={experienceRef}
-                  className={`flex flex-col items-center ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                  onClick={(e) => handleNavigation(e, '/experience')}
+                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                   {location.pathname === '/experience' ? (
                     <MdWork className="w-8 h-8" />
                   ) : (
                     <MdWorkOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Experience</span>
-                </Link>
+                </div>
               </li>
               <li>
-                <Link
-                  to="/projects"
+                <div
                   ref={projectsRef}
-                  className={`flex flex-col items-center ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                  onClick={(e) => handleNavigation(e, '/projects')}
+                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                   {location.pathname === '/projects' ? (
                     <IoDocumentTextSharp className="w-8 h-8" />
                   ) : (
                     <IoDocumentTextOutline className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Projects</span>
-                </Link>
+                </div>
               </li>
               <li>
-                <Link
-                  to="/contact"
+                <div
                   ref={contactRef}
-                  className={`flex flex-col items-center ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
-                  >
+                  onClick={(e) => handleNavigation(e, '/contact')}
+                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                >
                   {location.pathname === '/contact' ? (
                     <HiChatBubbleBottomCenterText className="w-8 h-8" />
                   ) : (
                     <HiOutlineChatBubbleBottomCenterText className="w-8 h-8" />
                   )}
                   <span className="hidden lg:block text-sm leading-tight mb-1">Contact</span>
-                </Link>
+                </div>
               </li>
             </ul>
           </nav>

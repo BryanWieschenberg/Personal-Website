@@ -4,7 +4,7 @@ import { animateHeader } from "../animations"; // Import animation function
 
 const Experience: React.FC = () => {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
-  const toppRef = useRef<HTMLParagraphElement | null>(null);
+  const topRef = useRef<HTMLParagraphElement | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,21 +13,15 @@ const Experience: React.FC = () => {
 
   const handleBruhClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    
-    // First scroll to top
-    toppRef.current?.scrollIntoView();
-    
-    // Then navigate to /about after a short delay
+    topRef.current?.scrollIntoView();
     setTimeout(() => {
       navigate('/about');
-    }, 0); // 500ms delay to allow the scroll to complete
+    }, 0);
   };
 
   return (
     <>
-      <p id="topp" ref={toppRef} className="text-white">
-        shit
-      </p>
+      <p id="top" ref={topRef} className="invisible">ToTop</p>
       <h1 ref={headingRef} className={`text-6xl md:text-8xl font-bold mt-16 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
           Experience
       </h1>
