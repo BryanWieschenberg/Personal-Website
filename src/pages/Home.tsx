@@ -37,7 +37,7 @@ const Home: React.FC = () => {
         <div className="flex flex-col slogan text-center">
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
-            <h2 className="slogan-first mt-7 text-[1.5rem] lg:text-5xl opacity-0">
+            <h2 className="slogan-first mt-3 mb-6 text-[1.5rem] lg:text-5xl opacity-0">
               Innovative Software.
             </h2>
             <h2 className="slogan-second mt-4 text-[1.5rem] lg:text-5xl opacity-0">
@@ -46,7 +46,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* The third heading is outside the overflow-hidden div */}
-          <h2 className="slogan-third mt-2 lg:mt-0 text-[1.5rem] lg:text-5xl opacity-0">
+          <h2 className="slogan-third text-[1.5rem] lg:text-5xl opacity-0">
             Limitless Success.
           </h2>
         </div>
@@ -80,7 +80,7 @@ const Home: React.FC = () => {
             {/* Original Buttons (visible on md+) */}
             <div className="mt-6 hidden lg:flex flex-row justify-start space-x-4">
               <a href="top" onClick={LearnMore} className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-xl">Learn More</a>
-              <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-xl">Learn More</a>
+              <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-xl">Contact Me</a>
             </div>
           </div>
           
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
       <div className="main-content block lg:hidden mt-6 opacity-0">
         <div className="flex flex-row justify-center space-x-4">
           <a href="top" onClick={LearnMore} className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm">Learn More</a>
-          <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm">Learn More</a>
+          <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm">Contact Me</a>
         </div>
       </div>
       <br/><br/>
