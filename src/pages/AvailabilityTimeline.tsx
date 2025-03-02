@@ -174,7 +174,7 @@ const AvailabilityTimeline: React.FC = () => {
           </div>
 
           {/* Timeline bar */}
-          <div className="h-4 lg:h-8 bg-gray-700 rounded-full relative overflow-hidden">
+          <div className="h-6 lg:h-8 bg-gray-700 rounded-full relative overflow-hidden">
             {timelineBlocks.map((block, index) => {
               let borderRadius = "0";
               if (block.isAtStart && block.isAtEnd) {
@@ -188,7 +188,7 @@ const AvailabilityTimeline: React.FC = () => {
               return (
                 <div
                   key={index}
-                  className="absolute h-full flex items-center justify-center transition-all duration-300 hover:brightness-110"
+                  className="absolute h-full flex items-center justify-center transition-all duration-300 hover:brightness-150"
                   style={{
                     width: block.width,
                     left: block.left,
@@ -208,20 +208,20 @@ const AvailabilityTimeline: React.FC = () => {
           {/* Legend */}
           <div className="flex justify-center mt-6 gap-4">
             <div className="flex items-center">
-              <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-blue-500 rounded-full flex-shrink-0"></div>
-              <span className="text-xs lg:text-sm text-white">Winter Break</span>
-            </div>
-            <div className="flex items-center">
-              <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-emerald-500 rounded-full flex-shrink-0"></div>
-              <span className="text-xs lg:text-sm text-white">Spring Academic Semester</span>
-            </div>
-            <div className="flex items-center">
               <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-yellow-500 rounded-full flex-shrink-0"></div>
               <span className="text-xs lg:text-sm text-white">Summer Break</span>
             </div>
             <div className="flex items-center">
               <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-red-500 rounded-full flex-shrink-0"></div>
               <span className="text-xs lg:text-sm text-white">Fall Academic Semester</span>
+          </div>
+            <div className="flex items-center">
+              <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-blue-500 rounded-full flex-shrink-0"></div>
+              <span className="text-xs lg:text-sm text-white">Winter Break</span>
+            </div>
+            <div className="flex items-center">
+              <div className="mr-2 w-4 h-4 min-w-[1rem] min-h-[1rem] bg-emerald-500 rounded-full flex-shrink-0"></div>
+              <span className="text-xs lg:text-sm text-white">Spring Academic Semester</span>
             </div>
           </div>
 
@@ -232,8 +232,7 @@ const AvailabilityTimeline: React.FC = () => {
                 key={index}
                 className={`
                   ${period.name === hoveredName ? "bg-[#2d416c]" : "bg-gray-900"} bg-opacity-40 p-2 lg:p-4 rounded-2xl border-[3px] border-gray-600 
-                  text-sm lg:text-base shadow-lg transition-all duration-300 
-                  hover:backdrop-blur-md hover:brightness-150 hover:scale-[1.02]
+                  text-sm lg:text-base shadow-lg transition-all duration-300 hover:brightness-150 hover:scale-[1.02]
                   ${
                     period.name === hoveredName 
                       ? "border-white brightness-150 scale-[1.02]" 
