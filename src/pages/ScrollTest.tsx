@@ -5,32 +5,18 @@ const ScrollTest: React.FC = () => {
   const navigate = useNavigate();
 
   // Adjust this value to match your navbar's height (in pixels)
-<<<<<<< HEAD
-=======
-  const navbarHeight = 64;
-
-  // Handler to scroll to target with offset, then navigate to /About after a delay.
->>>>>>> 2845f7b545290c9b1dc2437dd671052931f095c3
   const handleClick = (target: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     const element = document.getElementById(target);
     if (element) {
       // Compute the scroll position with an offset so the target is just below the navbar.
-<<<<<<< HEAD
       const targetPosition = element.getBoundingClientRect().top + window.pageYOffset;
-=======
-      const targetPosition = element.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
->>>>>>> 2845f7b545290c9b1dc2437dd671052931f095c3
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
     // Delay navigation so the user sees the scroll.
     setTimeout(() => {
       navigate('/about');
-<<<<<<< HEAD
     }, 0);
-=======
-    }, 1000);
->>>>>>> 2845f7b545290c9b1dc2437dd671052931f095c3
   };
 
   return (
