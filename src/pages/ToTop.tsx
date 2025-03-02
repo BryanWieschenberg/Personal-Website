@@ -1,58 +1,39 @@
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { forwardRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const ToTop = () => {
-  const { pathname } = useLocation();
+interface ScrollLinkProps {
+  to: string;
+  children: React.ReactNode;
+  className?: string;
+}
 
-  useEffect(() => {
-    const scrollToTop = () => {
-      const tryScroll = () => {
-        if (typeof window.scrollTo === 'function') {
-          window.scrollTo({
-            top: 0,
-            behavior: 'auto'
-          });
-        }
+const ScrollLink = forwardRef<HTMLAnchorElement, ScrollLinkProps>(
+  ({ to, children, className }, ref) => {
+    const navigate = useNavigate();
 
-        const html = document.documentElement;
-        const body = document.body;
-        // Use type assertion for MSStream check
-        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && 
-                    !(window as typeof window & { MSStream?: unknown }).MSStream;
-
-        if (iOS) {
-          if (html.scrollTop > 0) html.scrollTop = 0;
-          if (body.scrollTop > 0) body.scrollTop = 0;
-          
-          body.style.overflow = 'hidden';
-          setTimeout(() => body.style.overflow = 'auto', 100);
-        } else {
-          if (html.scrollTop > 0) html.scrollTop = 0;
-          if (body.scrollTop > 0) body.scrollTop = 0;
-        }
-
-        setTimeout(() => {
-          if (html.scrollTop > 0 || body.scrollTop > 0) {
-            window.scrollTo(0, 0);
-          }
-        }, 150);
-      };
-
-      tryScroll();
-      setTimeout(tryScroll, 100);
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      e.preventDefault();
+      // Scroll to top smoothly
+      window.scrollTo({ top: 0 });
+      // After a short delay, navigate to the new route
+      setTimeout(() => {
+        navigate(to);
+      }, 300); // Adjust delay as needed
     };
 
-    scrollToTop();
+    return (
+      <a
+        href={to}
+        onClick={handleClick}
+        className={className}
+        ref={ref}
+      >
+        {children}
+      </a>
+    );
+  }
+);
 
-    const handleOrientationChange = () => setTimeout(scrollToTop, 300);
-    window.addEventListener('orientationchange', handleOrientationChange);
+ScrollLink.displayName = 'ScrollLink';
 
-    return () => {
-      window.removeEventListener('orientationchange', handleOrientationChange);
-    };
-  }, [pathname]);
-
-  return null;
-};
-
-export default ToTop;
+export default ScrollLink;
