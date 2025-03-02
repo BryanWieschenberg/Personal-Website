@@ -16,20 +16,18 @@ const App: React.FC = () => (
           margin: 0;
           padding: 0;
           height: 100%;
-          overflow: hidden;
+          overflow-x: hidden; /* Prevent horizontal scroll only */
         }
         
         #root {
           height: 100%;
-          display: flex;
-          flex-direction: column;
         }
         
         .app-container {
           display: flex;
           flex-direction: column;
-          height: 100vh;
-          overflow: hidden;
+          min-height: 100vh;
+          position: relative;
         }
         
         .navbar {
@@ -37,31 +35,32 @@ const App: React.FC = () => (
           top: 0;
           z-index: 1000;
           width: 100%;
+          background-color: rgba(10, 10, 10, 0.95); /* Semi-transparent background */
         }
         
         .content-container {
           flex: 1;
-          overflow-y: auto;
-          position: relative;
+          width: 100%;
+          /* No padding-top, allowing content to scroll under navbar */
         }
         
         /* Custom Dark Scrollbar */
-        .content-container::-webkit-scrollbar {
+        ::-webkit-scrollbar {
           width: 10px;
         }
-        .content-container::-webkit-scrollbar-track {
+        ::-webkit-scrollbar-track {
           background: #0a0a0a; /* Dark background */
         }
-        .content-container::-webkit-scrollbar-thumb {
+        ::-webkit-scrollbar-thumb {
           background: #444; /* Darker thumb */
           border-radius: 5px;
         }
-        .content-container::-webkit-scrollbar-thumb:hover {
+        ::-webkit-scrollbar-thumb:hover {
           background: #777; /* Lighter on hover */
         }
 
         /* Firefox Scrollbar */
-        .content-container {
+        * {
           scrollbar-color: #555 #0a0a0a;
         }
       `}
