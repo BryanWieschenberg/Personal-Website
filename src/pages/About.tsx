@@ -13,7 +13,7 @@ const About: React.FC = () => {
  
   return ( 
     <> 
-      <h1 ref={headingRef} className="text-6xl lg:text-8xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent"> 
+      <h1 ref={headingRef} className="text-6xl lg:text-8xl font-bold mt-16 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent"> 
         About Me 
       </h1> 
        

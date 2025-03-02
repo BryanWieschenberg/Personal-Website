@@ -9,9 +9,16 @@ const Experience: React.FC = () => {
   }, []);
 
   return (
-    <h1 ref={headingRef} className={`text-6xl md:text-8xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
-        Experience
-    </h1>
+    <>
+      <p id="topp">
+        shit
+      </p>
+      <h1 ref={headingRef} className={`text-6xl md:text-8xl font-bold mt-16 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
+          Experience
+      </h1>
+      <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <a href="#topp" className="text-white">bruh</a>
+    </>
   );
 };
 
