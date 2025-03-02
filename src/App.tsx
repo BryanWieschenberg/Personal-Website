@@ -16,7 +16,7 @@ const App: React.FC = () => (
           margin: 0;
           padding: 0;
           height: 100%;
-          overflow-x: hidden; /* Prevent horizontal scroll only */
+          overflow-x: hidden; /* Prevent horizontal scroll */
         }
         
         #root {
@@ -28,20 +28,6 @@ const App: React.FC = () => (
           flex-direction: column;
           min-height: 100vh;
           position: relative;
-        }
-        
-        .navbar {
-          position: sticky;
-          top: 0;
-          z-index: 1000;
-          width: 100%;
-          background-color: rgba(10, 10, 10, 0.95); /* Semi-transparent background */
-        }
-        
-        .content-container {
-          flex: 1;
-          width: 100%;
-          /* No padding-top, allowing content to scroll under navbar */
         }
         
         /* Custom Dark Scrollbar */
@@ -63,17 +49,36 @@ const App: React.FC = () => (
         * {
           scrollbar-color: #555 #0a0a0a;
         }
+        
+        /* Fixed positioning for content to respect navbar */
+        .content-container {
+          position: fixed;
+          top: 46px; /* Height of your navbar */
+          left: 0;
+          right: 0;
+          bottom: 0;
+          overflow-y: auto;
+          width: 100%;
+        }
+        
+        @media (min-width: 1024px) {
+          .content-container {
+            top: 60px; /* Increase top space for larger navbar */
+          }
+        }
+
+        /* Account for expandable navbar section */
+        .navbar-expanded .content-container {
+          top: 90px; /* Adjusted height when navbar is expanded */
+        }
       `}
     </style>
 
     <div className="app-container">
       <Background />
+      <Navbar />
       
-      <div className="navbar">
-        <Navbar />
-      </div>
-      
-      <div className="content-container">
+      <div className={`content-container`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
