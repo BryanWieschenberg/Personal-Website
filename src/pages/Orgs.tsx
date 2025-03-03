@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { animateAbout } from "../animations";
 
 // Data for each organization
@@ -52,21 +52,26 @@ const orgsData = [
 ];
 
 const Orgs: React.FC = () => {
-  const [expanded, setExpanded] = useState<boolean[]>(() =>
-    // Initialize all orgs as not expanded
-    new Array(orgsData.length).fill(false)
-  );
-
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+  const [visible, setVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
   useEffect(() => {
-    // Animate the heading or the section if needed
-    animateAbout();
+    // Animate the heading or the section when in view
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => setVisible(true), 200);
+        animateAbout();
+      }
+    });
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  // Toggles the expanded state of a particular card
-  const toggleExpand = (index: number) => {
-    setExpanded((prev) =>
-      prev.map((item, i) => (i === index ? !item : item))
-    );
+  // Toggle expanded state
+  const handleClick = (index: number) => {
+    setExpandedIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
   return (
@@ -76,59 +81,61 @@ const Orgs: React.FC = () => {
         <img
           src="./assets/images/arrowBig.png"
           alt="Arrow"
-          className="big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4"
+          className="big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
         />
       </div>
 
       {/* Intro text */}
-      <p className="lg:pt-8 text-center text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
-        I'm actively involved in many clubs and organizations!
-      </p>
+      <div ref={sectionRef} className={`lg:pt-8 text-center transition-opacity duration-300 ${
+        visible ? 'opacity-100' : 'opacity-0'
+      }`}>
+        <p className="text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
+          I'm actively involved in many clubs and organizations!
+        </p>
+      </div>
 
       {/* Cards Section */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:px-12">
         {orgsData.map((org, index) => (
-          <div
-            key={index}
-            // Outer container with gradient border
-            className="group relative p-[3px] rounded-xl bg-gradient-to-b from-[#7064ff] to-[#c4f9ff]
-                       shadow-lg hover:backdrop-blur-md hover:brightness-150 hover:scale-[1.05] transition-all duration-300
-                       overflow-hidden cursor-pointer"
-            onClick={() => toggleExpand(index)}
-          >
-            {/* Inner card */}
-            <div className="rounded-[inherit] bg-[#273772] p-4 flex flex-col items-center text-center">
-              {/* Big circle icon or text */}
-              <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#1e2a4a] rounded-full flex items-center justify-center text-white text-xl lg:text-2xl font-bold mb-2">
-                {org.shortName}
+          <div key={index} className="flex flex-col">
+            {/* Card */}
+            <div
+              className={`group relative p-[3px] rounded-xl bg-gradient-to-b from-[#7064ff] to-[#c4f9ff]
+                shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer
+                ${visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-5'}
+                ${expandedIndex === index ? 'bg-[#294b95]' : ''}`}
+              onClick={() => handleClick(index)}>
+              {/* Inner card */}
+              <div className="rounded-[inherit] bg-[#273772] p-4 flex flex-col items-center text-center">
+                {/* Big circle icon or text */}
+                <div className="w-16 h-16 lg:w-20 lg:h-20 bg-[#1e2a4a] rounded-full flex items-center justify-center text-white text-xl lg:text-2xl font-bold mb-2">
+                  {org.shortName}
+                </div>
+
+                {/* Org name & subtitle */}
+                <h3 className="text-white text-sm lg:text-lg font-semibold">
+                  {org.name}
+                </h3>
+                <p className="text-gray-300 text-xs lg:text-sm">
+                  {org.subtitle}
+                </p>
+
+                {/* Role / Position */}
+                <p className="text-[#a9dafc] text-xs lg:text-sm font-medium mt-1">
+                  {org.role}
+                </p>
               </div>
+            </div>
 
-              {/* Org name & subtitle */}
-              <h3 className="text-white text-sm lg:text-lg font-semibold">
-                {org.name}
-              </h3>
-              <p className="text-gray-300 text-xs lg:text-sm">
-                {org.subtitle}
-              </p>
-
-              {/* Role / Position */}
-              <p className="text-[#a9dafc] text-xs lg:text-sm font-medium mt-1">
-                {org.role}
-              </p>
-
-              {/* Expandable bullet points */}
-              <div
-                className={`transition-all duration-300 overflow-hidden mt-2
-                  ${
-                    expanded[index]
-                      ? "max-h-[400px] opacity-100"
-                      : "max-h-0 opacity-0"
-                  }
-                `}
-              >
-                <ul className="text-gray-200 text-left list-disc list-inside text-xs lg:text-sm space-y-1 mt-2">
+            {/* Expanding Content Section with gradient background */}
+            <div className={`relative p-[3px] rounded-xl bg-gradient-to-b from-[#7064ff] to-[#c4f9ff] mt-2
+                  transition-all duration-500 ease-in-out overflow-hidden shadow-lg
+                  ${expandedIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+              {/* Inner content with dark background */}
+              <div className="rounded-[inherit] bg-[#273772] p-3">
+                <ul className="text-gray-200 list-disc list-inside text-xs space-y-1">
                   {org.points.map((point, i) => (
-                    <li key={i}>{point}</li>
+                    <li key={i} className="text-[#cdd5e5]">{point}</li>
                   ))}
                 </ul>
               </div>
