@@ -1,7 +1,5 @@
-import { FaCode, FaDatabase, FaProjectDiagram, FaGitAlt, FaNetworkWired, FaShieldAlt, FaCloud, FaChartLine, FaBrain, FaRobot, FaAtom, FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
-import { SiUml } from 'react-icons/si';
-import { TbBinaryTreeFilled, TbMatrix, TbAtom2Filled } from "react-icons/tb";
-import { GrSystem, GrCloudlinux } from "react-icons/gr";
+import { FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
+import { TbMatrix, TbAtom2Filled } from "react-icons/tb";
 import { IoHardwareChip } from "react-icons/io5";
 import { TbLogicAnd, TbStack2Filled } from "react-icons/tb";
 import { HiDatabase, HiOutlineArrowsExpand } from "react-icons/hi";
@@ -13,7 +11,7 @@ import { MdNetworkWifi, MdOutlineSmartphone } from "react-icons/md";
 import { IoStatsChartSharp, IoPersonCircle } from "react-icons/io5";
 import { BiCodeBlock } from "react-icons/bi";
 import { FaStackExchange } from "react-icons/fa6";
-import { IoIosInformationCircle, IoMdCloudDone } from "react-icons/io";
+import { IoIosInformationCircle } from "react-icons/io";
 import { BsClipboardDataFill } from "react-icons/bs";
 
 export interface Role {
