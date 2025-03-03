@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { skills } from "../constants";
+import { skills } from "../../constants";
 
 const Skills = () => {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
@@ -8,9 +8,8 @@ const Skills = () => {
   const categories = [
     { id: 0, name: "Programming Languages" },
     { id: 1, name: "Frameworks & Libraries" },
-    { id: 2, name: "Tools & Software" },
-    { id: 3, name: "Concepts" },
-    { id: 4, name: "Soft Skills" }
+    { id: 2, name: "Tools, Software, and OS" },
+    { id: 3, name: "Soft Skills" },
   ];
   
   return (

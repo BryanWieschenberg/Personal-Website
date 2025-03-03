@@ -1,7 +1,4 @@
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // Function to animate the About page heading
 export const animateHeader = (element: HTMLElement | null) => {
@@ -39,20 +36,66 @@ export const animateHome = () => {
 };
 
 export const animateAbout = () => {
-  gsap.fromTo(".intro-text",
+  gsap.fromTo(
+    ".intro-text",
     { opacity: 0, x: -150 },
-    { opacity: 1, x: 0, duration: 1, ease: "power4.out" }
+    { 
+      opacity: 1, 
+      x: 0, 
+      duration: 1, 
+      ease: "power4.out",
+      onComplete: () => {
+        // Remove the opacity-0 class once animation finishes
+        document.querySelectorAll(".intro-text").forEach(el => {
+          el.classList.remove("opacity-0");
+        });
+      }
+    }
   );
-  gsap.fromTo(".intro-img",
+  gsap.fromTo(
+    ".intro-img",
     { opacity: 0, x: 150 },
-    { opacity: 1, x: 0, duration: 1, ease: "power4.out" }
+    { 
+      opacity: 1, 
+      x: 0, 
+      duration: 1, 
+      ease: "power4.out",
+      onComplete: () => {
+        document.querySelectorAll(".intro-img").forEach(el => {
+          el.classList.remove("opacity-0");
+        });
+      }
+    }
   );
-  gsap.fromTo(".roles-text",
+  // If you have other elements like ".roles-text" or ".big-arrow", you can do similar:
+  gsap.fromTo(
+    ".roles-text",
     { opacity: 0, x: -150 },
-    { opacity: 1, x: 0, duration: 1, ease: "power4.out" }
+    { 
+      opacity: 1, 
+      x: 0, 
+      duration: 1, 
+      ease: "power4.out",
+      onComplete: () => {
+        document.querySelectorAll(".roles-text").forEach(el => {
+          el.classList.remove("opacity-0");
+        });
+      }
+    }
   );
-  gsap.fromTo(".big-arrow",
+  gsap.fromTo(
+    ".big-arrow",
     { opacity: 0, y: 60 },
-    { opacity: 1, y: 0, duration: 1, ease: "power4.out" }
+    { 
+      opacity: 1, 
+      y: 0, 
+      duration: 1, 
+      ease: "power4.out",
+      onComplete: () => {
+        document.querySelectorAll(".big-arrow").forEach(el => {
+          el.classList.remove("opacity-0");
+        });
+      }
+    }
   );
-}
+};

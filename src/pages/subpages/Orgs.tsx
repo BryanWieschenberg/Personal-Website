@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { animateAbout } from "../animations";
+import { animateAbout } from "../../animations";
 
 // Data for each organization, now including an image path
 const orgsData = [
@@ -81,7 +81,7 @@ const Orgs: React.FC = () => {
         <img
           src="./assets/images/arrowBig.png"
           alt="Arrow"
-          className="big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
+          className="opacity-0 big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
         />
       </div>
 
