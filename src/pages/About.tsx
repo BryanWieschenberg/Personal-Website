@@ -1,7 +1,19 @@
+/*
+NEW PAGE SCROLL IMMEDIATE ANIMATION BUG:
+
+When you scroll immediately, the GSAP animations seem to “redo” because they’re being triggered on mount and can be re-initialized when the element’s visibility or position changes. In your case, both animateHeader and animateAbout are called in the useEffect when the component mounts. If you scroll quickly, one or both of these elements might get re-intersected or re-rendered in a way that causes the animation to restart.
+If you’re using scroll-based triggers (either via GSAP’s ScrollTrigger or an Intersection Observer), the element may leave and re-enter the viewport quickly, which replays the animation.
+One solution is to ensure the animation only plays once by either:
+Using a flag or state to prevent re-triggering, or
+Configuring GSAP’s ScrollTrigger with an option like once: true (if you’re using scroll triggers).
+*/
+
 import React, { useRef, useEffect } from 'react'; 
 import { animateHeader, animateAbout } from "../animations"; 
 import AvailabilityTimeline from "./AvailabilityTimeline";
 import Orgs from "./Orgs";
+import Classes from "./Classes";
+import Skills from "./Skills";
 
 const About: React.FC = () => { 
   const headingRef = useRef<HTMLHeadingElement | null>(null); 
@@ -43,7 +55,8 @@ const About: React.FC = () => {
  
 
       <Orgs />
-
+      <Classes />
+      <Skills />
       <AvailabilityTimeline />
 
       <br/><br/><br/><br/><br/><br/> 
