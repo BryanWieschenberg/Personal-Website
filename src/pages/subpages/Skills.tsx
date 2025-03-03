@@ -53,11 +53,13 @@ const Skills = () => {
                     />
                   </div>
                   
-                  {/* Only show tooltip when hovering */}
+                  {/* Tooltip showing skill details */}
                   {activeTooltip === `${category.id}-${index}` && (
-                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-[#00ffd4] px-3 py-1 rounded shadow-lg z-10 w-max">
-                      <div className="text-md font-medium">{skill.name}</div>
-                      <div className="tooltip-arrow absolute h-2 w-2 bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 rotate-45 bg-gray-900"></div>
+                    <div className="absolute -top-20 bg-gray-900 px-4 rounded-lg shadow-lg z-10 w-max">
+                      <h3 className="font-semibold text-lg text-center text-[#00ffd4]">{skill.name}</h3>
+                      <p className="text-sm text-center mt-1 text-white">{skill.yoe} Years of Experience</p>
+                      <p className="text-xs text-center mt-1 text-[#d7e0e0]">{skill.desc}</p>
+                      <div className="absolute h-3 w-3 bg-gray-900 mb-4"></div>
                     </div>
                   )}
                 </div>
