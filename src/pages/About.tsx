@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react'; 
 import { animateHeader, animateAbout } from "../animations"; 
-import AvailabilityTimeline from "./subpages/AvailabilityTimeline";
+import AvailabilityTimeline from "./subpages/Availability";
 import Orgs from "./subpages/Orgs";
 import Classes from "./subpages/Classes";
 import Skills from "./subpages/Skills";

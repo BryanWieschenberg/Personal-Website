@@ -1,3 +1,6 @@
+// SMALL BUG (NOT A BIG DEAL):
+// When flipping phone screen from landscape to portrait or vice-versa, the navbar does not update the line position
+
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { IoDocumentTextOutline, IoDocumentTextSharp, IoPersonCircleOutline, IoPersonCircle } from "react-icons/io5";

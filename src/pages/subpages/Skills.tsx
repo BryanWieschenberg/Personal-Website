@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { skills } from "../../constants";
+import { skills } from "../../data";
 
 const Skills = () => {
   const [activeTooltip, setActiveTooltip] = useState<string | null>(null);
@@ -32,17 +32,17 @@ const Skills = () => {
             {category.name}
           </h2>
           
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-6 lg:grid-cols-10 gap-6">
             {skills
-              .filter(skill => skill.cat === category.id)
+              .filter(skill => skill.type === category.id)
               .map((skill, index) => (
                 <div 
                   key={index}
-                  className="relative flex flex-col items-center justify-center bg-gray-800 bg-opacity-50 rounded-lg p-4 transition-transform hover:scale-105 hover:shadow-lg hover:shadow-indigo-500/50"
+                  className="relative flex flex-col items-center justify-center bg-gray-800 bg-opacity-50 rounded-lg p-4 transition-transform hover:scale-[106%] hover:shadow-lg hover:bg-gray-800"
                   onMouseEnter={() => setActiveTooltip(`${category.id}-${index}`)}
                   onMouseLeave={() => setActiveTooltip(null)}
                 >
-                  <div className="w-16 h-16 flex items-center justify-center mb-2">
+                  <div className="w-8 h-8 lg:w-16 lg:h-16 flex items-center justify-center mb-2">
                     <img 
                       src={skill.icon} 
                       alt={skill.name}
@@ -55,8 +55,8 @@ const Skills = () => {
                   
                   {/* Only show tooltip when hovering */}
                   {activeTooltip === `${category.id}-${index}` && (
-                    <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-3 py-1 rounded shadow-lg z-10 w-max">
-                      <div className="text-sm font-medium">{skill.name}</div>
+                    <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-[#00ffd4] px-3 py-1 rounded shadow-lg z-10 w-max">
+                      <div className="text-md font-medium">{skill.name}</div>
                       <div className="tooltip-arrow absolute h-2 w-2 bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1 rotate-45 bg-gray-900"></div>
                     </div>
                   )}
