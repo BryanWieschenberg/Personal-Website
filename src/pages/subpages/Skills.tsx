@@ -60,8 +60,8 @@ const Skills = () => {
         {skills.map((skill, index) => (
           <div 
             key={index}
-            className={`relative flex flex-col items-center justify-center bg-opacity-50 transition-transform 
-              hover:scale-[107%] hover:shadow-lg hover:bg-black border-2 ${categoryColors[skill.type]} ${categoryBgColors[skill.type]}`}
+            className={`relative flex flex-col items-center justify-center mb-[0.25px] bg-opacity-50 transition-transform 
+              hover:scale-110 hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 ${categoryColors[skill.type]} ${categoryBgColors[skill.type]}`}
             onMouseEnter={() => setActiveSkill(skill)}
             onMouseLeave={() => setActiveSkill(null)}
           >
@@ -89,7 +89,7 @@ const Skills = () => {
             <p className="text-sm text-center mt-1 text-white">
               {activeSkill.yoe} Years of Experience
             </p>
-            <p className="text-xs text-center mt-1 text-[#d7e0e0]">
+            <p className="text-xs text-center mt-1 text-[#d7e0e0] whitespace-pre-line">
               {activeSkill.desc}
             </p>
           </div>

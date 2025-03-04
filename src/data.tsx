@@ -64,7 +64,7 @@ export const roles: Role[] = [
 ];
 
 export const skills: Skill[] = [
-  { type: 0, name: "C", yoe: 1.5, desc: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", icon: "/assets/skills/c.png" },
+  { type: 0, name: "C", yoe: 1.5, desc: "• Created a custom Linux shell\nasasas", icon: "/assets/skills/c.png" },
   { type: 0, name: "C++", yoe: 2, desc: "Created AVL Tree-optimized algorithm to analyze extremely large datasets", icon: "/assets/skills/cpp.png" },
   { type: 0, name: "C#", yoe: 0, desc: "", icon: "/assets/skills/cs.png" },
   { type: 0, name: "Java", yoe: 0, desc: "", icon: "/assets/skills/java.png" },
@@ -108,6 +108,7 @@ export const skills: Skill[] = [
   { type: 3, name: "Adaptability", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
   { type: 3, name: "Leadership", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
   { type: 3, name: "Management", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
+  { type: 3, name: "Mentoring", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
   { type: 3, name: "Time Management", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
   { type: 3, name: "Integrity", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
   { type: 3, name: "Resilience", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
