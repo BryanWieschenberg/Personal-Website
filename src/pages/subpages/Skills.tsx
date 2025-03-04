@@ -1,10 +1,43 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { skills } from "../../data";
 
 const Skills = () => {
+  // Initialize skills with a "visible" flag
+  const [items, setItems] = useState(
+    skills.map(item => ({ ...item, visible: false }))
+  );
   const [activeSkill, setActiveSkill] = useState<any>(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
   
-  // Map category IDs to border colors
+  // Intersection Observer to trigger animation when container is visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => setVisible(true), 0);
+      }
+    }, { threshold: 0.1 });
+
+    if (ref.current) observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+  
+  // Staggered animation effect similar to the Classes component
+  useEffect(() => {
+    if (visible) {
+      items.forEach((_, index) => {
+        setTimeout(() => {
+          setItems(prev =>
+            prev.map((item, i) =>
+              i === index ? { ...item, visible: true } : item
+            )
+          );
+        }, index * 25);
+      });
+    }
+  }, [visible]);
+
+  // Map category IDs to border and background colors
   const categoryColors: { [key: number]: string } = {
     0: 'border-blue-500',    // Programming Languages
     1: 'border-yellow-500',  // Frameworks & Libraries
@@ -20,7 +53,7 @@ const Skills = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-12 relative">
+    <div ref={ref} className="container mx-auto px-4 py-12 relative">
       {/* Spacing and arrow image */}
       <div className="mt-20"></div>
       <img 
@@ -57,18 +90,20 @@ const Skills = () => {
       
       {/* Combined Skills Grid */}
       <div className="mt-10 grid grid-cols-8 lg:grid-cols-12">
-        {skills.map((skill, index) => (
+        {items.map((item, index) => (
           <div 
             key={index}
             className={`relative flex flex-col items-center justify-center mb-[0.25px] bg-opacity-50 transition-transform 
-              hover:scale-110 hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 ${categoryColors[skill.type]} ${categoryBgColors[skill.type]}`}
-            onMouseEnter={() => setActiveSkill(skill)}
+              hover:scale-110 hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 
+              ${categoryColors[item.type]} ${categoryBgColors[item.type]}
+              ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-10'}`}
+            onMouseEnter={() => setActiveSkill(item)}
             onMouseLeave={() => setActiveSkill(null)}
           >
             <div className="w-8 h-8 lg:w-16 lg:h-16 flex items-center justify-center mt-[1.5px] mb-[1.5px]">
               <img 
-                src={skill.icon} 
-                alt={skill.name}
+                src={item.icon} 
+                alt={item.name}
                 className="max-w-full max-h-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "/assets/skills/default.png";

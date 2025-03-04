@@ -15,6 +15,7 @@ export default {
         pulsate: 'pulsate 2s ease-in-out infinite',
         popIn: 'popIn 0.3s ease-out',
         fadeIn: 'fadeIn 0.5s ease-out both',
+        fadeInFast: 'fadeIn 0.2s ease-out both',
         fadeInLeft: 'fadeInLeft 0.5s ease-out',
         fadeInRightDelay: 'fadeInRightDelay 1.5s ease-out',
         fadeInUpDelay2: 'fadeInUpDelay2 2.5s ease-out',
@@ -34,6 +35,10 @@ export default {
         },
         fadeIn: {
           '0%': { transform: 'translateY(100px)', opacity: 0 },
+          '100%': { transform: 'translateY(0px)', opacity: 1 },
+        },
+        fadeInFast: {
+          '0%': { transform: 'translateY(5px)', opacity: 0 },
           '100%': { transform: 'translateY(0px)', opacity: 1 },
         },
         fadeInLeft: {
