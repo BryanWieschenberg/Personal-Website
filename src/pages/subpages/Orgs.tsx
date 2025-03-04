@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
-import { animateAbout } from "../../animations";
+import { animateAbout } from "../../DELanimations";
 
 // Data for each organization, now including an image path
 const orgsData = [

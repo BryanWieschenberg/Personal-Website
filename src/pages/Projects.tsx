@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { animateHeader } from "../animations"; // Import animation function
+import { animateHeader } from "../DELanimations"; // Import animation function
 
 const Projects: React.FC = () => {
   const headingRef = useRef<HTMLHeadingElement | null>(null);

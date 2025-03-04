@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { animateHeader } from "../animations"; // Import animation function
+import { animateHeader } from "../DELanimations"; // Import animation function
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState('');

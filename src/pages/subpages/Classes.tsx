@@ -10,7 +10,7 @@ const Classes = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        setTimeout(() => setVisible(true), 200);
+        setTimeout(() => setVisible(true), 0);
       }
     });
 

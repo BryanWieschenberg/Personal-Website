@@ -1,16 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { animateHome } from '../animations'; // Make sure path is correct
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const topRef = useRef<HTMLParagraphElement | null>(null);
     const navigate = useNavigate();
-
-    // Set up refs and animation on component mount
-    useEffect(() => {
-      // Start animations when component mounts
-      animateHome();
-    }, []);
 
     const LearnMore = (e: React.MouseEvent) => {
       e.preventDefault();
