@@ -94,7 +94,7 @@ const Skills = () => {
           <div 
             key={index}
             className={`relative flex flex-col items-center justify-center mb-[0.25px] bg-opacity-50 transition-transform 
-              hover:scale-110 hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 
+              hover:scale-[115%] hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 
               ${categoryColors[item.type]} ${categoryBgColors[item.type]}
               ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-10'}`}
             onMouseEnter={() => setActiveSkill(item)}

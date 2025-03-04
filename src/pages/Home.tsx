@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const Home: React.FC = () => {
     const topRef = useRef<HTMLParagraphElement | null>(null);
     const navigate = useNavigate();
-
+    
     const LearnMore = (e: React.MouseEvent) => {
       e.preventDefault();
       topRef.current?.scrollIntoView();
@@ -20,7 +20,7 @@ const Home: React.FC = () => {
         navigate('/contact');
       }, 0);
     };
-  
+      
   return (
     <>
       <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
@@ -30,22 +30,22 @@ const Home: React.FC = () => {
         <div className="flex flex-col slogan text-center">
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
-            <h2 className="slogan-first mt-3 mb-6 text-[1.5rem] lg:text-5xl opacity-0">
+            <h2 className={`animate-fadeInLeft slogan-first mt-3 mb-6 text-[1.5rem] lg:text-5xl`}>
               Innovative Software.
             </h2>
-            <h2 className="slogan-second mt-4 text-[1.5rem] lg:text-5xl opacity-0">
+            <h2 className="animate-fadeInRightDelay mt-4 text-[1.5rem] lg:text-5xl">
               Impactful Results.
             </h2>
           </div>
 
           {/* The third heading is outside the overflow-hidden div */}
-          <h2 className="slogan-third text-[1.5rem] lg:text-5xl opacity-0">
+          <h2 className="animate-fadeInUpDelay2 text-[1.5rem] lg:text-5xl">
             Limitless Success.
           </h2>
         </div>
       </div>
       {/* Main Content Section */}
-      <div className="main-content flex flex-col lg:flex-row items-center justify-center text-white mt-3 lg:mt-8 w-full opacity-0">
+      <div className="animate-fadeInDelay main-content flex flex-col lg:flex-row items-center justify-center text-white mt-3 lg:mt-8 w-full">
         <div className="flex flex-col lg:flex-row items-center justify-center container mx-auto px-4 lg:px-20 max-w-7xl">
           {/* Left Content */}
           <div className="text-center lg:text-left lg:w-1/2 flex flex-col items-center lg:items-start">
