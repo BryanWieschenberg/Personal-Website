@@ -72,7 +72,7 @@ const Timeline: React.FC = () => {
               {/* Description Box - Appears below the clicked box */}
               <div
                 className={`mt-4 w-full lg:w-2/5 transition-all duration-500 ease-in-out overflow-hidden mx-auto ${
-                  selectedIndex === index ? 'max-h-64 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
+                  selectedIndex === index ? 'max-h-128 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
                 }`}
               >
                 <div className="bg-[#182a51] text-white p-3 rounded-xl shadow-lg">
