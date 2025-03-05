@@ -12,11 +12,14 @@ const Skills = () => {
   
   // Intersection Observer to trigger animation when container is visible
   useEffect(() => {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => setVisible(true), 0);
-      }
-    }, { threshold: 0.1 });
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), 0);
+        }
+      },
+      { threshold: 0.1 }
+    );
 
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -100,15 +103,19 @@ const Skills = () => {
             onMouseEnter={() => setActiveSkill(item)}
             onMouseLeave={() => setActiveSkill(null)}
           >
-            <div className="w-8 h-8 lg:w-16 lg:h-16 flex items-center justify-center mt-[1.5px] mb-[1.5px]">
-              <img 
-                src={item.icon} 
-                alt={item.name}
-                className="max-w-full max-h-full object-contain"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = "/assets/skills/default.png";
-                }}
-              />
+            <div className="w-8 h-8 lg:w-16 lg:h-16 text-white flex items-center justify-center mt-[1.5px] mb-[1.5px]">
+              {typeof item.icon === 'string' ? (
+                <img 
+                  src={item.icon} 
+                  alt={item.name}
+                  className="max-w-full max-h-full object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "/assets/skills/default.png";
+                  }}
+                />
+              ) : (
+                item.icon
+              )}
             </div>
           </div>
         ))}

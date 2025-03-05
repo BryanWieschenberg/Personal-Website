@@ -13,7 +13,6 @@ const Timeline: React.FC = () => {
         setTimeout(() => setVisible(true), 200);
       }
     });
-
     if (ref.current) observer.observe(ref.current);
     return () => {
       if (ref.current) observer.unobserve(ref.current);
@@ -26,12 +25,15 @@ const Timeline: React.FC = () => {
   
   return (
     <div className="container mx-auto px-4 lg:px-20 mb-6">
-      <h1 className="roles-text lg:mb-2 pt-4 lg:pt-10 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text"> 
+      <h1 
+        ref={ref}
+        className="roles-text lg:mb-2 pt-4 lg:pt-10 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text"
+      > 
         My Timeline:
       </h1>
       {/* Timeline Container */}
-      <div className="container mx-auto px-8 mt-16 flex justify-center items-center">
-        <div className="relative">
+      <div className="container mx-auto px-4 sm:px-8 mt-16 flex flex-col items-center">
+        <div className="relative w-full">
           {work.map((exp, index) => (
             <div
               key={index}
@@ -42,21 +44,20 @@ const Timeline: React.FC = () => {
             >
               {/* Timeline Circle and Line */}
               <div className="absolute left-0 h-full flex flex-col items-center">
-                {/* Circle - Scales when the box is hovered */}
+                {/* On mobile, use a smaller left margin; on lg+ use the larger margin */}
                 <div
-                  className={`w-4 h-4 ml-[18rem] bg-blue-500 rounded-full transition-all duration-500 ease-in-out ${
+                  className={`w-4 h-4 ml-4 lg:ml-[18rem] bg-blue-500 rounded-full transition-all duration-500 ease-in-out ${
                     hoveredIndex === index ? "bg-[#00e7ff] scale-150" : "bg-blue-500 scale-100"
                   }`}
                 ></div>
-                {/* Line */}
                 {index !== work.length && (
-                  <div className="w-1 h-[5.5rem] bg-blue-500 mt-2 ml-[18rem]"></div>
+                  <div className="w-1 h-[5.5rem] bg-blue-500 mt-2 ml-4 lg:ml-[18rem]"></div>
                 )}
               </div>
 
               {/* Clickable Content Box */}
               <div
-                className="bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-2/5 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 mx-auto"
+                className="bg-[#182a51] text-white p-5 rounded-xl shadow-lg w-full lg:w-2/5 cursor-pointer transition-transform duration-300 ease-in-out hover:scale-105 mx-auto"
                 onClick={() => handleClick(index)}
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
@@ -70,7 +71,7 @@ const Timeline: React.FC = () => {
 
               {/* Description Box - Appears below the clicked box */}
               <div
-                className={`mt-4 w-2/5 transition-all duration-500 ease-in-out overflow-hidden mx-auto ${
+                className={`mt-4 w-full lg:w-2/5 transition-all duration-500 ease-in-out overflow-hidden mx-auto ${
                   selectedIndex === index ? 'max-h-64 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
                 }`}
               >

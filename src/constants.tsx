@@ -1,18 +1,19 @@
-import { FaLaptopCode, FaFileCode, FaGamepad } from 'react-icons/fa';
+import { FaLaptopCode, FaFileCode, FaGamepad, FaMicrophoneAlt, FaUsers, FaHandshake, FaLightbulb, FaSyncAlt, FaTasks, FaChalkboardTeacher, FaClock, FaShieldAlt, FaSpa } from 'react-icons/fa';
 import { TbMatrix, TbAtom2Filled } from "react-icons/tb";
-import { IoHardwareChip } from "react-icons/io5";
+import { IoHardwareChip, IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { TbLogicAnd, TbStack2Filled } from "react-icons/tb";
 import { HiDatabase, HiOutlineArrowsExpand } from "react-icons/hi";
 import { PiGraphBold } from "react-icons/pi";
 import { SlGraph } from "react-icons/sl";
 import { RiFunctionFill } from "react-icons/ri";
 import { LuAtom } from "react-icons/lu";
-import { MdNetworkWifi, MdOutlineSmartphone } from "react-icons/md";
+import { MdNetworkWifi, MdOutlineSmartphone, MdHearing, MdVerifiedUser } from "react-icons/md";
 import { IoStatsChartSharp, IoPersonCircle } from "react-icons/io5";
 import { BiCodeBlock } from "react-icons/bi";
 import { FaStackExchange } from "react-icons/fa6";
 import { IoIosInformationCircle } from "react-icons/io";
 import { BsClipboardDataFill } from "react-icons/bs";
+import { AiOutlineCrown } from "react-icons/ai";
 
 export interface Role {
   text: string;
@@ -24,7 +25,7 @@ export interface Skill {
   name: string;
   yoe: number;
   desc: string;
-  icon: string;
+  icon: string | React.ReactElement;
 }
 
 export interface Class {
@@ -85,19 +86,21 @@ export const skills: Skill[] = [
   { type: 1, name: "React", yoe: 0, desc: "", icon: "/assets/skills/react.png" },
   { type: 1, name: "Next.js", yoe: 0, desc: "", icon: "/assets/skills/next.png" },
   { type: 1, name: "Vue.js", yoe: 0, desc: "", icon: "/assets/skills/vue.png" },
-  { type: 1, name: "Tailwind CSS", yoe: 0, desc: "", icon: "/assets/skills/tw.png" },
   { type: 1, name: "Node.js", yoe: 0, desc: "", icon: "/assets/skills/node.png" },
   { type: 1, name: "Spring Boot", yoe: 0, desc: "", icon: "/assets/skills/sb.png" },
   { type: 1, name: "Rails", yoe: 0, desc: "", icon: "/assets/skills/rails.png" },
   { type: 1, name: "Flask", yoe: 0, desc: "", icon: "/assets/skills/flask.png" },
   { type: 1, name: "Django", yoe: 0, desc: "", icon: "/assets/skills/dj.png" },
   { type: 1, name: "Selenium", yoe: 0, desc: "", icon: "/assets/skills/se.png" },
+  { type: 1, name: "Tailwind CSS", yoe: 0, desc: "", icon: "/assets/skills/tw.png" },
+  { type: 1, name: "GSAP", yoe: 0, desc: "", icon: "/assets/skills/gsap.png" },
   { type: 1, name: "Bootstrap", yoe: 0, desc: "", icon: "/assets/skills/bs.png" },
   { type: 2, name: "Git", yoe: 0, desc: "", icon: "/assets/skills/git.png" },
   { type: 2, name: "Jira", yoe: 0, desc: "", icon: "/assets/skills/jira.png" },
-  { type: 2, name: "VS Code", yoe: 0, desc: "", icon: "/assets/skills/vscode.png" },
+  { type: 2, name: "Visual Studio Code", yoe: 0, desc: "", icon: "/assets/skills/vscode.png" },
   { type: 2, name: "PostgreSQL", yoe: 0, desc: "", icon: "/assets/skills/psql.png" },
   { type: 2, name: "MongoDB", yoe: 0, desc: "", icon: "/assets/skills/mdb.png" },
+  { type: 2, name: "UML", yoe: 0, desc: "", icon: "/assets/skills/uml.png" },
   { type: 2, name: "Google Cloud", yoe: 0, desc: "", icon: "/assets/skills/gcp.png" },
   { type: 2, name: "Firebase", yoe: 0, desc: "", icon: "/assets/skills/fb.png" },
   { type: 2, name: "Docker", yoe: 0, desc: "", icon: "/assets/skills/docker.png" },
@@ -105,21 +108,24 @@ export const skills: Skill[] = [
   { type: 2, name: "Unity", yoe: 0, desc: "", icon: "/assets/skills/unity.png" },
   { type: 2, name: "MATLAB", yoe: 0, desc: "", icon: "/assets/skills/matlab.png" },
   { type: 2, name: "R", yoe: 0, desc: "", icon: "/assets/skills/r.png" },
-  { type: 2, name: "UML", yoe: 0, desc: "", icon: "/assets/skills/uml.png" },
-  { type: 3, name: "Communication", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Active Listening", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Public Speaking", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Collaboration", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Conflict Resolution", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Innovation", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Adaptability", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Leadership", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Management", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Mentoring", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Time Management", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Integrity", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Resilience", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
-  { type: 3, name: "Stress Management", yoe: 0, desc: "", icon: "/assets/skills/c.png" },
+  { type: 2, name: "Windows", yoe: 0, desc: "", icon: "/assets/skills/windows.png" },
+  { type: 2, name: "MacOS", yoe: 0, desc: "", icon: "/assets/skills/macos.png" },
+  { type: 2, name: "Linux", yoe: 0, desc: "", icon: "/assets/skills/linux.png" },
+  { type: 2, name: "Ubuntu", yoe: 0, desc: "", icon: "/assets/skills/ubuntu.png" },
+  { type: 3, name: "Communication", yoe: 0, desc: "", icon: <IoChatbubbleEllipsesOutline size={40} /> },
+  { type: 3, name: "Active Listening", yoe: 0, desc: "", icon: <MdHearing size={40} /> },
+  { type: 3, name: "Public Speaking", yoe: 0, desc: "", icon: <FaMicrophoneAlt size={40} /> },
+  { type: 3, name: "Collaboration", yoe: 0, desc: "", icon: <FaUsers size={40} /> },
+  { type: 3, name: "Conflict Resolution", yoe: 0, desc: "", icon: <FaHandshake size={40} /> },
+  { type: 3, name: "Innovation", yoe: 0, desc: "", icon: <FaLightbulb size={40} /> },
+  { type: 3, name: "Adaptability", yoe: 0, desc: "", icon: <FaSyncAlt size={40} /> },
+  { type: 3, name: "Leadership", yoe: 0, desc: "", icon: <AiOutlineCrown size={40} /> },
+  { type: 3, name: "Management", yoe: 0, desc: "", icon: <FaTasks size={40} /> },
+  { type: 3, name: "Mentoring", yoe: 0, desc: "", icon: <FaChalkboardTeacher size={40} /> },
+  { type: 3, name: "Time Management", yoe: 0, desc: "", icon: <FaClock size={40} /> },
+  { type: 3, name: "Resilience", yoe: 0, desc: "", icon: <FaShieldAlt size={40} /> },
+  { type: 3, name: "Integrity", yoe: 0, desc: "", icon: <MdVerifiedUser size={40} /> },
+  { type: 3, name: "Stress Management", yoe: 0, desc: "", icon: <FaSpa size={40} /> },
 ];
 
 export const classes: Class[] = [
