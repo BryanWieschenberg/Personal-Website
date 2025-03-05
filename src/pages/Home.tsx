@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       topRef.current?.scrollIntoView();
       setTimeout(() => {
         navigate('/about');
-      }, 0);
+      }, 200);
     };
   
     const ContactMe = (e: React.MouseEvent) => {

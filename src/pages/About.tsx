@@ -12,7 +12,7 @@ const About: React.FC = () => {
   useEffect(() => {
        const observer = new IntersectionObserver(([entry]) => {
          if (entry.isIntersecting) {
-           setTimeout(() => setVisible(true), 0);
+           setTimeout(() => setVisible(true), 200);
          }
        });
    
