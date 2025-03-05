@@ -1,10 +1,20 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const topRef = useRef<HTMLParagraphElement | null>(null);
     const navigate = useNavigate();
     
+    useEffect(() => {
+      // Force a reflow by accessing a layout property
+      if (topRef.current) {
+          topRef.current.offsetHeight;
+      }
+      
+      // Optional: Ensure animations are triggered
+      document.body.classList.add('animations-ready');
+  }, []);
+
     const LearnMore = (e: React.MouseEvent) => {
       e.preventDefault();
       topRef.current?.scrollIntoView();
@@ -23,13 +33,14 @@ const Home: React.FC = () => {
       
   return (
     <>
+      <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
       {/* Top Slogan Section */}
       <div className="flex items-center justify-center slogan">
         {/* Middle Section */}
         <div className="flex flex-col slogan text-center">
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
-            <h2 className={`animate-fadeInLeft slogan-first mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
+            <h2 className={`animate-fadeInLeft mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
               Innovative Software.
             </h2>
             <h2 className="animate-fadeInRightDelay lg:mt-2 text-[1.5rem] lg:text-5xl">
