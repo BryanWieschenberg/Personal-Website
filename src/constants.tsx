@@ -51,7 +51,7 @@ export interface Projects {
   desc: string;
 }
 
-export const roles: Role[] = [
+export const roles: Role[] = [ // test push
   { text: "Software Engineer", icon: <BiCodeBlock size={40} /> }, // mention agile
   { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> },
   { text: "DevOps Engineer", icon: <FaStackExchange size={40} /> },
