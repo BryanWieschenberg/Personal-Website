@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 
 const Projects: React.FC = () => {
   const topRef = useRef<HTMLParagraphElement | null>(null);

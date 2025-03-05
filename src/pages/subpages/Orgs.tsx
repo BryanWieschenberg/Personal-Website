@@ -79,7 +79,7 @@ const Orgs: React.FC = () => {
         <img
           src="./assets/images/arrowBig.png"
           alt="Arrow"
-          className="opacity-0 big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
+          className="big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
         />
       </div>
 

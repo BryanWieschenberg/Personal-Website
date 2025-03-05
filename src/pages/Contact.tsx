@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState('');
