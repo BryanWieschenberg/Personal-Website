@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
@@ -20,7 +20,11 @@ const Home: React.FC = () => {
         navigate('/contact');
       }, 0);
     };
-      
+    
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+  
   return (
     <>
       <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
