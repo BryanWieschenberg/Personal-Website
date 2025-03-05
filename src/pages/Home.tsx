@@ -1,20 +1,10 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
     const topRef = useRef<HTMLParagraphElement | null>(null);
     const navigate = useNavigate();
     
-    useEffect(() => {
-      // Force a reflow by accessing a layout property
-      if (topRef.current) {
-          topRef.current.offsetHeight;
-      }
-      
-      // Optional: Ensure animations are triggered
-      document.body.classList.add('animations-ready');
-  }, []);
-
     const LearnMore = (e: React.MouseEvent) => {
       e.preventDefault();
       topRef.current?.scrollIntoView();

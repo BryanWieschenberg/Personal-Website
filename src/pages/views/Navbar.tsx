@@ -1,6 +1,3 @@
-// SMALL BUG (NOT A BIG DEAL):
-// When flipping phone screen from landscape to portrait or vice-versa, the navbar does not update the line position
-
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { IoDocumentTextOutline, IoDocumentTextSharp, IoPersonCircleOutline, IoPersonCircle } from "react-icons/io5";
@@ -21,42 +18,50 @@ const Navbar: React.FC = () => {
   const [lineStyle, setLineStyle] = useState<{ left: number; width: number }>({ left: 0, width: 0 });
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Refs and functions to track touch movement on mobile
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const isTouchScrolling = useRef(false);
+  const lastTouchTime = useRef(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    isTouchScrolling.current = false;
+    touchStartRef.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (touchStartRef.current) {
+      const dx = Math.abs(e.touches[0].clientX - touchStartRef.current.x);
+      const dy = Math.abs(e.touches[0].clientY - touchStartRef.current.y);
+      if (dx > 10 || dy > 10) {
+        isTouchScrolling.current = true;
+      }
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent, path: string) => {
+    if (!isTouchScrolling.current) {
+      handleNavigation(e, path);
+    }
+    touchStartRef.current = null;
+    lastTouchTime.current = Date.now();
+  };
+
   const updateLinePosition = () => {
+    let refElement: HTMLDivElement | null = null;
     if (location.pathname === '/' && homeRef.current) {
-      const rect = homeRef.current.getBoundingClientRect();
-      const headerRect = homeRef.current.closest('header')?.getBoundingClientRect();
-      if (headerRect) {
-        const left = rect.left - headerRect.left - 4;
-        const width = rect.width + 8;
-        setLineStyle({ left, width });
-      }
+      refElement = homeRef.current;
     } else if (location.pathname === '/about' && aboutRef.current) {
-      const rect = aboutRef.current.getBoundingClientRect();
-      const headerRect = aboutRef.current.closest('header')?.getBoundingClientRect();
-      if (headerRect) {
-        const left = rect.left - headerRect.left - 4;
-        const width = rect.width + 8;
-        setLineStyle({ left, width });
-      }
+      refElement = aboutRef.current;
     } else if (location.pathname === '/experience' && experienceRef.current) {
-      const rect = experienceRef.current.getBoundingClientRect();
-      const headerRect = experienceRef.current.closest('header')?.getBoundingClientRect();
-      if (headerRect) {
-        const left = rect.left - headerRect.left - 4;
-        const width = rect.width + 8;
-        setLineStyle({ left, width });
-      }
+      refElement = experienceRef.current;
     } else if (location.pathname === '/projects' && projectsRef.current) {
-      const rect = projectsRef.current.getBoundingClientRect();
-      const headerRect = projectsRef.current.closest('header')?.getBoundingClientRect();
-      if (headerRect) {
-        const left = rect.left - headerRect.left - 4;
-        const width = rect.width + 8;
-        setLineStyle({ left, width });
-      }
+      refElement = projectsRef.current;
     } else if (location.pathname === '/contact' && contactRef.current) {
-      const rect = contactRef.current.getBoundingClientRect();
-      const headerRect = contactRef.current.closest('header')?.getBoundingClientRect();
+      refElement = contactRef.current;
+    }
+    if (refElement) {
+      const rect = refElement.getBoundingClientRect();
+      const headerRect = refElement.closest('header')?.getBoundingClientRect();
       if (headerRect) {
         const left = rect.left - headerRect.left - 4;
         const width = rect.width + 8;
@@ -83,7 +88,7 @@ const Navbar: React.FC = () => {
   }, [location, isExpanded]);
 
   // Custom navigation handler that scrolls to ToTop before navigating
-  const handleNavigation = (e: React.MouseEvent, path: string) => {
+  const handleNavigation = (e: React.MouseEvent | React.TouchEvent, path: string) => {
     e.preventDefault();
     
     // Find the ToTop element on the current page
@@ -101,6 +106,14 @@ const Navbar: React.FC = () => {
       // If no ToTop element or already on the target page, navigate directly
       navigate(path);
     }
+  };
+
+  // Click handler that prevents duplicate firing if a touch event was just triggered
+  const handleClick = (e: React.MouseEvent, path: string) => {
+    if (Date.now() - lastTouchTime.current < 500) {
+      return;
+    }
+    handleNavigation(e, path);
   };
 
   return (
@@ -179,7 +192,10 @@ const Navbar: React.FC = () => {
               <li>
                 <div
                   ref={homeRef}
-                  onClick={(e) => handleNavigation(e, '/')}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={(e) => handleTouchEnd(e, '/')}
+                  onClick={(e) => handleClick(e, '/')}
                   className={`flex flex-col items-center cursor-pointer ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
                 >
                   {location.pathname === '/' ? (
@@ -193,7 +209,10 @@ const Navbar: React.FC = () => {
               <li>
                 <div
                   ref={aboutRef}
-                  onClick={(e) => handleNavigation(e, '/about')}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={(e) => handleTouchEnd(e, '/about')}
+                  onClick={(e) => handleClick(e, '/about')}
                   className={`flex flex-col items-center cursor-pointer ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
                 >
                   {location.pathname === '/about' ? (
@@ -207,7 +226,10 @@ const Navbar: React.FC = () => {
               <li>
                 <div
                   ref={experienceRef}
-                  onClick={(e) => handleNavigation(e, '/experience')}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={(e) => handleTouchEnd(e, '/experience')}
+                  onClick={(e) => handleClick(e, '/experience')}
                   className={`flex flex-col items-center cursor-pointer ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
                 >
                   {location.pathname === '/experience' ? (
@@ -221,7 +243,10 @@ const Navbar: React.FC = () => {
               <li>
                 <div
                   ref={projectsRef}
-                  onClick={(e) => handleNavigation(e, '/projects')}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={(e) => handleTouchEnd(e, '/projects')}
+                  onClick={(e) => handleClick(e, '/projects')}
                   className={`flex flex-col items-center cursor-pointer ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
                 >
                   {location.pathname === '/projects' ? (
@@ -235,7 +260,10 @@ const Navbar: React.FC = () => {
               <li>
                 <div
                   ref={contactRef}
-                  onClick={(e) => handleNavigation(e, '/contact')}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={(e) => handleTouchEnd(e, '/contact')}
+                  onClick={(e) => handleClick(e, '/contact')}
                   className={`flex flex-col items-center cursor-pointer ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
                 >
                   {location.pathname === '/contact' ? (
