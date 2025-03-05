@@ -1,14 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { animateHeader } from "../DELanimations"; // Import animation function
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState('');
-  const headingRef = useRef<HTMLHeadingElement | null>(null);
   const topRef = useRef<HTMLParagraphElement | null>(null);
-
-    useEffect(() => {
-      animateHeader(headingRef.current);
-    }, []);
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,8 +28,8 @@ const Contact: React.FC = () => {
 
   return (
     <div>
-      <p id="top" ref={topRef} className="invisible text-white">ToTop</p>
-      <h1 ref={headingRef} className={`text-6xl md:text-8xl font-bold lg:mt-2 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
+      <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
+      <h1 className={`text-6xl md:text-8xl font-bold lg:mt-2 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] whitespace-nowrap text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent`}>
         Contact
       </h1>
       <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">

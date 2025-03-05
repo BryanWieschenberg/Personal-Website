@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { skills } from "../../data";
+import { skills } from "../../constants";
 
 const Skills = () => {
   // Initialize skills with a "visible" flag

@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from "react";
-import { animateAbout } from "../../DELanimations";
 
 // Data for each organization, now including an image path
 const orgsData = [
@@ -61,7 +60,6 @@ const Orgs: React.FC = () => {
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setTimeout(() => setVisible(true), 200);
-        animateAbout();
       }
     });
 

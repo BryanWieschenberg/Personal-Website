@@ -30,10 +30,10 @@ const Home: React.FC = () => {
         <div className="flex flex-col slogan text-center">
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
-            <h2 className={`animate-fadeInLeft slogan-first mt-3 mb-6 text-[1.5rem] lg:text-5xl`}>
+            <h2 className={`animate-fadeInLeft slogan-first mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
               Innovative Software.
             </h2>
-            <h2 className="animate-fadeInRightDelay mt-4 text-[1.5rem] lg:text-5xl">
+            <h2 className="animate-fadeInRightDelay lg:mt-2 text-[1.5rem] lg:text-5xl">
               Impactful Results.
             </h2>
           </div>
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
       </div>
 
       {/* Duplicate Buttons for Mobile (visible only on mobile) */}
-      <div className="main-content block lg:hidden mt-6 opacity-0">
+      <div className="animate-fadeInDelay main-content block lg:hidden mt-6">
         <div className="flex flex-row justify-center space-x-4">
           <a href="top" onClick={LearnMore} className="px-3 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 text-sm">Learn More</a>
           <a href="top" onClick={ContactMe} className="px-3 py-2 border border-blue-500 text-blue-500 rounded-lg shadow-md hover:bg-blue-600 hover:text-white text-sm">Contact Me</a>

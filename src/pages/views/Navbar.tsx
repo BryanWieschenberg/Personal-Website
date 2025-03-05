@@ -15,7 +15,6 @@ const Navbar: React.FC = () => {
   const navigate = useNavigate();
   const homeRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
-  const educationRef = useRef<HTMLDivElement>(null);
   const experienceRef = useRef<HTMLDivElement>(null);
   const projectsRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
@@ -34,14 +33,6 @@ const Navbar: React.FC = () => {
     } else if (location.pathname === '/about' && aboutRef.current) {
       const rect = aboutRef.current.getBoundingClientRect();
       const headerRect = aboutRef.current.closest('header')?.getBoundingClientRect();
-      if (headerRect) {
-        const left = rect.left - headerRect.left - 4;
-        const width = rect.width + 8;
-        setLineStyle({ left, width });
-      }
-    } else if (location.pathname === '/education' && educationRef.current) {
-      const rect = educationRef.current.getBoundingClientRect();
-      const headerRect = educationRef.current.closest('header')?.getBoundingClientRect();
       if (headerRect) {
         const left = rect.left - headerRect.left - 4;
         const width = rect.width + 8;

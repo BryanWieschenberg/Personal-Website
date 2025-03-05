@@ -43,6 +43,13 @@ export interface Work {
   desc: string;
 }
 
+export interface Projects {
+  role: string;
+  company: string;
+  date: string;
+  desc: string;
+}
+
 export const roles: Role[] = [
   { text: "Software Engineer", icon: <BiCodeBlock size={40} /> }, // mention agile
   { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> },
@@ -135,10 +142,10 @@ export const classes: Class[] = [
 
 export const work: Work[] = [
   // { role: "Software Engineer Intern", company: "Google", date: "May 2025 – Aug 2025", desc: "• " },
-  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
+  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.\n• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.\n• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.\n• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
   // { role: "Student Manager of Residential Operations", company: "The College of New Jersey", date: "Aug. 2025 – Present", desc: "• " },
-  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success." },
-  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
-  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
-  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments." }
+  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.\n• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success." },
+  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.\n• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.\n• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
+  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.\n• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.\n• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
+  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.\n• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments." }
 ];

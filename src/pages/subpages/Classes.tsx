@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { classes } from "../../data";
+import { classes } from "../../constants";
 
 const Classes = () => {
   const [items, setItems] = useState(classes.map(item => ({ ...item, visible: false })));
