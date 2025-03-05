@@ -42,6 +42,7 @@ export interface Work {
   company: string;
   date: string;
   desc: string;
+  skills: string[];
 }
 
 export interface Projects {
@@ -73,9 +74,9 @@ export const roles: Role[] = [
 
 export const skills: Skill[] = [
   { type: 0, name: "C", yoe: 1.5, desc: "• Created a custom Linux shell\nasasas", icon: "/assets/skills/c.png" },
-  { type: 0, name: "C++", yoe: 2, desc: "Created AVL Tree-optimized algorithm to analyze extremely large datasets", icon: "/assets/skills/cpp.png" },
-  { type: 0, name: "C#", yoe: 0, desc: "", icon: "/assets/skills/cs.png" },
-  { type: 0, name: "Java", yoe: 0, desc: "", icon: "/assets/skills/java.png" },
+  { type: 0, name: "C++", yoe: 2, desc: "• Created AVL Tree-optimized algorithm to analyze extremely large datasets\n• Used in Data Structures course", icon: "/assets/skills/cpp.png" },
+  { type: 0, name: "C#", yoe: 0.5, desc: "• Made basic Unity projects", icon: "/assets/skills/cs.png" },
+  { type: 0, name: "Java", yoe: 6, desc: "• Used in Computional Thinking course\n• Made ", icon: "/assets/skills/java.png" },
   { type: 0, name: "Python", yoe: 0, desc: "", icon: "/assets/skills/py.png" },
   { type: 0, name: "Ruby", yoe: 0, desc: "", icon: "/assets/skills/rb.png" },
   { type: 0, name: "HTML", yoe: 0, desc: "", icon: "/assets/skills/html.png" },
@@ -148,10 +149,10 @@ export const classes: Class[] = [
 
 export const work: Work[] = [
   // { role: "Software Engineer Intern", company: "Google", date: "May 2025 – Aug 2025", desc: "• " },
-  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.\n• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.\n• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.\n• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability." },
+  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.\n• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.\n• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.\n• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability.", skills: ["Java", "UML", "Git", "Jira", "Agile", "Agile", "Agile"]},
   // { role: "Student Manager of Residential Operations", company: "The College of New Jersey", date: "Aug. 2025 – Present", desc: "• " },
-  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.\n• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success." },
-  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.\n• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.\n• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization." },
-  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.\n• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.\n• Streamlined data modification processes by implementing protocols for efficient living space access updates." },
-  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.\n• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments." }
+  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.\n• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
+  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.\n• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.\n• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
+  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.\n• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.\n• Streamlined data modification processes by implementing protocols for efficient living space access updates.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
+  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.\n• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments.", skills: ["Java", "UML", "Git", "Jira", "Agile"] }
 ];

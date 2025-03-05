@@ -10,7 +10,7 @@ const Home: React.FC = () => {
       topRef.current?.scrollIntoView();
       setTimeout(() => {
         navigate('/about');
-      }, 200);
+      }, 0);
     };
   
     const ContactMe = (e: React.MouseEvent) => {
@@ -30,7 +30,7 @@ const Home: React.FC = () => {
         <div className="flex flex-col slogan text-center">
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
-            <h2 className={`mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
+            <h2 className={`animate-fadeInLeft mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
               Innovative Software.
             </h2>
             <h2 className="animate-fadeInRightDelay lg:mt-2 text-[1.5rem] lg:text-5xl">
