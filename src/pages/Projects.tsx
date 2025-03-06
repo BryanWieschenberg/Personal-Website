@@ -66,6 +66,19 @@ const Projects: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
                   <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
                   <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
+                  {/* Added skills section similar to Timeline */}
+                  {project.skills && project.skills.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
+                      {project.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="mt-4">
                     <a
                       href={project.github}
@@ -94,6 +107,19 @@ const Projects: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
                   <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
                   <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
+                  {/* Added skills section similar to Timeline */}
+                  {project.skills && project.skills.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
+                      {project.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="mt-4">
                     <a
                       href={project.github}
@@ -122,6 +148,19 @@ const Projects: React.FC = () => {
                   <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
                   <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
                   <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
+                  {/* Added skills section similar to Timeline */}
+                  {project.skills && project.skills.length > 0 && (
+                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
+                      {project.skills.map((skill, i) => (
+                        <span
+                          key={i}
+                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                   <div className="mt-4">
                     <a
                       href={project.github}

@@ -159,7 +159,7 @@ export const work: Work[] = [
 ];
 
 export const projects: Project[] = [
-  { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile", "Agile", "Agile", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Livestock Metrics Visualization App", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Dashboard and Applicant Manager", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "TCNJ Kappa Theta Pi Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
