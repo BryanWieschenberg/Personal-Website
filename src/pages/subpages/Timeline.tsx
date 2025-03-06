@@ -54,7 +54,8 @@ const Timeline: React.FC = () => {
       {/* Timeline Container with vertical line decoration */}
       <div className="relative mt-16">
         {/* Centered Vertical timeline line */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 top-0 w-3 h-[98%] bg-[#2f4677]"></div>
+        <div className={`absolute left-1/2 transform -translate-x-1/2 top-0 w-3 h-[98%] bg-[#1e65ff] transition-opacity duration-1000 ${
+    visible ? 'opacity-100' : 'opacity-0'}`}></div>
         <div className="w-full max-w-4xl mx-auto px-4">
           {items.map((exp, index) => (
             <div key={index} className="mb-[9px] relative">
