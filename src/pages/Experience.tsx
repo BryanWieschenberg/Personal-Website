@@ -1,10 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Timeline from './subpages/Timeline';
+import Jobs from './subpages/Jobs';
+import Availability from "./subpages/Availability";
 
 const Experience: React.FC = () => {
   const topRef = useRef<HTMLParagraphElement | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
+  const availabilityRef = useRef<HTMLDivElement>(null);
+  const [availabilityVisible, setAvailabilityVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
@@ -17,6 +21,16 @@ const Experience: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
+      useEffect(() => {
+        const observer = new IntersectionObserver(([entry]) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => setAvailabilityVisible(true), 0);
+          }
+        });
+        if (availabilityRef.current) observer.observe(availabilityRef.current);
+        return () => observer.disconnect();
+      }, []);
+  
   return (
     <>
       <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
@@ -24,6 +38,11 @@ const Experience: React.FC = () => {
         Experience
       </h1>
       <Timeline />
+      <Jobs />
+      <div ref={availabilityRef} className={`${availabilityVisible ? 'opacity-100 translate-y-0 transition-all duration-1000 ease-out' : 'opacity-0 translate-y-[50px]'}`}>
+        <Availability />
+      </div>
+      
     </>
   );
 };

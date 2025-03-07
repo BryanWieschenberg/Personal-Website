@@ -117,7 +117,7 @@ const Timeline: React.FC = () => {
           bgColor = 'bg-gray-400';
       }
       return (
-        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
           {skill}
         </span>
       );

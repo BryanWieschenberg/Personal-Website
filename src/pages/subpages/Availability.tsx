@@ -17,7 +17,7 @@ interface AvailabilityPeriod {
   partName?: string;
 }
 
-const AvailabilityTimeline: React.FC = () => {
+const Availability: React.FC = () => {
   const [hoveredName, setHoveredName] = useState<string>(""); 
   // This state holds the name of the period currently hovered on the timeline
 
@@ -145,7 +145,7 @@ const AvailabilityTimeline: React.FC = () => {
 
   return (
     <div>
-      <h1 className="roles-text pt-4 lg:pt-20 text-2xl lg:text-6xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#25b0e7] bg-clip-text">
+      <h1 className="roles-text lg:pt-10 text-2xl lg:text-6xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#25b0e7] bg-clip-text">
         What Roles Am I Looking For?
       </h1>
       <p className="lg:pt-8 text-xs text-center lg:text-xl text-white">
@@ -264,4 +264,4 @@ const AvailabilityTimeline: React.FC = () => {
   );
 };
 
-export default AvailabilityTimeline;
+export default Availability;

@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, useState } from 'react'; 
-import AvailabilityTimeline from "./subpages/Availability";
 import Orgs from "./subpages/Orgs";
 import Classes from "./subpages/Classes";
 import Skills from "./subpages/Skills";
@@ -8,7 +7,7 @@ const About: React.FC = () => {
   const topRef = useRef<HTMLParagraphElement | null>(null);
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
- 
+  
   useEffect(() => {
        const observer = new IntersectionObserver(([entry]) => {
          if (entry.isIntersecting) {
@@ -19,7 +18,7 @@ const About: React.FC = () => {
        if (ref.current) observer.observe(ref.current);
        return () => observer.disconnect();
      }, []);
-      
+    
   return ( 
     <> 
       <p id="ToTop" ref={topRef} className="invisible text-white">ToTop</p>
@@ -53,9 +52,7 @@ const About: React.FC = () => {
       <Orgs />
       <Classes />
       <Skills />
-      <AvailabilityTimeline />
-
-      <br/><br/><br/><br/><br/><br/> 
+      <div className="mb-80"></div>
     </> 
   ); 
 }; 

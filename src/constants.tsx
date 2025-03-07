@@ -7,7 +7,7 @@ import { PiGraphBold } from "react-icons/pi";
 import { SlGraph } from "react-icons/sl";
 import { RiFunctionFill } from "react-icons/ri";
 import { LuAtom } from "react-icons/lu";
-import { MdNetworkWifi, MdOutlineSmartphone, MdHearing, MdVerifiedUser } from "react-icons/md";
+import { MdNetworkWifi, MdHearing, MdVerifiedUser } from "react-icons/md";
 import { IoStatsChartSharp, IoPersonCircle } from "react-icons/io5";
 import { BiCodeBlock } from "react-icons/bi";
 import { FaStackExchange } from "react-icons/fa6";
@@ -18,6 +18,7 @@ import { AiOutlineCrown } from "react-icons/ai";
 export interface Role {
   text: string;
   icon: React.ReactElement;
+  desc: string;
 }
 
 export interface Skill {
@@ -56,17 +57,16 @@ export interface Project {
 }
 
 export const roles: Role[] = [
-  { text: "Software Engineer", icon: <BiCodeBlock size={40} /> }, // mention agile
-  { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> },
-  { text: "DevOps Engineer", icon: <FaStackExchange size={40} /> },
-  { text: "Application Developer", icon: <MdOutlineSmartphone size={40} /> },
-  { text: "IT Support Specialist", icon: <IoIosInformationCircle size={40} /> },
-  { text: "Game Developer", icon: <FaGamepad size={40} /> },
-  { text: "Data Analyst", icon: <BsClipboardDataFill size={40} /> },
-  { text: "UI Developer", icon: <IoPersonCircle size={40} /> },
-  { text: "UX Developer", icon: <IoPersonCircle size={40} /> },
-  { text: "Front-End Engineer", icon: <IoPersonCircle size={40} /> },
-  { text: "Back-End Engineer", icon: <IoPersonCircle size={40} /> },
+  { text: "Software Engineer", icon: <BiCodeBlock size={40} />, desc: "• asas\n• sasa\n• asas"}, // mention agile
+  { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> , desc: ""},
+  { text: "DevOps Engineer", icon: <FaStackExchange size={40} />, desc: "" },
+  { text: "IT Support Specialist", icon: <IoIosInformationCircle size={40} />, desc: "" },
+  { text: "Game Developer", icon: <FaGamepad size={40} />, desc: "" },
+  { text: "Data Analyst", icon: <BsClipboardDataFill size={40} />, desc: "" },
+  { text: "UI Developer", icon: <IoPersonCircle size={40} />, desc: "" },
+  { text: "UX Developer", icon: <IoPersonCircle size={40} />, desc: "" },
+  { text: "Front-End Engineer", icon: <IoPersonCircle size={40} />, desc: "" },
+  { text: "Back-End Engineer", icon: <IoPersonCircle size={40} />, desc: "" },
 //  { text: "Cloud Engineer", icon: <IoMdCloudDone size={40} /> },
 //  { text: "Solutions Architect", icon: <IoMdCloudDone size={40} /> },
 //  { text: "Data Scientist", icon: <BsClipboardDataFill size={40} /> },
