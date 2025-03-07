@@ -96,16 +96,32 @@ const Timeline: React.FC = () => {
     <p className="text-sm lg:text-base text-gray-200 whitespace-pre-line">
       {exp.desc}
     </p>
-    {exp.skills && exp.skills.length > 0 && (
-  <div className="mt-2 flex flex-wrap gap-2">
-    {exp.skills.map((skill, i) => (
-      <span
-        key={i}
-        className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
-      >
-        {skill}
-      </span>
-    ))}
+    {exp.skills && Object.keys(exp.skills).length > 0 && (
+  <div className="mt-2 flex flex-wrap gap-1">
+    {Object.entries(exp.skills).map(([skill, level], i) => {
+      let bgColor;
+      switch (level) {
+        case 0:
+          bgColor = 'bg-blue-400';
+          break;
+        case 1:
+          bgColor = 'bg-yellow-400';
+          break;
+        case 2:
+          bgColor = 'bg-green-400';
+          break;
+        case 3:
+          bgColor = 'bg-red-400';
+          break;
+        default:
+          bgColor = 'bg-gray-400';
+      }
+      return (
+        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+          {skill}
+        </span>
+      );
+    })}
   </div>
 )}
 

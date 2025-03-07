@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { projects } from "../constants"; // Added import for projects
+import { FaGithub } from 'react-icons/fa'; // Import the GitHub icon
 
 const Projects: React.FC = () => {
   const topRef = useRef<HTMLParagraphElement | null>(null);
@@ -61,33 +62,50 @@ const Projects: React.FC = () => {
               {largeProjects.map((project, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-lg shadow-lg transition-all duration-300 ease-out transform ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-r from-indigo-200 via-purple-200 to-pink-200`}
+                  className={`group relative p-[6px] rounded-2xl shadow-lg transition-all duration-300 ease-out transform hover:scale-105 ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-t from-[#473eb4] to-[#00e5ff]`}
                 >
-                  <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
-                  <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
-                  <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
-                  {/* Added skills section similar to Timeline */}
-                  {project.skills && project.skills.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
-                      {project.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                  <div className="rounded-xl bg-[#4fbdf1] p-3 h-full flex flex-col">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 flex-shrink-0 ml-2"
+                      >
+                        <FaGithub size={32} />
+                      </a>
                     </div>
-                  )}
-                  <div className="mt-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline"
-                    >
-                      View on GitHub
-                    </a>
+                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    {project.skills && Object.keys(project.skills).length > 0 && (
+                      <div className="mt-auto pt-3">
+                        <div className="flex flex-wrap gap-1">
+                          {Object.entries(project.skills).map(([skill, level], i) => {
+                            let bgColor;
+                            switch (level) {
+                              case 0:
+                                bgColor = 'bg-blue-400';
+                                break;
+                              case 1:
+                                bgColor = 'bg-yellow-400';
+                                break;
+                              case 2:
+                                bgColor = 'bg-green-400';
+                                break;
+                              case 3:
+                                bgColor = 'bg-red-400';
+                                break;
+                            }
+                            return (
+                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+                                {skill}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -102,33 +120,50 @@ const Projects: React.FC = () => {
               {mediumProjects.map((project, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-lg shadow-lg transition-all duration-300 ease-out transform ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400`}
+                  className={`group relative p-[6px] rounded-2xl shadow-lg transition-all duration-300 ease-out transform hover:scale-105 ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-t from-[#3eb47c] to-[#30ff00]`}
                 >
-                  <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
-                  <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
-                  <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
-                  {/* Added skills section similar to Timeline */}
-                  {project.skills && project.skills.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
-                      {project.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                  <div className="rounded-xl bg-[#4ff192] p-3 h-full flex flex-col">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
+                      >
+                        <FaGithub size={32} />
+                      </a>
                     </div>
-                  )}
-                  <div className="mt-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline"
-                    >
-                      View on GitHub
-                    </a>
+                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    {project.skills && Object.keys(project.skills).length > 0 && (
+                      <div className="mt-auto pt-3">
+                        <div className="flex flex-wrap gap-1">
+                          {Object.entries(project.skills).map(([skill, level], i) => {
+                            let bgColor;
+                            switch (level) {
+                              case 0:
+                                bgColor = 'bg-blue-400';
+                                break;
+                              case 1:
+                                bgColor = 'bg-yellow-400';
+                                break;
+                              case 2:
+                                bgColor = 'bg-green-400';
+                                break;
+                              case 3:
+                                bgColor = 'bg-red-400';
+                                break;
+                            }
+                            return (
+                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+                                {skill}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -143,33 +178,50 @@ const Projects: React.FC = () => {
               {smallProjects.map((project, index) => (
                 <div
                   key={index}
-                  className={`p-6 rounded-lg shadow-lg transition-all duration-300 ease-out transform ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-r from-green-200 via-green-300 to-green-400`}
+                  className={`group relative p-[6px] rounded-2xl shadow-lg transition-all duration-300 ease-out transform hover:scale-105 ${project.visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} bg-gradient-to-t from-[#b4a03e] to-[#ffe700]`}
                 >
-                  <h3 className="text-xl font-bold text-gray-800">{project.name}</h3>
-                  <p className="text-sm text-gray-600">{project.date} • {project.span}</p>
-                  <p className="mt-2 text-gray-700 whitespace-pre-line">{project.desc}</p>
-                  {/* Added skills section similar to Timeline */}
-                  {project.skills && project.skills.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-2 overflow-x-auto">
-                      {project.skills.map((skill, i) => (
-                        <span
-                          key={i}
-                          className="bg-[#2e229b] text-blue-200 px-2 py-1 rounded-full"
-                        >
-                          {skill}
-                        </span>
-                      ))}
+                  <div className="rounded-xl bg-[#f1e24f] p-3 h-full flex flex-col">
+                    <div className="flex justify-between items-center mb-1">
+                      <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
+                      >
+                        <FaGithub size={32} />
+                      </a>
                     </div>
-                  )}
-                  <div className="mt-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-500 underline"
-                    >
-                      View on GitHub
-                    </a>
+                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    {project.skills && Object.keys(project.skills).length > 0 && (
+                      <div className="mt-auto pt-3">
+                        <div className="flex flex-wrap gap-1">
+                          {Object.entries(project.skills).map(([skill, level], i) => {
+                            let bgColor;
+                            switch (level) {
+                              case 0:
+                                bgColor = 'bg-blue-400';
+                                break;
+                              case 1:
+                                bgColor = 'bg-yellow-400';
+                                break;
+                              case 2:
+                                bgColor = 'bg-green-400';
+                                break;
+                              case 3:
+                                bgColor = 'bg-red-400';
+                                break;
+                            }
+                            return (
+                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+                                {skill}
+                              </span>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}

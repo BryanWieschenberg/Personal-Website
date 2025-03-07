@@ -42,7 +42,7 @@ export interface Work {
   company: string;
   date: string;
   desc: string;
-  skills: string[];
+  skills: Record<string, number>;
 }
 
 export interface Project {
@@ -51,7 +51,7 @@ export interface Project {
   date: string;
   span: string;
   desc: string;
-  skills: string[];
+  skills: Record<string, number>;
   github: string;
 }
 
@@ -151,26 +151,26 @@ export const classes: Class[] = [
 ];
 
 export const work: Work[] = [
-  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.\n• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.\n• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.\n• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability.", skills: ["Java", "UML", "Git", "Jira", "Agile", "Agile", "Agile"]},
-  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.\n• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
-  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.\n• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.\n• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
-  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.\n• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.\n• Streamlined data modification processes by implementing protocols for efficient living space access updates.", skills: ["Java", "UML", "Git", "Jira", "Agile"] },
-  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.\n• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments.", skills: ["Java", "UML", "Git", "Jira", "Agile"] }
+  { role: "Software Engineer", company: "WorkWell Partnership", date: "Sep. 2024 – Dec. 2024", desc: "• Spearheaded the development of company-wide system infrastructure as part of TCNJ Software Engineering course, integrating essential components to support a scalable user base.\n• Optimized backend performance and integrating PostgreSQL to manage users and securely handle sensitive data.\n• Implemented multi-layer encryption and tiered permissions to ensure strict access control at multiple levels.\n• Structured the system architecture using UML to create standardized workflows, enhancing modularity, streamlining development processes, and improving long-term maintainability.", skills: {"Java": 0, "UML": 1, "Git": 2, "Jira": 3, "Agile": 1, "bruh": 1, "bruhas": 1} },
+  { role: "Computer Science Mentor", company: "The College of New Jersey", date: "Dec. 2024 – Present", desc: "• Mentoring students by offering guidance on foundational concepts, coursework, and career development, while fostering a supportive and inclusive environment.\n• Promoting effective problem-solving, time management, and project completion strategies to drive academic and personal success.", skills: {"Java": 0} },
+  { role: "Quantum Computing Research Assistant", company: "The College of New Jersey", date: "Aug. 2024 – Present", desc: "• Collaborating alongside PhD faculty to analyze quantum computing performance against classical approaches.\n• Exploring foundational quantum algorithms and their applications to enhance computational efficiency.\n• Applying quantum computing knowledge to evaluate algorithm scalability, providing practical insights for data analysis and complex system optimization.", skills: {"Java": 0} },
+  { role: "Operations Assistant", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Managing a complex database overseeing 4,000+ campus dormitory assignments, ensuring precise tracking.\n• Responding to and resolving critical incidents involving system operations to maintain campus security and safety.\n• Streamlined data modification processes by implementing protocols for efficient living space access updates.", skills: {"Java": 0} },
+  { role: "Residential Advisor", company: "The College of New Jersey", date: "Aug. 2023 – Present", desc: "• Leading an inclusive community of 100+ residents by providing support, connecting students to resources, and enforcing policies through systemized documentation.\n• Organized 20+ community-building events, increasing engagement and fostering supportive and inclusive environments.", skills: {"Java": 0} }
 ];
 
 export const projects: Project[] = [
-  { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile", "Agile", "Agile", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Livestock Metrics Visualization App", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Dashboard and Applicant Manager", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "TCNJ Kappa Theta Pi Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Video Sharing Service", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Hackathon Event Scheduler", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Command Line Shell Interface", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Flashcards App", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Amazon Web Scraper", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Turtle Stack", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Computer Lab Finder", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "AVL Tree Data Analyzer", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Matrix Word Scanner", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "Baby Name Finder", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: ["Java", "UML", "Git", "Jira", "Agile"], github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• asas\n• sasa\n• asas", skills: {"Java": 0, "UML": 1, "Git": 2, "Jira": 3, "Agile": 1, "bruh": 1, "bruhas": 1, "boywhatda": 2, "boywhatdas": 2, "boywhatdass": 2, "boywhatdasss": 2}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Livestock Metrics Visualization App", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Dashboard and Applicant Manager", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "TCNJ Kappa Theta Pi Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Video Sharing Service", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Hackathon Event Scheduler", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Command Line Shell Interface", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0, "UML": 1, "Git": 2, "Jira": 3, "Agile": 1, "bruh": 1, "bruhas": 1, "boywhatda": 2, "boywhatdas": 2, "boywhatdass": 2, "boywhatdasssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": 2, "asas": 3}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Flashcards App", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Amazon Web Scraper", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Turtle Stack", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Computer Lab Finder", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "AVL Tree Data Analyzer", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Matrix Word Scanner", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "Baby Name Finder", scale: 2, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
 ]
