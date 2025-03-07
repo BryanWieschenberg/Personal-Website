@@ -37,9 +37,15 @@ import { roles } from "../../constants";
  
    return (
     <div className="container mx-auto px-4 lg:px-20 mb-6" ref={containerRef}>
-       <h1 className="roles-text lg:pt-10 text-2xl lg:text-6xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#25b0e7] bg-clip-text">
-         Jobs I'm Qualified For:
-       </h1>
+      <img src="./assets/images/arrowBig.png"
+        className="custom-image mx-auto animate-pulsate"
+        style={{ width: '1600px', height: '20px' }} />
+      
+      <div className="mt-20"></div>
+
+      <h1 className={`roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text opacity-100`}>
+        Jobs I'm Qualified For:
+      </h1>
        <div className="container mx-auto px-16 mt-16">
          <div className="flex flex-wrap justify-center gap-3">
           {jobItems.map((job, index) => (
@@ -64,6 +70,10 @@ import { roles } from "../../constants";
           ))}
          </div>
        </div>
+       <img src="./assets/images/arrowBig.png"
+        className="mt-20 lg:mt-24 custom-image mx-auto animate-pulsate"
+        style={{ width: '1600px', height: '20px' }} />
+
      </div>
    );
  };

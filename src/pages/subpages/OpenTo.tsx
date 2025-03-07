@@ -16,7 +16,7 @@ const OpenTo: React.FC = () => {
 
   return (
     <div className="container mx-auto px-4 lg:px-20 mb-6">
-      <h1 className="roles-text lg:mb-2 pt-4 lg:pt-10 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text"> 
+      <h1 className="roles-text lg:mb-2 lg:pt-10 text-xl lg:text-5xl mt-2 font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#a1aeff] bg-clip-text">
         I'm Open to:
       </h1> 
       

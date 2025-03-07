@@ -144,10 +144,12 @@ const Availability: React.FC = () => {
   ].filter(Boolean) as AvailabilityPeriod[];
 
   return (
-    <div>
-      <h1 className="roles-text lg:pt-10 text-2xl lg:text-6xl font-bold mt-4 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#25b0e7] bg-clip-text">
+    <div>      
+      <div className="mt-20"></div>
+      <h1 className={`roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text opacity-100`}>
         What Roles Am I Looking For?
       </h1>
+
       <p className="lg:pt-8 text-xs text-center lg:text-xl text-white">
         I'm based in New Jersey, but am open to relocating nationwide without financial assistance for the right opportunity.
         <br />
@@ -157,7 +159,7 @@ const Availability: React.FC = () => {
       {/* Your existing <OpenTo /> component */}
       <OpenTo />
 
-      <h1 className="roles-text lg:mb-2 lg:pt-10 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text">
+      <h1 className="roles-text lg:mb-2 lg:pt-10 text-xl lg:text-5xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#a1aeff] bg-clip-text">
         Availability Timeline:
       </h1>
 

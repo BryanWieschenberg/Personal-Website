@@ -123,7 +123,7 @@ const Orgs: React.FC = () => {
       </div>
 
       {/* Intro text */}
-      <div ref={sectionRef} className={`lg:pt-8 text-center transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      <div ref={sectionRef} className={`pt-3 lg:pt-8 text-center transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}>
         <p className="text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
           I'm actively involved in many clubs and organizations!
         </p>

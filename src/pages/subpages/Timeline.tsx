@@ -52,7 +52,7 @@ const Timeline: React.FC = () => {
         My Timeline:
       </h1>
       {/* Timeline Container with vertical line decoration */}
-      <div className="relative mt-16">
+      <div className="relative lg:mt-4">
         {/* Centered Vertical timeline line */}
         <div className={`absolute left-1/2 transform -translate-x-1/2 top-0 w-3 h-[98%] bg-[#1e65ff] transition-opacity duration-1000 ${
     visible ? 'opacity-100' : 'opacity-0'}`}></div>
@@ -88,50 +88,50 @@ const Timeline: React.FC = () => {
 
                 {/* Description Box */}
                 <div
-  className={`mt-2 transition-all duration-500 ease-in-out overflow-hidden ${
-    selectedIndex === index ? 'max-h-[32rem] opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
-  }`}
->
-  <div className="bg-[#2f4677] text-white p-3 rounded-xl shadow-lg">
-    <p className="text-sm lg:text-base text-gray-200 whitespace-pre-line">
-      {exp.desc}
-    </p>
-    {exp.skills && Object.keys(exp.skills).length > 0 && (
-  <div className="mt-2 flex flex-wrap gap-1">
-    {Object.entries(exp.skills).map(([skill, level], i) => {
-      let bgColor;
-      switch (level) {
-        case 0:
-          bgColor = 'bg-blue-400';
-          break;
-        case 1:
-          bgColor = 'bg-yellow-400';
-          break;
-        case 2:
-          bgColor = 'bg-green-400';
-          break;
-        case 3:
-          bgColor = 'bg-red-400';
-          break;
-        default:
-          bgColor = 'bg-gray-400';
-      }
-      return (
-        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
-          {skill}
-        </span>
-      );
-    })}
-  </div>
-)}
-
-  </div>
-</div>
+                  className={`mt-2 transition-all duration-500 ease-in-out overflow-hidden ${
+                    selectedIndex === index ? 'max-h-[32rem] opacity-100 py-2' : 'max-h-0 opacity-0 py-0'
+                  }`}
+                >
+                  <div className="bg-[#2f4677] text-white p-3 rounded-xl shadow-lg">
+                    <p className="text-sm lg:text-base text-gray-200 whitespace-pre-line">
+                      {exp.desc}
+                    </p>
+                    {exp.skills && Object.keys(exp.skills).length > 0 && (
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {Object.entries(exp.skills).map(([skill, level], i) => {
+                      let bgColor;
+                      switch (level) {
+                        case 0:
+                          bgColor = 'bg-blue-400';
+                          break;
+                        case 1:
+                          bgColor = 'bg-yellow-400';
+                          break;
+                        case 2:
+                          bgColor = 'bg-green-400';
+                          break;
+                        case 3:
+                          bgColor = 'bg-red-400';
+                          break;
+                        default:
+                          bgColor = 'bg-gray-400';
+                      }
+                      return (
+                        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
+                          {skill}
+                        </span>
+                      );
+                    })}
+                  </div>
+                )}
+                  </div>
+                </div>
               </div>
             </div>
           ))}
         </div>
       </div>
+      <div className="mt-12 lg:mt-20"></div>
     </div>
   );
 };
