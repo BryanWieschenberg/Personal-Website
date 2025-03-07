@@ -57,7 +57,9 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-20 py-10">
         {largeProjects.length > 0 && (
           <section className="mb-12">
-            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4fbdf1]  relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(60,60,150,1)]">Large-Scale Projects</h2>
+            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4fbdf1] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(60,60,150,1)]">
+              Large-Scale Projects
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {largeProjects.map((project, index) => (
                 <div
@@ -67,17 +69,30 @@ const Projects: React.FC = () => {
                   <div className="rounded-xl bg-[#4fbdf1] p-3 h-full flex flex-col">
                     <div className="flex justify-between items-center mb-1">
                       <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 flex-shrink-0 ml-2"
-                      >
-                        <FaGithub size={32} />
-                      </a>
+                      {project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} />
+                        </a>
+                      ) : (
+                        <span 
+                          title="This GitHub Repository is Private" 
+                          className="flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} className="text-gray-400" />
+                        </span>
+                      )}
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
-                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {project.date} • {project.span}
+                    </p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">
+                      {project.desc}
+                    </p>
                     {project.skills && Object.keys(project.skills).length > 0 && (
                       <div className="mt-auto pt-3">
                         <div className="flex flex-wrap gap-1">
@@ -96,6 +111,8 @@ const Projects: React.FC = () => {
                               case 3:
                                 bgColor = 'bg-red-400';
                                 break;
+                              default:
+                                bgColor = 'bg-gray-400';
                             }
                             return (
                               <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
@@ -115,7 +132,9 @@ const Projects: React.FC = () => {
 
         {mediumProjects.length > 0 && (
           <section className="mb-12">
-            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4ff192]  relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(20,120,20,1)]">Medium-Scale Projects</h2>
+            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4ff192] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(20,120,20,1)]">
+              Medium-Scale Projects
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {mediumProjects.map((project, index) => (
                 <div
@@ -125,17 +144,30 @@ const Projects: React.FC = () => {
                   <div className="rounded-xl bg-[#4ff192] p-3 h-full flex flex-col">
                     <div className="flex justify-between items-center mb-1">
                       <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
-                      >
-                        <FaGithub size={32} />
-                      </a>
+                      {project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} />
+                        </a>
+                      ) : (
+                        <span 
+                          title="This GitHub Repository is Private" 
+                          className="flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} className="text-gray-400" />
+                        </span>
+                      )}
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
-                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {project.date} • {project.span}
+                    </p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">
+                      {project.desc}
+                    </p>
                     {project.skills && Object.keys(project.skills).length > 0 && (
                       <div className="mt-auto pt-3">
                         <div className="flex flex-wrap gap-1">
@@ -154,9 +186,11 @@ const Projects: React.FC = () => {
                               case 3:
                                 bgColor = 'bg-red-400';
                                 break;
+                              default:
+                                bgColor = 'bg-gray-400';
                             }
                             return (
-                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
                                 {skill}
                               </span>
                             );
@@ -173,7 +207,9 @@ const Projects: React.FC = () => {
 
         {smallProjects.length > 0 && (
           <section className="mb-12">
-            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#f1e24f] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(120,120,30,1)]">Small-Scale Projects</h2>
+            <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#f1e24f] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(120,120,30,1)]">
+              Small-Scale Projects
+            </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {smallProjects.map((project, index) => (
                 <div
@@ -183,17 +219,30 @@ const Projects: React.FC = () => {
                   <div className="rounded-xl bg-[#f1e24f] p-3 h-full flex flex-col">
                     <div className="flex justify-between items-center mb-1">
                       <h3 className="text-xl font-bold text-gray-800 truncate">{project.name}</h3>
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
-                      >
-                        <FaGithub size={32} />
-                      </a>
+                      {project.github ? (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} />
+                        </a>
+                      ) : (
+                        <span 
+                          title="This GitHub Repository is Private" 
+                          className="flex-shrink-0 ml-2"
+                        >
+                          <FaGithub size={32} className="text-gray-400" />
+                        </span>
+                      )}
                     </div>
-                    <p className="text-sm text-gray-600 mb-2">{project.date} • {project.span}</p>
-                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">{project.desc}</p>
+                    <p className="text-sm text-gray-600 mb-2">
+                      {project.date} • {project.span}
+                    </p>
+                    <p className="mt-1 text-gray-700 whitespace-pre-line flex-grow overflow-y-auto max-h-32">
+                      {project.desc}
+                    </p>
                     {project.skills && Object.keys(project.skills).length > 0 && (
                       <div className="mt-auto pt-3">
                         <div className="flex flex-wrap gap-1">
@@ -212,9 +261,11 @@ const Projects: React.FC = () => {
                               case 3:
                                 bgColor = 'bg-red-400';
                                 break;
+                              default:
+                                bgColor = 'bg-gray-400';
                             }
                             return (
-                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-black text-xs inline-block min-w-0 max-w-full truncate`}>
+                              <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
                                 {skill}
                               </span>
                             );

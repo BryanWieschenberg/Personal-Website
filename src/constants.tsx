@@ -1,19 +1,17 @@
-import { FaLaptopCode, FaFileCode, FaGamepad, FaMicrophoneAlt, FaUsers, FaHandshake, FaLightbulb, FaSyncAlt, FaTasks, FaChalkboardTeacher, FaClock, FaShieldAlt, FaSpa } from 'react-icons/fa';
-import { TbMatrix, TbAtom2Filled } from "react-icons/tb";
+import { FaLaptopCode, FaFileCode, FaGamepad, FaMicrophoneAlt, FaUsers, FaHandshake, FaLightbulb, FaSyncAlt, FaTasks, FaChalkboardTeacher, FaClock, FaShieldAlt, FaSpa, FaGlobe, FaCloudUploadAlt } from 'react-icons/fa';
+import { TbMatrix, TbAtom2Filled, TbLogicAnd, TbStack2Filled } from "react-icons/tb";
 import { IoHardwareChip, IoChatbubbleEllipsesOutline } from "react-icons/io5";
-import { TbLogicAnd, TbStack2Filled } from "react-icons/tb";
 import { HiDatabase, HiOutlineArrowsExpand } from "react-icons/hi";
 import { PiGraphBold } from "react-icons/pi";
 import { SlGraph } from "react-icons/sl";
 import { RiFunctionFill } from "react-icons/ri";
 import { LuAtom } from "react-icons/lu";
-import { MdNetworkWifi, MdHearing, MdVerifiedUser } from "react-icons/md";
-import { IoStatsChartSharp, IoPersonCircle } from "react-icons/io5";
-import { BiCodeBlock } from "react-icons/bi";
-import { FaStackExchange } from "react-icons/fa6";
+import { MdNetworkWifi, MdHearing, MdVerifiedUser, MdOutlineStorage, MdTouchApp } from "react-icons/md";
+import { IoStatsChartSharp } from "react-icons/io5";
+import { BiCodeBlock, BiPaintRoll } from "react-icons/bi";
 import { IoIosInformationCircle } from "react-icons/io";
 import { BsClipboardDataFill } from "react-icons/bs";
-import { AiOutlineCrown } from "react-icons/ai";
+import { AiOutlineCrown, AiOutlineLayout } from "react-icons/ai";
 
 export interface Role {
   text: string;
@@ -58,15 +56,15 @@ export interface Project {
 
 export const roles: Role[] = [
   { text: "Software Engineer", icon: <BiCodeBlock size={40} />, desc: "• asas\n• sasa\n• asas"}, // mention agile
-  { text: "Full Stack Developer", icon: <FaStackExchange size={40} /> , desc: ""},
-  { text: "DevOps Engineer", icon: <FaStackExchange size={40} />, desc: "" },
+  { text: "Full Stack Developer", icon: <FaGlobe size={40} /> , desc: ""},
+  { text: "Front-End Engineer", icon: <BiPaintRoll size={40} />, desc: "" },
+  { text: "Back-End Engineer", icon: <MdOutlineStorage size={40} />, desc: "" },
+  { text: "Data Analyst", icon: <BsClipboardDataFill size={40} />, desc: "" },
+  { text: "DevOps Engineer", icon: <FaCloudUploadAlt size={40} />, desc: "" },
   { text: "IT Support Specialist", icon: <IoIosInformationCircle size={40} />, desc: "" },
   { text: "Game Developer", icon: <FaGamepad size={40} />, desc: "" },
-  { text: "Data Analyst", icon: <BsClipboardDataFill size={40} />, desc: "" },
-  { text: "UI Developer", icon: <IoPersonCircle size={40} />, desc: "" },
-  { text: "UX Developer", icon: <IoPersonCircle size={40} />, desc: "" },
-  { text: "Front-End Engineer", icon: <IoPersonCircle size={40} />, desc: "" },
-  { text: "Back-End Engineer", icon: <IoPersonCircle size={40} />, desc: "" },
+  { text: "UI Developer", icon: <AiOutlineLayout size={40} />, desc: "" },
+  { text: "UX Developer", icon: <MdTouchApp size={40} />, desc: "" },
 //  { text: "Cloud Engineer", icon: <IoMdCloudDone size={40} /> },
 //  { text: "Solutions Architect", icon: <IoMdCloudDone size={40} /> },
 //  { text: "Data Scientist", icon: <BsClipboardDataFill size={40} /> },
@@ -76,60 +74,61 @@ export const roles: Role[] = [
 ];
 
 export const skills: Skill[] = [
-  { type: 0, name: "C", yoe: 1.5, desc: "• Created a custom Linux shell\nasasas", icon: "/assets/skills/c.png" },
-  { type: 0, name: "C++", yoe: 2, desc: "• Created AVL Tree-optimized algorithm to analyze extremely large datasets\n• Used in Data Structures course", icon: "/assets/skills/cpp.png" },
-  { type: 0, name: "C#", yoe: 0.5, desc: "• Made basic Unity projects", icon: "/assets/skills/cs.png" },
-  { type: 0, name: "Java", yoe: 6, desc: "• Used in Computional Thinking course\n• Made ", icon: "/assets/skills/java.png" },
-  { type: 0, name: "Python", yoe: 0, desc: "", icon: "/assets/skills/py.png" },
-  { type: 0, name: "Ruby", yoe: 0, desc: "", icon: "/assets/skills/rb.png" },
-  { type: 0, name: "HTML", yoe: 0, desc: "", icon: "/assets/skills/html.png" },
-  { type: 0, name: "CSS", yoe: 0, desc: "", icon: "/assets/skills/css.png" },
-  { type: 0, name: "JavaScript", yoe: 0, desc: "", icon: "/assets/skills/js.png" },
-  { type: 0, name: "TypeScript", yoe: 0, desc: "", icon: "/assets/skills/ts.png" },
-  { type: 0, name: "SQL", yoe: 0, desc: "", icon: "/assets/skills/sql.png" },
-  { type: 1, name: "React", yoe: 0, desc: "", icon: "/assets/skills/react.png" },
-  { type: 1, name: "Next.js", yoe: 0, desc: "", icon: "/assets/skills/next.png" },
-  { type: 1, name: "Vue.js", yoe: 0, desc: "", icon: "/assets/skills/vue.png" },
-  { type: 1, name: "Node.js", yoe: 0, desc: "", icon: "/assets/skills/node.png" },
-  { type: 1, name: "Spring Boot", yoe: 0, desc: "", icon: "/assets/skills/sb.png" },
-  { type: 1, name: "Rails", yoe: 0, desc: "", icon: "/assets/skills/rails.png" },
-  { type: 1, name: "Flask", yoe: 0, desc: "", icon: "/assets/skills/flask.png" },
-  { type: 1, name: "Django", yoe: 0, desc: "", icon: "/assets/skills/dj.png" },
-  { type: 1, name: "Selenium", yoe: 0, desc: "", icon: "/assets/skills/se.png" },
-  { type: 1, name: "Tailwind CSS", yoe: 0, desc: "", icon: "/assets/skills/tw.png" },
-  { type: 1, name: "GSAP", yoe: 0, desc: "", icon: "/assets/skills/gsap.png" },
-  { type: 1, name: "Bootstrap", yoe: 0, desc: "", icon: "/assets/skills/bs.png" },
-  { type: 2, name: "Git", yoe: 0, desc: "", icon: "/assets/skills/git.png" },
-  { type: 2, name: "Jira", yoe: 0, desc: "", icon: "/assets/skills/jira.png" },
-  { type: 2, name: "Visual Studio Code", yoe: 0, desc: "", icon: "/assets/skills/vscode.png" },
-  { type: 2, name: "PostgreSQL", yoe: 0, desc: "", icon: "/assets/skills/psql.png" },
-  { type: 2, name: "MongoDB", yoe: 0, desc: "", icon: "/assets/skills/mdb.png" },
-  { type: 2, name: "UML", yoe: 0, desc: "", icon: "/assets/skills/uml.png" },
-  { type: 2, name: "Google Cloud", yoe: 0, desc: "", icon: "/assets/skills/gcp.png" },
-  { type: 2, name: "Firebase", yoe: 0, desc: "", icon: "/assets/skills/fb.png" },
-  { type: 2, name: "Docker", yoe: 0, desc: "", icon: "/assets/skills/docker.png" },
-  { type: 2, name: "Microsoft Excel", yoe: 0, desc: "", icon: "/assets/skills/excel.png" },
-  { type: 2, name: "Unity", yoe: 0, desc: "", icon: "/assets/skills/unity.png" },
-  { type: 2, name: "MATLAB", yoe: 0, desc: "", icon: "/assets/skills/matlab.png" },
-  { type: 2, name: "R", yoe: 0, desc: "", icon: "/assets/skills/r.png" },
-  { type: 2, name: "Windows", yoe: 0, desc: "", icon: "/assets/skills/windows.png" },
-  { type: 2, name: "MacOS", yoe: 0, desc: "", icon: "/assets/skills/macos.png" },
-  { type: 2, name: "Linux", yoe: 0, desc: "", icon: "/assets/skills/linux.png" },
-  { type: 2, name: "Ubuntu", yoe: 0, desc: "", icon: "/assets/skills/ubuntu.png" },
-  { type: 3, name: "Communication", yoe: 0, desc: "", icon: <IoChatbubbleEllipsesOutline size={40} /> },
-  { type: 3, name: "Active Listening", yoe: 0, desc: "", icon: <MdHearing size={40} /> },
-  { type: 3, name: "Public Speaking", yoe: 0, desc: "", icon: <FaMicrophoneAlt size={40} /> },
-  { type: 3, name: "Collaboration", yoe: 0, desc: "", icon: <FaUsers size={40} /> },
-  { type: 3, name: "Conflict Resolution", yoe: 0, desc: "", icon: <FaHandshake size={40} /> },
-  { type: 3, name: "Innovation", yoe: 0, desc: "", icon: <FaLightbulb size={40} /> },
-  { type: 3, name: "Adaptability", yoe: 0, desc: "", icon: <FaSyncAlt size={40} /> },
-  { type: 3, name: "Leadership", yoe: 0, desc: "", icon: <AiOutlineCrown size={40} /> },
-  { type: 3, name: "Management", yoe: 0, desc: "", icon: <FaTasks size={40} /> },
-  { type: 3, name: "Mentoring", yoe: 0, desc: "", icon: <FaChalkboardTeacher size={40} /> },
-  { type: 3, name: "Time Management", yoe: 0, desc: "", icon: <FaClock size={40} /> },
-  { type: 3, name: "Resilience", yoe: 0, desc: "", icon: <FaShieldAlt size={40} /> },
-  { type: 3, name: "Integrity", yoe: 0, desc: "", icon: <MdVerifiedUser size={40} /> },
-  { type: 3, name: "Stress Management", yoe: 0, desc: "", icon: <FaSpa size={40} /> },
+  { type: 0, name: "C", yoe: 1.5, desc: "Operating Systems course, Computer Architecture course, Analysis of Algorithms course, Command Line Shell Interface project", icon: "/assets/skills/c.png" },
+  { type: 0, name: "C++", yoe: 2, desc: "Data Structures course, Matrix Word Scanner project, AVL Tree Data Analyzer project", icon: "/assets/skills/cpp.png" },
+  { type: 0, name: "C#", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/cs.png" },
+  { type: 0, name: "Java", yoe: 5, desc: "Computational Thinking course, Computer Networking course, Name Popularity Sorting Algorithm project", icon: "/assets/skills/java.png" },
+  { type: 0, name: "Python", yoe: 4, desc: "Computer Networking course, Amazon Web Scraper project, Flashcards App project, Computer Lab Finder project, Turtle Stack Hackathon game", icon: "/assets/skills/py.png" },
+  { type: 0, name: "Ruby", yoe: 0.5, desc: "Software Engineering course, WorkWell Partnership Software Engineer role, Dashboard & Applicant Manager project, Hackathon Event Scheduler project", icon: "/assets/skills/rb.png" },
+  { type: 0, name: "HTML", yoe: 7, desc: "This website, Software Engineering course, Database Systems course, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project, Video Sharing Service project, TCNJ Kappa Theta Pi website", icon: "/assets/skills/html.png" },
+  { type: 0, name: "CSS", yoe: 7, desc: "This website, Software Engineering course, Database Systems course, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project, Video Sharing Service project, TCNJ Kappa Theta Pi website", icon: "/assets/skills/css.png" },
+  { type: 0, name: "JavaScript", yoe: 3, desc: "TCNJ Kappa Theta Pi website", icon: "/assets/skills/js.png" },
+  { type: 0, name: "TypeScript", yoe: 1, desc: "This website, Video Sharing Service project", icon: "/assets/skills/ts.png" },
+  { type: 0, name: "SQL", yoe: 1.5, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/sql.png" },
+  { type: 0, name: "ARM/x86 Assembly", yoe: 1, desc: "Operating Systems course, Computer Architecture course", icon: "/assets/skills/asm.png" },
+  { type: 1, name: "React", yoe: 0.5, desc: "This website, Video Sharing Service project", icon: "/assets/skills/react.png" },
+  { type: 1, name: "Next.js", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/next.png" },
+  { type: 1, name: "Vue.js", yoe: 0.5, desc: "This website", icon: "/assets/skills/vue.png" },
+  { type: 1, name: "Node.js", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/node.png" },
+  { type: 1, name: "Rails", yoe: 0.5, desc: "Software Engineering course, WorkWell Partnership Software Engineer role, Dashboard & Applicant Manager project", icon: "/assets/skills/rails.png" },
+  { type: 1, name: "Flask", yoe: 1.5, desc: "Database Systems course, Livestock Metrics Visualization App project", icon: "/assets/skills/flask.png" },
+  { type: 1, name: "Django", yoe: 1, desc: "Various experiences", icon: "/assets/skills/dj.png" },
+  { type: 1, name: "Selenium", yoe: 1.5, desc: "Computer Networking course, Amazon Web Scraper project", icon: "/assets/skills/se.png" },
+  { type: 1, name: "Tailwind CSS", yoe: 0.5, desc: "This website", icon: "/assets/skills/tw.png" },
+  { type: 1, name: "GSAP", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/gsap.png" },
+  { type: 1, name: "Bootstrap", yoe: 0.5, desc: "Software Engineering course, WorkWell Partnership Software Engineer role, Dashboard & Applicant Manager project", icon: "/assets/skills/bs.png" },
+  { type: 2, name: "Git", yoe: 2, desc: "This website, Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project, Video Sharing Service project, Hackathon Event Scheduler project, TCNJ Kappa Theta Pi website", icon: "/assets/skills/git.png" },
+  { type: 2, name: "Jira", yoe: 1, desc: "Various experiences", icon: "/assets/skills/jira.png" },
+  { type: 2, name: "Visual Studio Code", yoe: 4, desc: "Many experiences", icon: "/assets/skills/vscode.png" },
+  { type: 2, name: "PostgreSQL", yoe: 1.5, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/psql.png" },
+  { type: 2, name: "MongoDB", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/mdb.png" },
+  { type: 2, name: "Unified Modeling Language", yoe: 1.5, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/uml.png" },
+  { type: 2, name: "Google Cloud", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/gcp.png" },
+  { type: 2, name: "Firebase", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/fb.png" },
+  { type: 2, name: "Docker", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/docker.png" },
+  { type: 2, name: "Microsoft Excel", yoe: 5, desc: "Many experiences", icon: "/assets/skills/excel.png" },
+  { type: 2, name: "Unity", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/unity.png" },
+  { type: 2, name: "MATLAB", yoe: 1.5, desc: "Linear Algebra course", icon: "/assets/skills/matlab.png" },
+  { type: 2, name: "R", yoe: 1, desc: "Statistics & Probability course", icon: "/assets/skills/r.png" },
+  { type: 2, name: "Wireshark", yoe: 1, desc: "Computer Networking course", icon: "/assets/skills/ws.png" },
+  { type: 2, name: "Windows", yoe: 10, desc: "Many experiences", icon: "/assets/skills/windows.png" },
+  { type: 2, name: "MacOS", yoe: 2, desc: "Various experiences", icon: "/assets/skills/macos.png" },
+  { type: 2, name: "Linux", yoe: 2, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/linux.png" },
+  { type: 2, name: "Ubuntu", yoe: 1, desc: "Video Sharing Service project", icon: "/assets/skills/ubuntu.png" },
+  { type: 3, name: "Communication", yoe: 10, desc: "Kappa Theta Pi Professional Technology Fraternity, Leadership Development Program, Association for Computing Machinery, Diversity & Inclusion Group in Tech for All, Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, TCNJ Computer Science Mentor role, TCNJ Quantum Computing Research Assistant role, TCNJ Operations Assistant role, TCNJ Residential Advisor role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project, many more", icon: <IoChatbubbleEllipsesOutline size={40} /> },
+  { type: 3, name: "Active Listening", yoe: 10, desc: "Many experiences", icon: <MdHearing size={40} /> },
+  { type: 3, name: "Public Speaking", yoe: 8, desc: "TCNJ Residential Advisor role, many more", icon: <FaMicrophoneAlt size={40} /> },
+  { type: 3, name: "Collaboration", yoe: 10, desc: "Kappa Theta Pi Professional Technology Fraternity, Leadership Development Program, Association for Computing Machinery, Diversity & Inclusion Group in Tech for All, Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, TCNJ Computer Science Mentor role, TCNJ Quantum Computing Research Assistant role, TCNJ Operations Assistant role, TCNJ Residential Advisor role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project, many more", icon: <FaUsers size={40} /> },
+  { type: 3, name: "Conflict Resolution", yoe: 6, desc: "TCNJ Residential Advisor role, TCNJ Operations Assistant role, many more", icon: <FaHandshake size={40} /> },
+  { type: 3, name: "Innovation", yoe: 4, desc: "Many experiences", icon: <FaLightbulb size={40} /> },
+  { type: 3, name: "Adaptability", yoe: 4, desc: "TCNJ Residential Advisor role, TCNJ Operations Assistant role, many more", icon: <FaSyncAlt size={40} /> },
+  { type: 3, name: "Leadership", yoe: 8, desc: "Kappa Theta Pi Professional Technology Fraternity, Leadership Development Program, Association for Computing Machinery, Diversity & Inclusion Group in Tech for All, TCNJ Computer Science Mentor role, TCNJ Residential Advisor role, many more", icon: <AiOutlineCrown size={40} /> },
+  { type: 3, name: "Management", yoe: 2, desc: "Many experiences", icon: <FaTasks size={40} /> },
+  { type: 3, name: "Mentorship", yoe: 2, desc: "Kappa Theta Pi Professional Technology Fraternity, Leadership Development Program, TCNJ Computer Science Mentor role", icon: <FaChalkboardTeacher size={40} /> },
+  { type: 3, name: "Time Management", yoe: 5, desc: "Many experiences", icon: <FaClock size={40} /> },
+  { type: 3, name: "Resilience", yoe: 7, desc: "Many experiences", icon: <FaShieldAlt size={40} /> },
+  { type: 3, name: "Integrity", yoe: 10, desc: "Many experiences", icon: <MdVerifiedUser size={40} /> },
+  { type: 3, name: "Stress Management", yoe: 5, desc: "Many experiences", icon: <FaSpa size={40} /> },
 ];
 
 export const classes: Class[] = [
@@ -162,7 +161,7 @@ export const projects: Project[] = [
   { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• asas\n• sasa\n• asas", skills: {"Java": 0, "UML": 1, "Git": 2, "Jira": 3, "Agile": 1, "bruh": 1, "bruhas": 1, "boywhatda": 2, "boywhatdas": 2, "boywhatdass": 2, "boywhatdasss": 2}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Livestock Metrics Visualization App", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Dashboard and Applicant Manager", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
-  { name: "TCNJ Kappa Theta Pi Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
+  { name: "TCNJ Kappa Theta Pi Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "" },
   { name: "Video Sharing Service", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Hackathon Event Scheduler", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Command Line Shell Interface", scale: 1, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• \n• \n• ", skills: {"Java": 0, "UML": 1, "Git": 2, "Jira": 3, "Agile": 1, "bruh": 1, "bruhas": 1, "boywhatda": 2, "boywhatdas": 2, "boywhatdass": 2, "boywhatdasssaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa": 2, "asas": 3}, github: "https://github.com/BryanWieschenberg/Personal-Website" },

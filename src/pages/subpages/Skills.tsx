@@ -125,13 +125,14 @@ const Skills = () => {
       {activeSkill && (
         <div className="flex justify-center mt-6">
           <div className="bg-[#2c5ba6] px-4 py-2 rounded-lg shadow-lg z-10">
-            <h3 className="font-semibold text-lg text-center text-[#00ffd4]">
+            <h3 className="font-bold text-lg lg:text-2xl text-center text-[rgb(157,230,255)]">
               {activeSkill.name}
             </h3>
-            <p className="text-sm text-center mt-1 text-white">
+            <p className="text-sm lg:text-xl text-center text-[#00ffd4]">
               {activeSkill.yoe} Years of Experience
             </p>
-            <p className="text-xs text-center mt-1 text-[#d7e0e0] whitespace-pre-line">
+            <p className="text-xs lg:text-lg text-center text-[#d7e0e0] whitespace-pre-line">
+              <span className="text-white font-semibold">Used in: </span>
               {activeSkill.desc}
             </p>
           </div>
