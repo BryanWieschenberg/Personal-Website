@@ -57,6 +57,7 @@ const Projects: React.FC = () => {
       <div className="container mx-auto px-4 lg:px-20 py-10">
         {largeProjects.length > 0 && (
           <section className="mb-12">
+            <p className="text-white text-center">hi</p>
             <h2 className="text-3xl lg:text-5xl text-center font-semibold mb-6 text-[#4fbdf1]  relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(60,60,150,1)] text-transparent"><strong>Large-Scale Projects</strong></h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {largeProjects.map((project, index) => (
