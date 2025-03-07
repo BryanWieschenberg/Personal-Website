@@ -166,8 +166,11 @@ const Navbar: React.FC = () => {
         style={{ background: 'linear-gradient(to bottom, #4b576a, #0e1528)' }}
       >
         <div className="container mx-auto px-4 flex justify-between items-center">
-          {/* Logo section - always visible, text hidden on small screens */}
-          <div className="flex items-center">
+          {/* Logo section - now clickable to go to Home */}
+          <div
+            className="flex items-center cursor-pointer"
+            onClick={(e) => handleNavigation(e, '/')}
+          >
             <img src="./assets/images/favicon.ico" alt="Logo" className="w-6 h-6 lg:w-10 lg:h-10" />
             <div className="ml-2 hidden lg:block">
               <span className="text-blue-300">Bryan</span>
@@ -182,7 +185,9 @@ const Navbar: React.FC = () => {
                 <div
                   ref={homeRef}
                   onClick={(e) => handleNavigation(e, '/')}
-                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                  className={`flex flex-col items-center cursor-pointer ${
+                    location.pathname === '/' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'
+                  }`}
                 >
                   {location.pathname === '/' ? (
                     <GoHomeFill className="w-8 h-8" />
@@ -196,7 +201,9 @@ const Navbar: React.FC = () => {
                 <div
                   ref={aboutRef}
                   onClick={(e) => handleNavigation(e, '/about')}
-                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                  className={`flex flex-col items-center cursor-pointer ${
+                    location.pathname === '/about' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'
+                  }`}
                 >
                   {location.pathname === '/about' ? (
                     <IoPersonCircle className="w-8 h-8" />
@@ -210,7 +217,9 @@ const Navbar: React.FC = () => {
                 <div
                   ref={experienceRef}
                   onClick={(e) => handleNavigation(e, '/experience')}
-                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                  className={`flex flex-col items-center cursor-pointer ${
+                    location.pathname === '/experience' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'
+                  }`}
                 >
                   {location.pathname === '/experience' ? (
                     <MdWork className="w-8 h-8" />
@@ -224,7 +233,9 @@ const Navbar: React.FC = () => {
                 <div
                   ref={projectsRef}
                   onClick={(e) => handleNavigation(e, '/projects')}
-                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                  className={`flex flex-col items-center cursor-pointer ${
+                    location.pathname === '/projects' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'
+                  }`}
                 >
                   {location.pathname === '/projects' ? (
                     <IoDocumentTextSharp className="w-8 h-8" />
@@ -238,7 +249,9 @@ const Navbar: React.FC = () => {
                 <div
                   ref={contactRef}
                   onClick={(e) => handleNavigation(e, '/contact')}
-                  className={`flex flex-col items-center cursor-pointer ${location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'}`}
+                  className={`flex flex-col items-center cursor-pointer ${
+                    location.pathname === '/contact' ? 'text-blue-300' : 'text-gray-400 hover:text-gray-300'
+                  }`}
                 >
                   {location.pathname === '/contact' ? (
                     <HiChatBubbleBottomCenterText className="w-8 h-8" />

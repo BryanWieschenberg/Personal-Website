@@ -14,9 +14,14 @@ const orgsData = [
       "Hosting tech-learning workshops in nearby educational institutions, fostering discussions on emerging innovations and trends",
     ],
     skills: {
-      "Web Development": 2,
+      "HTML": 0,
+      "CSS": 0,
+      "JavaScript": 0,
+      "Git": 2,
       "Leadership": 3,
-      "Communication": 2,
+      "Mentorship": 3,
+      "Collaboration": 3,
+      "Communication": 3,
     },
   },
   {
@@ -30,9 +35,10 @@ const orgsData = [
       "Mentored participants, providing guidance and feedback to support their personal and professional growth",
     ],
     skills: {
-      "Web Development": 2,
       "Leadership": 3,
-      "Communication": 2,
+      "Mentorship": 3,
+      "Collaboration": 3,
+      "Communication": 3,
     },
   },
   {
@@ -47,9 +53,9 @@ const orgsData = [
       "Contributed to discussions and projects to foster innovation, critical thinking, and teamwork",
     ],
     skills: {
-      "Web Development": 2,
       "Leadership": 3,
-      "Communication": 2,
+      "Collaboration": 3,
+      "Communication": 3,
     },
   },
   {
@@ -63,9 +69,9 @@ const orgsData = [
       "Explored challenges and opportunities for equitable representation in technology",
     ],
     skills: {
-      "Web Development": 2,
       "Leadership": 3,
-      "Communication": 2,
+      "Collaboration": 3,
+      "Communication": 3,
     },
   },
 ];
@@ -115,10 +121,10 @@ const Orgs: React.FC = () => {
     <>
       {/* Large Arrow at the top */}
       <div className="flex flex-col items-center text-center pt-6 lg:pt-12">
-        <img
+        <img 
           src="./assets/images/arrowBig.png"
-          alt="Arrow"
-          className="big-arrow w-[400px] h-[4px] lg:w-[1500px] lg:h-[15px] mb-4 animate-pulsate"
+          className="custom-image mx-auto animate-pulsate"
+          style={{ width: '1600px', height: '20px' }} 
         />
       </div>
 
@@ -179,22 +185,20 @@ const Orgs: React.FC = () => {
                       let bgColor;
                       switch (level) {
                         case 0:
-                          bgColor = 'bg-blue-400';
+                          bgColor = 'bg-blue-600';
                           break;
                         case 1:
-                          bgColor = 'bg-yellow-400';
+                          bgColor = 'bg-yellow-600';
                           break;
                         case 2:
-                          bgColor = 'bg-green-400';
+                          bgColor = 'bg-green-600';
                           break;
                         case 3:
-                          bgColor = 'bg-red-400';
+                          bgColor = 'bg-red-600';
                           break;
-                        default:
-                          bgColor = 'bg-gray-400';
                       }
                       return (
-                        <span key={i} className={`${bgColor} px-2 py-1 rounded-full border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
+                        <span key={i} className={`${bgColor} px-2 py-1 text-white rounded-full border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
                           {skill}
                         </span>
                       );

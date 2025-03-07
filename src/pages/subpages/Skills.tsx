@@ -129,7 +129,7 @@ const Skills = () => {
               {activeSkill.name}
             </h3>
             <p className="text-sm lg:text-xl text-center text-[#00ffd4]">
-              {activeSkill.yoe} Years of Experience
+              {activeSkill.yoe} {activeSkill.yoe === 1 ? "Year" : "Years"} of Experience
             </p>
             <p className="text-xs lg:text-lg text-center text-[#d7e0e0] whitespace-pre-line">
               <span className="text-white font-semibold">Used in: </span>

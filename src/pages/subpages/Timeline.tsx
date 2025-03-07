@@ -102,22 +102,20 @@ const Timeline: React.FC = () => {
                       let bgColor;
                       switch (level) {
                         case 0:
-                          bgColor = 'bg-blue-400';
+                          bgColor = 'bg-blue-600';
                           break;
                         case 1:
-                          bgColor = 'bg-yellow-400';
+                          bgColor = 'bg-yellow-600';
                           break;
                         case 2:
-                          bgColor = 'bg-green-400';
+                          bgColor = 'bg-green-600';
                           break;
                         case 3:
-                          bgColor = 'bg-red-400';
+                          bgColor = 'bg-red-600';
                           break;
-                        default:
-                          bgColor = 'bg-gray-400';
                       }
                       return (
-                        <span key={i} className={`${bgColor} text-black px-2 py-1 rounded-lg border border-white text-xs inline-block min-w-0 max-w-full truncate`}>
+                        <span key={i} className={`${bgColor} px-2 py-1 rounded-lg border text-white border-white text-xs inline-block min-w-0 max-w-full truncate`}>
                           {skill}
                         </span>
                       );
