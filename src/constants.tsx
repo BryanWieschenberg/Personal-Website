@@ -89,6 +89,7 @@ export const skills: Skill[] = [
   { type: 1, name: "Next.js", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/next.png" },
   { type: 1, name: "Vue.js", yoe: 0.5, desc: "This website", icon: "/assets/skills/vue.png" },
   { type: 1, name: "Node.js", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/node.png" },
+  { type: 1, name: "Express.js", yoe: 0.5, desc: "Productivity App project", icon: "/assets/skills/ex.png" },
   { type: 1, name: "Rails", yoe: 0.5, desc: "Software Engineering course, WorkWell Partnership Software Engineer role, Dashboard & Applicant Manager project", icon: "/assets/skills/rails.png" },
   { type: 1, name: "Flask", yoe: 1.5, desc: "Database Systems course, Livestock Metrics Visualization App project", icon: "/assets/skills/flask.png" },
   { type: 1, name: "Django", yoe: 1, desc: "Various experiences", icon: "/assets/skills/dj.png" },
@@ -102,9 +103,11 @@ export const skills: Skill[] = [
   { type: 2, name: "PostgreSQL", yoe: 1.5, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/psql.png" },
   { type: 2, name: "MongoDB", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/mdb.png" },
   { type: 2, name: "Unified Modeling Language", yoe: 1.5, desc: "Software Engineering course, Database Systems course, WorkWell Partnership Software Engineer role, Livestock Metrics Visualization App project, Dashboard & Applicant Manager project", icon: "/assets/skills/uml.png" },
+  { type: 2, name: "Amazon Web Services", yoe: 0.5, desc: "Productivity App project", icon: "/assets/skills/aws.png" },
   { type: 2, name: "Google Cloud", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/gcp.png" },
   { type: 2, name: "Firebase", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/fb.png" },
   { type: 2, name: "Docker", yoe: 0.5, desc: "Video Sharing Service project", icon: "/assets/skills/docker.png" },
+  { type: 2, name: "OpenAI API", yoe: 0.5, desc: "Productivity App project", icon: "/assets/skills/openai.png" },
   { type: 2, name: "Microsoft Excel", yoe: 5, desc: "Many experiences", icon: "/assets/skills/excel.png" },
   { type: 2, name: "Unity", yoe: 0.5, desc: "Various experiences", icon: "/assets/skills/unity.png" },
   { type: 2, name: "MATLAB", yoe: 1.5, desc: "Linear Algebra course", icon: "/assets/skills/matlab.png" },
@@ -158,6 +161,7 @@ export const roles: Role[] = [
 ];
 
 export const projects: Project[] = [
+  { name: "Productivity App", scale: 0, date: "Mar. 2025 – Present", span: "Ongoing", desc: "• Engineering a cross-platform productivity app using React/Next.js with TypeScript and Express.js backend, containerized with Docker and deployed on AWS\n• Designing a responsive PostgreSQL architecture with optimized query patterns, enabling real-time synchronization of calendar events and tasks\n• Implementing OpenAI API integration that analyzes user productivity patterns and automates calendar/task functions, vastly reducing management time", skills: {"HTML": 0, "CSS": 0, "TypeScript": 0, "React": 1, "Next.js": 1, "Tailwind CSS": 1, "Node.js": 1, "Express.js": 1, "Git": 2, "PostgreSQL": 2, "Docker": 2, "AWS": 2, "OpenAI API": 2}, github: "" },
   { name: "Personal Website", scale: 0, date: "Jan. 2025 – Mar. 2025", span: "3 months", desc: "• Responsive portfolio showcasing skills and projects using TypeScript, React, and Tailwind CSS\n• Modern UI/UX design with dynamic content and interactive animations", skills: {"HTML": 0, "CSS": 0, "TypeScript": 0, "React": 1, "Vue.js": 1, "Tailwind CSS": 1, "Git": 2}, github: "https://github.com/BryanWieschenberg/Personal-Website" },
   { name: "Dashboard and Applicant Manager", scale: 0, date: "Sep. 2024 – Nov. 2024", span: "3 months", desc: "• Full‑stack dashboard built with Ruby on Rails and PostgreSQL for task management and application tracking\n• Advanced data filtering and analytics for WorkWell Partnership staff", skills: {"HTML": 0, "CSS": 0, "Ruby": 0, "SQL": 0, "Rails": 1, "Boostrap": 1, "Git": 2, "PostgreSQL": 2, "UML": 2, "Linux": 2, "Collaboration": 3, "Communication": 3}, github: "" },
   { name: "Video Sharing Service", scale: 0, date: "Oct. 2025 – Nov. 2024", span: "1 month", desc: "• Engineered a full stack application with a responsive frontend using React, Next.js, and TypeScript, to enable smooth video browsing and playback\n• Constructed a scalable Node.js backend with Docker for efficient deployment and streamlined uploads and processing\n• Integrated Google Cloud for storage and Firebase authentication API for secure and reliable user login\n• Built a modular system architecture for maintenance, scalability, and independent development across components", skills: {"HTML": 0, "CSS": 0, "TypeScript": 0, "React": 1, "Next.js": 1, "Node.js": 1, "Git": 2, "Google Cloud": 2, "Firebase": 2, "Docker": 2, "Ubuntu": 2}, github: "https://github.com/BryanWieschenberg/Video-Sharing-Service" },
