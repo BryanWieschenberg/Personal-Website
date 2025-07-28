@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'; 
-import Orgs from "./subpages/Orgs";
+import Certs from "./subpages/Certs";
 import Classes from "./subpages/Classes";
 import Skills from "./subpages/Skills";
 
@@ -31,7 +31,7 @@ const About: React.FC = () => {
         {/* Left Section: Text */} 
         <div ref={ref} className={`lg:w-1/2 mb-8 lg:mb-0 ${visible ? 'opacity-100 translate-x-0 transition-all duration-300 ease-out' : 'opacity-0 -translate-x-20'}`}>
           <p className="text-xs lg:text-lg text-[#d7e0e0]"> 
-            Hi, I'm Bryan Wieschenberg, a passionate Computer Science student at The College of New Jersey, currently in my 6th semester as a Junior! I'm an aspiring Software Engineer driven by a lifelong love for technology, problem-solving, and innovation. 
+            Hi, I'm Bryan Wieschenberg, a passionate Computer Science student at The College of New Jersey, currently in my 7th semester as a Senior! I'm a software engineer with a strong focus on building secure, scalable applications in the cloud, including full-stack software and AI-powered tools.
             <br/><br/> 
             I am highly proficient in many different technical fields, such as software engineering, full-stack development, information technology, and more! My passion is leveraging technology to create solutions to problems that truly make the world a better place. I have a unique blend of technical expertise and leadership experience that has prepared me to develop remarkable software, resolve complex challenges, collaborate cross-functionally, and drive positive change in the world. 
             <br/><br/> 
@@ -49,8 +49,8 @@ const About: React.FC = () => {
         </div> 
       </div> 
      
-      <Orgs />
       <Classes />
+      <Certs />
       <Skills />
       <div className="mb-80"></div>
     </> 

@@ -45,7 +45,14 @@ const Contact: React.FC = () => {
       <h1 ref={ref} className={`text-6xl lg:text-8xl font-bold lg:mt-2 pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative bg-gradient-to-r from-[#0030ff] to-[#c4f9ff] bg-clip-text text-transparent ${visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 -translate-y-20'}`}>
         Contact
       </h1>
+
       <div className="animate-fadeInLeft">
+        <p className="text-center text-sm lg:text-xl text-white max-w-2xl lg:max-w-6xl mx-auto mt-4 mb-8">
+          Feel free to reach out to me for any inquiries, collaborations, or just to say hello!
+          <br/>
+          I'm always open to connecting with new people and exploring opportunities.
+        </p>
+
         <form onSubmit={handleSubmit} className="max-w-2xl mx-auto space-y-6">
           <div>
             <label htmlFor="name" className="block text-lg font-medium text-white">

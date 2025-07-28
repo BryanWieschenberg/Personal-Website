@@ -31,16 +31,16 @@ const Home: React.FC = () => {
           {/* Wrapper that hides overflow for first two lines */}
           <div className="overflow-hidden min-h-[6rem] lg:min-h-[10rem]">
             <h2 className={`animate-fadeInLeft mt-3 mb-5 lg:mb-6 text-[1.5rem] lg:text-5xl`}>
-              Innovative Software.
+              Driven by Innovation.
             </h2>
-            <h2 className="animate-fadeInRightDelay lg:mt-2 text-[1.5rem] lg:text-5xl">
-              Impactful Results.
+            <h2 className="animate-fadeInRightDelay lg:mt-6 text-[1.5rem] lg:text-5xl">
+              Building for Security.
             </h2>
           </div>
 
           {/* The third heading is outside the overflow-hidden div */}
           <h2 className="animate-fadeInUpDelay2 text-[1.5rem] lg:text-5xl">
-            Limitless Success.
+            Engineering to Scale.
           </h2>
         </div>
       </div>

@@ -52,7 +52,7 @@ import { roles } from "../../constants";
             <div key={index} className={`flex flex-col w-[240px] ${job.visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-5'}`}>
               {/* Job Card */}
               <div
-                className={`flex flex-row items-center p-3 bg-[#1d3d81] mb-[4px] rounded-2xl shadow-lg duration-200 hover:scale-105 cursor-pointer ${selectedIndex === index ? 'bg-[#294b95]' : 'bg-[#182a51]'}`}
+                className={`flex flex-row items-center p-3 bg-[#1d3d81] mb-[4px] rounded-2xl shadow-lg duration-200 hover:scale-105 cursor-pointer ${selectedIndex === index ? 'bg-[#4c6cb3]' : 'bg-[#182a51]'}`}
                 onClick={() => handleClick(index)}
               >
                 <div className="text-4xl text-white">{job.icon}</div>
@@ -62,7 +62,7 @@ import { roles } from "../../constants";
               </div>
               {/* Expanding Description */}
               <div className={`transition-all duration-500 ease-in-out overflow-hidden bg-[#333e54] rounded-2xl shadow-lg text-white w-[240px] mt-2 ${selectedIndex === index ? 'max-h-64 opacity-100 py-2' : 'max-h-0 opacity-0 py-0'}`}>
-                <p className="px-3 text-sm font-semibold text-blue-100 whitespace-pre-line">
+                <p className="px-3 text-sm text-blue-100 whitespace-pre-line">
                   {job.desc}
                 </p>
               </div>

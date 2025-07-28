@@ -1,89 +1,69 @@
 import React, { useEffect, useState, useRef } from "react";
 
-// Data for each organization, now including an image path
-const orgsData = [
+// Data for each certification
+const certsData = [
   {
-    shortName: "KΘΠ",
-    name: "Kappa Theta Pi",
-    subtitle: "Professional Technology Fraternity",
-    role: "Vice President of Technical Development",
-    img: "../assets/images/ktp.png",
+    shortName: "AWS Certified Cloud Practitioner",
+    name: "AWS Certified Cloud Practitioner",
+    subtitle: "",
+    role: "",
+    img: "../assets/images/aws.png",
     points: [
-      "Designing and maintaining the fraternity website, ensuring professionality and accessibility to showcase members and events",
-      "Leading initiatives to integrate new digital tools, improving communication and collaboration",
-      "Hosting tech-learning workshops in nearby educational institutions, fostering discussions on emerging innovations and trends",
+      "Work in progress",
     ],
     skills: {
-      "HTML": 0,
-      "CSS": 0,
-      "JavaScript": 0,
-      "Git": 2,
-      "Leadership": 3,
-      "Mentorship": 3,
-      "Collaboration": 3,
-      "Communication": 3,
+
     },
   },
   {
-    shortName: "LDP",
-    name: "LDP",
-    subtitle: "Leadership Development Program",
-    role: "Program Facilitator",
-    img: "../assets/images/ldp.png",
+    shortName: "CKAD",
+    name: "Certified Kubernetes Application Developer",
+    subtitle: "",
+    role: "",
+    img: "../assets/images/ckad.png",
     points: [
-      "Facilitated workshops on leadership skills, helping participants develop effective communication and teamwork",
-      "Mentored participants, providing guidance and feedback to support their personal and professional growth",
+      "Work in progress",
     ],
     skills: {
-      "Leadership": 3,
-      "Mentorship": 3,
-      "Collaboration": 3,
-      "Communication": 3,
+
     },
   },
   {
-    shortName: "ACM",
-    name: "ACM",
-    subtitle: "Association for Computing Machinery",
-    role: "Member",
-    img: "../assets/images/acm.png",
+    shortName: "CompTIA Security+ Certification",
+    name: "CompTIA Security+ Certification",
+    subtitle: "",
+    role: "",
+    img: "../assets/images/security.png",
     points: [
-      "Engaged in a collaborative space for tech enthusiasts to share ideas & learn together",
-      "Participated in workshops, coding challenges, and hands-on activities to expand technical knowledge",
-      "Contributed to discussions and projects to foster innovation, critical thinking, and teamwork",
+      "Work in progress",
     ],
     skills: {
-      "Leadership": 3,
-      "Collaboration": 3,
-      "Communication": 3,
+
     },
   },
   {
-    shortName: "Digit.all",
-    name: "Digit.all",
-    subtitle: "Diversity & Inclusion Group in Tech for All",
-    role: "Member",
-    img: "../assets/images/dll.png",
+    shortName: "Microsoft Certified: Azure AI Engineer Associate",
+    name: "Microsoft Certified: Azure AI Engineer Associate",
+    subtitle: "",
+    role: "",
+    img: "../assets/images/azure-ai.png",
     points: [
-      "Broadened my perspective of diversity and inclusion in tech by fostering discussions on experiences, challenges, and advancements in the field",
-      "Explored challenges and opportunities for equitable representation in technology",
+      "Work in progress",
     ],
     skills: {
-      "Leadership": 3,
-      "Collaboration": 3,
-      "Communication": 3,
+
     },
   },
 ];
 
-const Orgs: React.FC = () => {
+const Certs: React.FC = () => {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const [visible, setVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   // New state for staggered animation on each organization card
   const [orgItems, setOrgItems] = useState(
-    orgsData.map(item => ({ ...item, visible: false }))
+    certsData.map(item => ({ ...item, visible: false }))
   );
 
   useEffect(() => {
@@ -120,7 +100,7 @@ const Orgs: React.FC = () => {
   return (
     <>
       {/* Large Arrow at the top */}
-      <div className="flex flex-col items-center text-center pt-6 lg:pt-12">
+      <div className="flex flex-col items-center text-center pt-6 lg:pt-24">
         <img 
           src="./assets/images/arrowBig.png"
           className="custom-image mx-auto animate-pulsate"
@@ -129,9 +109,13 @@ const Orgs: React.FC = () => {
       </div>
 
       {/* Intro text */}
-      <div ref={sectionRef} className={`pt-3 lg:pt-8 text-center transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+      <div ref={sectionRef} className={`pt-3 lg:pt-12 text-center transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+        <h1 className={`roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text opacity-100`}>
+          Certifications:
+        </h1>
+
         <p className="text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
-          I'm actively involved in many clubs and organizations!
+          I'm actively persuing several certifications to greatly enhance my skills!
         </p>
       </div>
 
@@ -148,7 +132,7 @@ const Orgs: React.FC = () => {
               onClick={() => handleClick(index)}
             >
               {/* Inner card */}
-              <div className="rounded-xl bg-[#273772] p-4 flex flex-col items-center text-center">
+              <div className="rounded-xl bg-[#273772] p-4 flex flex-col items-center text-center h-[160px] lg:h-[200px]">
                 {/* Circle image */}
                 <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full mb-2 overflow-hidden">
                   <img src={org.img} alt={org.name} className="w-full h-full object-cover" />
@@ -214,4 +198,4 @@ const Orgs: React.FC = () => {
   );
 };
 
-export default Orgs;
+export default Certs;

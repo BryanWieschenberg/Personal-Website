@@ -38,18 +38,22 @@ const Classes = () => {
 
   return (
     <>
-      <div className="mt-20"></div>
+      <div className="mt-24"></div>
       <img src="./assets/images/arrowBig.png"
         className="custom-image mx-auto animate-pulsate"
         style={{ width: '1600px', height: '20px' }} />
       
-      <div className="mt-20"></div>
+      <div className="pt-12"></div>
 
       <h1 ref={ref} className={`roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text opacity-100`}>
-        Classes I've Taken:
+        Coursework:
       </h1>
 
-      <div className="container mx-auto px-16 mt-16">
+      <p className="text-center text-sm lg:text-2xl text-white max-w-2xl lg:max-w-6xl mx-auto">
+        I have taken a variety of courses that have prepared me to be a software engineer:
+      </p>
+
+      <div className="container mx-auto px-16 mt-9">
         <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
           {items.map((item, index) => (
             <div key={item.id} className="flex flex-col w-64">

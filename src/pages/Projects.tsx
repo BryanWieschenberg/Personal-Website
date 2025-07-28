@@ -58,7 +58,7 @@ const Projects: React.FC = () => {
         {largeProjects.length > 0 && (
           <section className="mb-12">
             <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4fbdf1] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(60,60,150,1)]">
-              Large-Scale
+              Flagships
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {largeProjects.map((project, index) => (
@@ -103,13 +103,16 @@ const Projects: React.FC = () => {
                                 bgColor = 'bg-blue-600';
                                 break;
                               case 1:
-                                bgColor = 'bg-yellow-600';
+                                bgColor = 'bg-green-600';
                                 break;
                               case 2:
-                                bgColor = 'bg-green-600';
+                                bgColor = 'bg-yellow-600';
                                 break;
                               case 3:
                                 bgColor = 'bg-red-600';
+                                break;
+                              case 4:
+                                bgColor = 'bg-fuchsia-600';
                                 break;
                             }
                             return (
@@ -131,7 +134,7 @@ const Projects: React.FC = () => {
         {mediumProjects.length > 0 && (
           <section className="mb-12">
             <h2 className="text-3xl lg:text-5xl text-center font-extrabold mb-6 text-[#4ff192] relative bg-gradient-to-r drop-shadow-[7px_7px_1.5px_rgba(20,120,20,1)]">
-              Medium-Scale
+              Medium-Sized
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {mediumProjects.map((project, index) => (
@@ -156,7 +159,7 @@ const Projects: React.FC = () => {
                           title="This GitHub Repository is Private" 
                           className="flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} className="text-gray-400" />
+                          <FaGithub size={32} className="text-[#b7bcc5]" />
                         </span>
                       )}
                     </div>
@@ -176,13 +179,16 @@ const Projects: React.FC = () => {
                                 bgColor = 'bg-blue-600';
                                 break;
                               case 1:
-                                bgColor = 'bg-yellow-600';
+                                bgColor = 'bg-green-600';
                                 break;
                               case 2:
-                                bgColor = 'bg-green-600';
+                                bgColor = 'bg-yellow-600';
                                 break;
                               case 3:
                                 bgColor = 'bg-red-600';
+                                break;
+                              case 4:
+                                bgColor = 'bg-fuchsia-600';
                                 break;
                             }
                             return (
@@ -229,7 +235,7 @@ const Projects: React.FC = () => {
                           title="This GitHub Repository is Private" 
                           className="flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} className="text-gray-400" />
+                          <FaGithub size={32} className="text-[#b7bcc5]" />
                         </span>
                       )}
                     </div>
@@ -249,13 +255,16 @@ const Projects: React.FC = () => {
                                 bgColor = 'bg-blue-600';
                                 break;
                               case 1:
-                                bgColor = 'bg-yellow-600';
+                                bgColor = 'bg-green-600';
                                 break;
                               case 2:
-                                bgColor = 'bg-green-600';
+                                bgColor = 'bg-yellow-600';
                                 break;
                               case 3:
                                 bgColor = 'bg-red-600';
+                                break;
+                              case 4:
+                                bgColor = 'bg-fuchsia-600';
                                 break;
                             }
                             return (
