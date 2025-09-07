@@ -123,7 +123,7 @@ export const skills: Skill[] = [
   { type: 3, name: "Concurrency & Multithreadding", yoe: "0.5", desc: "", icon: "/assets/skills/conc.png" },
   { type: 3, name: "Data Structures & Algorithms", yoe: "0.5", desc: "", icon: "/assets/skills/dsa.png" },
   { type: 3, name: "Database Design", yoe: "0.5", desc: "", icon: "/assets/skills/dd.png" },
-  { type: 3, name: "Continuous Integration & Continuous Development (CI/CD)", yoe: "0.5", desc: "", icon: "/assets/skills/cicd.png" }
+  { type: 3, name: "Continuous Integration & Continuous Delivery (CI/CD)", yoe: "0.5", desc: "", icon: "/assets/skills/cicd.png" }
 ];
 
 export const work: Work[] = [
