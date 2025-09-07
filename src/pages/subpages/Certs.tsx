@@ -9,7 +9,7 @@ const certsData = [
     role: "",
     img: "../assets/images/aws.png",
     points: [
-      "Work in progress",
+      "I am actively studying for this certification",
     ],
     skills: {
 
@@ -22,7 +22,7 @@ const certsData = [
     role: "",
     img: "../assets/images/ckad.png",
     points: [
-      "Work in progress",
+      "I am actively studying for this certification",
     ],
     skills: {
 
@@ -35,7 +35,7 @@ const certsData = [
     role: "",
     img: "../assets/images/security.png",
     points: [
-      "Work in progress",
+      "I am actively studying for this certification",
     ],
     skills: {
 
@@ -48,7 +48,7 @@ const certsData = [
     role: "",
     img: "../assets/images/azure-ai.png",
     points: [
-      "Work in progress",
+      "I am actively studying for this certification",
     ],
     skills: {
 

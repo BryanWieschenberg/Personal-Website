@@ -45,14 +45,14 @@ const Skills = () => {
     0: 'border-blue-500',    // Programming Languages
     1: 'border-green-500',   // Frameworks & Libraries
     2: 'border-yellow-500',  // Tools, Software, and OS
-    3: 'border-red-500',     // Soft Skills
+    3: 'border-fuchsia-500',     // Soft Skills
   };
 
   const categoryBgColors: { [key: number]: string } = {
     0: 'bg-blue-900',    // Programming Languages
     1: 'bg-green-900',   // Frameworks & Libraries
     2: 'bg-yellow-900',  // Tools, Software, and OS
-    3: 'bg-red-900',     // Soft Skills
+    3: 'bg-fuchsia-900',     // Soft Skills
   };
 
   return (
@@ -83,11 +83,11 @@ const Skills = () => {
         </div>
         <div className="flex items-center">
           <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-yellow-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Tools, Software, and OS</span>
+          <span className="text-xs lg:text-sm text-white">Systems & Tools</span>
         </div>
         <div className="flex items-center">
-          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-red-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Soft Skills</span>
+          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-fuchsia-500 rounded-full"></div>
+          <span className="text-xs lg:text-sm text-white">Core Concepts</span>
         </div>
       </div>
       
@@ -123,19 +123,18 @@ const Skills = () => {
       
       {/* Tooltip below the skills grid */}
       {activeSkill && (
-        <div className="flex justify-center mt-6">
-          <div className="bg-[#2c5ba6] px-4 py-2 rounded-lg shadow-lg z-10">
-            <h3 className="font-bold text-lg lg:text-2xl text-center text-[rgb(157,230,255)]">
-              {activeSkill.name}
-            </h3>
-            <p className="text-sm lg:text-xl text-center text-[#00ffd4]">
-              {activeSkill.yoe} {activeSkill.yoe === 1 ? "Year" : "Years"} of Experience
-            </p>
-            <p className="text-xs lg:text-lg text-center text-[#d7e0e0] whitespace-pre-line">
-              <span className="text-white font-semibold">Used in: </span>
-              {activeSkill.desc}
-            </p>
-          </div>
+<div className="flex justify-center mt-6">
+  <div className="bg-blue-900/50 px-4 py-2 rounded-lg shadow-lg z-10">
+    <h3
+      className={`font-bold text-lg lg:text-2xl text-center
+        ${activeSkill.type === 0 ? "text-blue-500" : ""}
+        ${activeSkill.type === 1 ? "text-green-500" : ""}
+        ${activeSkill.type === 2 ? "text-yellow-500" : ""}
+        ${activeSkill.type === 3 ? "text-fuchsia-500" : ""}`}
+    >
+      <span className="text-[rgb(157,230,255)]">Skill: </span>{activeSkill.name}
+    </h3>
+  </div>
         </div>
       )}
     </div>

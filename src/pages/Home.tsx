@@ -64,7 +64,7 @@ const Home: React.FC = () => {
               alt="Arrow decoration" 
             />
             <p className="mt-4 text-base lg:text-3xl">
-              I am a <span className="font-semibold text-[#b8e4ff]">Junior Computer Science Major</span>
+              I am a <span className="font-semibold text-[#b8e4ff]">Senior Computer Science Major</span>
               <br />
               attending <span className="font-semibold text-[#b8e4ff]">The College of New Jersey</span>
               <br />

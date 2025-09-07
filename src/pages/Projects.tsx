@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { projects } from "../constants"; // Added import for projects
-import { FaGithub } from 'react-icons/fa'; // Import the GitHub icon
+import { FaEarthAmericas } from 'react-icons/fa6'; // Import the GitHub icon
 
 const Projects: React.FC = () => {
   const topRef = useRef<HTMLParagraphElement | null>(null);
@@ -76,14 +76,14 @@ const Projects: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-blue-600 hover:text-blue-800 flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} />
+                          <FaEarthAmericas size={32} />
                         </a>
                       ) : (
                         <span 
-                          title="This GitHub Repository is Private" 
+                          title="This Project is Private" 
                           className="flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} className="text-gray-400" />
+                          <FaEarthAmericas size={32} className="text-gray-400" />
                         </span>
                       )}
                     </div>
@@ -152,14 +152,14 @@ const Projects: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} />
+                          <FaEarthAmericas size={32} />
                         </a>
                       ) : (
                         <span 
-                          title="This GitHub Repository is Private" 
+                          title="This Project is Private" 
                           className="flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} className="text-[#b7bcc5]" />
+                          <FaEarthAmericas size={32} className="text-[#b7bcc5]" />
                         </span>
                       )}
                     </div>
@@ -228,14 +228,14 @@ const Projects: React.FC = () => {
                           rel="noopener noreferrer"
                           className="text-blue-500 hover:text-blue-700 flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} />
+                          <FaEarthAmericas size={32} />
                         </a>
                       ) : (
                         <span 
-                          title="This GitHub Repository is Private" 
+                          title="This Project is Private" 
                           className="flex-shrink-0 ml-2"
                         >
-                          <FaGithub size={32} className="text-[#b7bcc5]" />
+                          <FaEarthAmericas size={32} className="text-[#b7bcc5]" />
                         </span>
                       )}
                     </div>

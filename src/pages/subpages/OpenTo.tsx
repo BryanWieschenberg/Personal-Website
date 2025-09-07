@@ -6,12 +6,12 @@ interface RoleType {
 
 const OpenTo: React.FC = () => {
   const roleTypes: RoleType[] = [
-    { title: "Internships" },
+    { title: "Full-Time" },
     { title: "Co-Ops" },
+    { title: "Internships" },
     { title: "Research Roles" },
     { title: "Contract Roles" },
-    { title: "Full-Time" },
-    { title: "Part-Time" },
+    { title: "Part-Time" }
   ];
 
   return (

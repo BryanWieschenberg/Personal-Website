@@ -111,7 +111,7 @@ const Timeline: React.FC = () => {
                           bgColor = 'bg-yellow-600';
                           break;
                         case 3:
-                          bgColor = 'bg-red-600';
+                          bgColor = 'bg-fuchsia-600';
                           break;
                       }
                       return (
