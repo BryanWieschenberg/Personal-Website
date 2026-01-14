@@ -9,9 +9,9 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 
 const App: React.FC = () => (
-  <Router basename="/">
-    <style>
-      {`
+    <Router basename="/">
+        <style>
+            {`
         html, body {
           margin: 0;
           padding: 0;
@@ -72,23 +72,23 @@ const App: React.FC = () => (
           top: 90px; /* Adjusted height when navbar is expanded */
         }
       `}
-    </style>
+        </style>
 
-    <div className="app-container">
-      <Background />
-      <Navbar />
-      
-      <div className={`content-container`}>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </div>
-    </div>
-  </Router>
+        <div className="app-container">
+            <Background />
+            <Navbar />
+
+            <div className={`content-container`}>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/experience" element={<Experience />} />
+                    <Route path="/projects" element={<Projects />} />
+                    <Route path="/contact" element={<Contact />} />
+                </Routes>
+            </div>
+        </div>
+    </Router>
 );
 
 export default App;

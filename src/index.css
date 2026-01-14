@@ -7,31 +7,32 @@
 }
 
 .font-varela {
-    font-family: "Varela Round", sans-serif;
+    font-family: 'Varela Round', sans-serif;
 }
 
 /* fadeIn.css */
 .fade-in {
     opacity: 0;
     transform: translateY(5px);
-  }
-  .fade-in.fade-in-active {
-    transition: opacity 300ms, transform 300ms;
+}
+.fade-in.fade-in-active {
+    transition:
+        opacity 300ms,
+        transform 300ms;
     opacity: 1;
     transform: translateY(0);
-  }
+}
 
-  .scrollbar-dark::-webkit-scrollbar {
+.scrollbar-dark::-webkit-scrollbar {
     width: 10px;
-  }
-  .scrollbar-dark::-webkit-scrollbar-track {
+}
+.scrollbar-dark::-webkit-scrollbar-track {
     background: #0a0a0a; /* Dark background */
-  }
-  .scrollbar-dark::-webkit-scrollbar-thumb {
+}
+.scrollbar-dark::-webkit-scrollbar-thumb {
     background: #555; /* Dark grey thumb */
     border-radius: 5px;
-  }
-  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+}
+.scrollbar-dark::-webkit-scrollbar-thumb:hover {
     background: #777; /* Slightly lighter on hover */
-  }
-  
+}

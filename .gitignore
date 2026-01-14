@@ -1,4 +1,3 @@
-/node_modules
-*workspace*
-*test*
-*server*
+node_modules
+dist
+.env*

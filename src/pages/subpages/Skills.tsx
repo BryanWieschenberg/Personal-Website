@@ -1,144 +1,144 @@
 import { useState, useRef, useEffect } from 'react';
-import { skills } from "../../constants";
+import { skills } from '../../constants';
+
+interface Skill {
+    name: string;
+    icon: string | React.ReactNode;
+    type: number;
+    visible?: boolean;
+}
 
 const Skills = () => {
-  // Initialize skills with a "visible" flag
-  const [items, setItems] = useState(
-    skills.map(item => ({ ...item, visible: false }))
-  );
-  const [activeSkill, setActiveSkill] = useState<any>(null);
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-  
-  // Intersection Observer to trigger animation when container is visible
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), 0);
-        }
-      },
-      { threshold: 0.1 }
+    const [items, setItems] = useState<Skill[]>(
+        skills.map((item) => ({ ...item, visible: false })),
     );
+    const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
+    const ref = useRef<HTMLDivElement>(null);
+    const [visible, setVisible] = useState(false);
 
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-  
-  // Staggered animation effect similar to the Classes component
-  useEffect(() => {
-    if (visible) {
-      items.forEach((_, index) => {
-        setTimeout(() => {
-          setItems(prev =>
-            prev.map((item, i) =>
-              i === index ? { ...item, visible: true } : item
-            )
-          );
-        }, index * 25);
-      });
-    }
-  }, [visible]);
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => setVisible(true), 0);
+                }
+            },
+            { threshold: 0.1 },
+        );
 
-  // Map category IDs to border and background colors
-  const categoryColors: { [key: number]: string } = {
-    0: 'border-blue-500',    // Programming Languages
-    1: 'border-green-500',   // Frameworks & Libraries
-    2: 'border-yellow-500',  // Tools, Software, and OS
-    3: 'border-fuchsia-500',     // Soft Skills
-  };
+        if (ref.current) {
+            observer.observe(ref.current);
+        }
+        return () => observer.disconnect();
+    }, []);
 
-  const categoryBgColors: { [key: number]: string } = {
-    0: 'bg-blue-900',    // Programming Languages
-    1: 'bg-green-900',   // Frameworks & Libraries
-    2: 'bg-yellow-900',  // Tools, Software, and OS
-    3: 'bg-fuchsia-900',     // Soft Skills
-  };
+    useEffect(() => {
+        if (visible) {
+            items.forEach((_, index) => {
+                setTimeout(() => {
+                    setItems((prev) =>
+                        prev.map((item, i) => (i === index ? { ...item, visible: true } : item)),
+                    );
+                }, index * 25);
+            });
+        }
+    }, [visible]);
 
-  return (
-    <div ref={ref} className="container mx-auto px-4 relative">
-      {/* Spacing and arrow image */}
-      <div className="mt-24"></div>
-      <img 
-        src="./assets/images/arrowBig.png"
-        className="custom-image mx-auto animate-pulsate"
-        style={{ width: '1600px', height: '20px' }} 
-      />
-      <div className="pt-20"></div>
-      
-      {/* Section Title */}
-      <h1 className="roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text">
-        My Skills:
-      </h1>
-      
-      {/* Legend */}
-      <div className="flex justify-center mt-6 gap-4">
-        <div className="flex items-center">
-          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-blue-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Programming Languages</span>
-        </div>
-        <div className="flex items-center">
-          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-green-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Frameworks & Libraries</span>
-        </div>
-        <div className="flex items-center">
-          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-yellow-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Systems & Tools</span>
-        </div>
-        <div className="flex items-center">
-          <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-fuchsia-500 rounded-full"></div>
-          <span className="text-xs lg:text-sm text-white">Core Concepts</span>
-        </div>
-      </div>
-      
-      {/* Combined Skills Grid */}
-      <div className="mt-10 grid grid-cols-8 lg:grid-cols-12">
-        {items.map((item, index) => (
-          <div 
-            key={index}
-            className={`relative flex flex-col items-center justify-center mb-[0.25px] bg-opacity-50 transition-transform 
-              hover:scale-[115%] hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 
-              ${categoryColors[item.type]} ${categoryBgColors[item.type]}
-              ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-10'}`}
-            onMouseEnter={() => setActiveSkill(item)}
-            onMouseLeave={() => setActiveSkill(null)}
-          >
-            <div className="w-8 h-8 lg:w-16 lg:h-16 text-white flex items-center justify-center mt-[1.5px] mb-[1.5px]">
-              {typeof item.icon === 'string' ? (
-                <img 
-                  src={item.icon} 
-                  alt={item.name}
-                  className="max-w-full max-h-full object-contain"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = "/assets/skills/default.png";
-                  }}
-                />
-              ) : (
-                item.icon
-              )}
+    const categoryColors: { [key: number]: string } = {
+        0: 'border-blue-500',
+        1: 'border-green-500',
+        2: 'border-yellow-500',
+        3: 'border-fuchsia-500',
+    };
+
+    const categoryBgColors: { [key: number]: string } = {
+        0: 'bg-blue-900',
+        1: 'bg-green-900',
+        2: 'bg-yellow-900',
+        3: 'bg-fuchsia-900',
+    };
+
+    return (
+        <div ref={ref} className="container mx-auto px-4 relative">
+            <div className="mt-24"></div>
+            <img
+                src="./assets/images/arrowBig.png"
+                className="custom-image mx-auto animate-pulsate"
+                style={{ width: '1600px', height: '20px' }}
+            />
+            <div className="pt-20"></div>
+
+            <h1 className="roles-text lg:mb-2 lg:pt-5 text-2xl lg:text-6xl font-bold pb-4 drop-shadow-[7px_7px_1.5px_rgba(30,30,160,1)] text-center relative text-[#8580e7] bg-clip-text">
+                My Skills:
+            </h1>
+
+            <div className="flex justify-center mt-6 gap-4">
+                <div className="flex items-center">
+                    <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-blue-500 rounded-full"></div>
+                    <span className="text-xs lg:text-sm text-white">Programming Languages</span>
+                </div>
+                <div className="flex items-center">
+                    <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-green-500 rounded-full"></div>
+                    <span className="text-xs lg:text-sm text-white">Frameworks & Libraries</span>
+                </div>
+                <div className="flex items-center">
+                    <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-yellow-500 rounded-full"></div>
+                    <span className="text-xs lg:text-sm text-white">Systems & Tools</span>
+                </div>
+                <div className="flex items-center">
+                    <div className="mr-2 min-w-[1rem] min-h-[1rem] bg-fuchsia-500 rounded-full"></div>
+                    <span className="text-xs lg:text-sm text-white">Core Concepts</span>
+                </div>
             </div>
-          </div>
-        ))}
-      </div>
-      
-      {/* Tooltip below the skills grid */}
-      {activeSkill && (
-<div className="flex justify-center mt-6">
-  <div className="bg-blue-900/50 px-4 py-2 rounded-lg shadow-lg z-10">
-    <h3
-      className={`font-bold text-lg lg:text-2xl text-center
-        ${activeSkill.type === 0 ? "text-blue-500" : ""}
-        ${activeSkill.type === 1 ? "text-green-500" : ""}
-        ${activeSkill.type === 2 ? "text-yellow-500" : ""}
-        ${activeSkill.type === 3 ? "text-fuchsia-500" : ""}`}
-    >
-      <span className="text-[rgb(157,230,255)]">Skill: </span>{activeSkill.name}
-    </h3>
-  </div>
+
+            <div className="mt-10 grid grid-cols-8 lg:grid-cols-12">
+                {items.map((item, index) => (
+                    <div
+                        key={index}
+                        className={`relative flex flex-col items-center justify-center mb-[0.25px] bg-opacity-50 transition-transform 
+                            hover:scale-[115%] hover:z-50 hover:shadow-lg hover:bg-opacity-100 border-2 
+                            ${categoryColors[item.type]} ${categoryBgColors[item.type]}
+                            ${item.visible ? 'opacity-100 translate-y-0 transition-all duration-300 ease-out' : 'opacity-0 translate-y-10'}`}
+                        onMouseEnter={() => setActiveSkill(item)}
+                        onMouseLeave={() => setActiveSkill(null)}
+                    >
+                        <div className="w-8 h-8 lg:w-16 lg:h-16 text-white flex items-center justify-center mt-[1.5px] mb-[1.5px]">
+                            {typeof item.icon === 'string' ? (
+                                <img
+                                    src={item.icon}
+                                    alt={item.name}
+                                    className="max-w-full max-h-full object-contain"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src =
+                                            '/assets/skills/default.png';
+                                    }}
+                                />
+                            ) : (
+                                item.icon
+                            )}
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {activeSkill && (
+                <div className="flex justify-center mt-6">
+                    <div className="bg-blue-900/50 px-4 py-2 rounded-lg shadow-lg z-10">
+                        <h3
+                            className={`font-bold text-lg lg:text-2xl text-center
+                                ${activeSkill.type === 0 ? 'text-blue-500' : ''}
+                                ${activeSkill.type === 1 ? 'text-green-500' : ''}
+                                ${activeSkill.type === 2 ? 'text-yellow-500' : ''}
+                                ${activeSkill.type === 3 ? 'text-fuchsia-500' : ''}`}
+                        >
+                            <span className="text-[rgb(157,230,255)]">Skill: </span>
+                            {activeSkill.name}
+                        </h3>
+                    </div>
+                </div>
+            )}
         </div>
-      )}
-    </div>
-  );
+    );
 };
 
 export default Skills;
